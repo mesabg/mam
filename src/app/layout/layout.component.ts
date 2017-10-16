@@ -1,0 +1,17 @@
+/**
+ * Global imports
+ */
+import { Component, OnInit } from '@angular/core';
+
+/**
+ * This component represents the layout of the SPA
+ */
+@Component({
+	selector: 'app-layout',
+	templateUrl: './layout.component.html',
+	styleUrls: ['./layout.component.scss']
+})
+export class LayoutComponent implements OnInit {
+	constructor() { }
+	ngOnInit() { }
+}

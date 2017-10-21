@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-	production: false
+	production: false,
+	API:{
+		BASE: "http://",
+		VERSION: "v1",
+		URL: function(){
+			return `${environment.API.BASE}/${environment.API.VERSION}/`;
+		},
+		KEY: "Q0FOSUE="
+	}
 };

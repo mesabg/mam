@@ -2,22 +2,26 @@
  * Global imports
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 /**
  * Page imports
  */
 import { ContactoPage } from './contacto.page';
+import { ContactoRoutingModule } from './contacto.routing';
+
+/**
+ * Local imports
+ */
+import { InstanceComponentsModule } from '@mam/instance-components';
 
 /**
  * Module page declaration
  */
 @NgModule({
-	imports: [
-		CommonModule
+	imports: [ 
+		ContactoRoutingModule,
+		InstanceComponentsModule
 	],
-	declarations: [
-		ContactoPage
-	]
+	declarations: [ ContactoPage ]
 })
 export class ContactoModule { }

@@ -2,22 +2,26 @@
  * Global imports
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 /**
  * Page imports
  */
 import { HomePage } from './home.page';
+import { HomeRoutingModule } from './home.routing';
+
+/**
+ * Local imports
+ */
+import { InstanceComponentsModule } from '@mam/instance-components';
 
 /**
  * Module page declaration
  */
 @NgModule({
-	imports: [
-		CommonModule
+	imports: [ 
+		HomeRoutingModule,
+		InstanceComponentsModule
 	],
-	declarations: [
-		HomePage
-	]
+	declarations: [ HomePage ]
 })
 export class HomeModule { }

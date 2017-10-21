@@ -2,22 +2,26 @@
  * Global imports
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 /**
  * Page imports
  */
 import { MamPage } from './mam.page';
+import { MamRoutingModule } from './mam.routing';
+
+/**
+ * Local imports
+ */
+import { InstanceComponentsModule } from '@mam/instance-components';
 
 /**
  * Module page declaration
  */
 @NgModule({
-	imports: [
-		CommonModule
+	imports: [ 
+		MamRoutingModule,
+		InstanceComponentsModule
 	],
-	declarations: [
-		MamPage
-	]
+	declarations: [ MamPage ]
 })
 export class MamModule { }

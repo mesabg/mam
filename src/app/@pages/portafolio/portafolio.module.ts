@@ -2,22 +2,26 @@
  * Global imports
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 /**
  * Page imports
  */
 import { PortafolioPage } from './portafolio.page';
+import { PortafolioRoutingModule } from './portafolio.routing';
+
+/**
+ * Local imports
+ */
+import { InstanceComponentsModule } from '@mam/instance-components';
 
 /**
  * Module page declaration
  */
 @NgModule({
-	imports: [
-		CommonModule
+	imports: [ 
+		PortafolioRoutingModule,
+		InstanceComponentsModule
 	],
-	declarations: [
-		PortafolioPage
-	]
+	declarations: [ PortafolioPage ]
 })
 export class PortafolioModule { }

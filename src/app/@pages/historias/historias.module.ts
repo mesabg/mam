@@ -2,22 +2,26 @@
  * Global imports
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 /**
  * Page import
  */
 import { HistoriasPage } from './historias.page';
+import { HistoriasRoutingModule } from './historias.routing';
+
+/**
+ * Local imports
+ */
+import { InstanceComponentsModule } from '@mam/instance-components';
 
 /**
  * Module page declaration
  */
 @NgModule({
-	imports: [
-		CommonModule
+	imports: [ 
+		HistoriasRoutingModule,
+		InstanceComponentsModule
 	],
-	declarations: [
-		HistoriasPage
-	]
+	declarations: [ HistoriasPage ]
 })
 export class HistoriasModule { }

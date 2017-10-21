@@ -2,3 +2,167 @@
 *, html, body{
     font-family: 'Raleway-Medium';
 }
+
+/**
+* Global class for styles desktop
+*
+*/
+
+.title{
+	font-size: 2.5rem;
+	font-family: 'Raleway-Light';
+	line-height: 3.375rem;
+
+}
+.subtitle1{
+	font-size: 5.875rem;
+	font-family: 'Raleway-Bold';
+	line-height: 6.875rem;
+}
+.subtitle2{
+	font-size: 1.5rem;
+	font-family: 'Raleway-Bold';
+	line-height: 2.375rem;
+}
+.subtitle3{
+	font-size: 2.125rem;
+	font-family: 'Raleway-Light';
+	line-height: 2.937rem;
+}
+.featured_content{
+	font-size: 3.75rem;
+	font-family: 'Raleway-ThinItalic';
+	line-height: 3.75rem;
+}
+.content{
+	font-size: 1.5rem;
+	font-family: 'Raleway-Light';
+	line-height: 2.5rem;
+}
+.button_CTA{
+	font-size: 2.5rem;
+	font-family: 'Raleway-Bold';
+	letter-spacing: 1.6rem;
+	line-height: 2.937rem;
+}
+.button{
+	font-size: 1rem;
+	font-family: 'Raleway-Bold';
+	letter-spacing: 1.6rem;
+	line-height: 1.187rem;
+}
+.quote{
+	font-size: 1.187rem;
+	font-family: 'Raleway-Light';
+	line-height: 1.312rem;
+}
+.quotes_autor{
+	font-size: 1rem;
+	font-family: 'Raleway-Bold';
+	letter-spacing: 1.6rem;
+	line-height: 1.187rem;
+}
+.tag{
+	font-size: 1.5rem;
+	font-family: 'Raleway-Light';
+	line-height: 2.375rem;
+}
+.menu_section{
+	font-size: 6.625rem;
+	font-family: 'Raleway-Thin';
+	line-height: 6.875rem;
+}
+.title_pop_up{
+	font-size: 6.625rem;
+	font-family: 'Raleway-Thin';
+	line-height: 6.875rem;
+}
+.message_pop_up{
+	font-size: 3.75rem;
+	font-family: 'Raleway-ThinItalic';
+	line-height: 3.75rem;
+}
+.loader{
+	font-size: 6.625rem;
+	font-family: 'Raleway-Thin';
+	line-height: 6.875rem;
+}
+.by_name{
+	font-size: 0.875rem;
+	font-family: 'Raleway-Regular';
+	line-height: 0.975rem;
+}
+
+/**
+* Global class for styles mobile 320
+*
+*/
+@media only screen and (min-width: 319px) and (max-width:1024px)  {
+	.title{
+		font-size: 2.125rem;
+		font-family: 'Raleway-Light';
+		line-height: 2.5rem;
+	}
+	.subtitle{
+		font-size: 1.375rem;
+		font-family: 'Raleway-Bold';
+		line-height: 1.625rem;
+	}
+	.featured_content{
+		font-size: 2.125rem;
+		font-family: 'Raleway-LightItalic';
+		line-height: 2.187rem;
+	}
+	.content{
+		font-size: 1.375rem;
+		font-family: 'Raleway-Light';
+		line-height: 2.937rem;
+	}
+	.button_CTA{
+		font-size: 1rem;
+		font-family: 'Raleway-Bold';
+		letter-spacing: 1.6rem;
+		line-height: 1.187rem;
+	}
+	.quote{
+		font-size: 1.187rem;
+		font-family: 'Raleway-Light';
+		line-height: 1.312rem;
+	}
+	.quotes_autor{
+		font-size: 1rem;
+		font-family: 'Raleway-Bold';
+		letter-spacing: 1.6rem;
+		line-height: 1.187rem;
+	}
+	.tag{
+		font-size: 1.19rem;
+		font-family: 'Raleway-Light';
+		line-height: 1.312rem;
+	}
+	.menu_section{
+		font-size: 2.5rem;
+		font-family: 'Raleway-Thin';
+		line-height: 2.5rem;
+	}
+	.title_pop_up{
+		font-size: 2.5rem;
+		font-family: 'Raleway-Thin';
+		line-height: 2.5rem;
+	}
+	.message_pop_up{
+		font-size: 2.13rem;
+		font-family: 'Raleway-Light';
+		line-height: 2.937rem;
+	}
+	.loader{
+		font-size: 6.625rem;
+		font-family: 'Raleway-Thin';
+		line-height: 6.875rem;
+	}
+	.by_name{
+		font-size: 0.875rem;
+		font-family: 'Raleway-Regular';
+		line-height: 0.975rem;
+	}
+}

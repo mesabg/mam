@@ -9,6 +9,9 @@ import { CommonModule } from '@angular/common';
  */
 import { BannersModule } from './banners';
 import { ThumbnailsModule } from './thumbnails';
+import { AriaModule } from './aria';
+import { HeaderModule } from './header';
+import { FooterModule } from './footer';
 
 /**
  * This module contains all the necesary components of the SPA
@@ -17,11 +20,17 @@ import { ThumbnailsModule } from './thumbnails';
 	imports: [
 		CommonModule,
 		BannersModule,
-		ThumbnailsModule
+		ThumbnailsModule,
+		AriaModule,
+		HeaderModule,
+		FooterModule
 	],
 	exports: [
 		BannersModule,
-		ThumbnailsModule
+		ThumbnailsModule,
+		AriaModule,
+		HeaderModule,
+		FooterModule
 	]
 })
 export class ComponentsModule { }

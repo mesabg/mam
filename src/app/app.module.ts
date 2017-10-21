@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 /**
  * Local imports
  */
+import { ComponentsModule } from './@components';
 import { AppRoutingModule } from './app-routing.module';
 import { Layout } from './layout';
 
@@ -20,7 +21,8 @@ import { Layout } from './layout';
 		BrowserModule,
 		FormsModule,
 		HttpModule,
-		AppRoutingModule
+		AppRoutingModule,
+		ComponentsModule
 	],
 	providers: [],
 	bootstrap: [Layout]

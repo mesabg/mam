@@ -18,11 +18,11 @@ import { Layout } from './layout';
 		Layout
 	],
 	imports: [
-		BrowserModule.withServerTransition({appId: 'mam'}),
+		BrowserModule/*.withServerTransition({appId: 'mam'})*/,
 		FormsModule,
 		HttpModule,
-		AppRoutingModule,
-		ComponentsModule
+		ComponentsModule,
+		AppRoutingModule
 	],
 	providers: [],
 	bootstrap: [Layout]

@@ -34,9 +34,9 @@
       "@mam/services": ["./app/@services"],
       "@mam/interfaces": ["./app/#interfaces"]
     }
-  },
-  "angularCompilerOptions": {
-    "genDir": "./dist/ngfactory",
-    "entryModule": "./src/app/app.module#AppModule"
-  }  
+  }//,
+  //"angularCompilerOptions": {
+ //   "genDir": "./dist/ngfactory",
+  //  "entryModule": "./src/app/app.module#AppModule"
+  //}  
 }

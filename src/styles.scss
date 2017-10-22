@@ -1,6 +1,16 @@
+/* Load fonts */
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Raleway'), local('Raleway-Regular');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  }
+
+
 /* You can add global styles to this file, and also import other style files */
 *, html, body{
-    font-family: 'Raleway-Medium';
+	font-family: 'Raleway-Medium';
 }
 
 /**

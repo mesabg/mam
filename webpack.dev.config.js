@@ -90,7 +90,7 @@ module.exports = {
       "script-loader!./node_modules\\slick-carousel\\slick\\slick.min.js"
     ],
     "styles": [
-      "./src\\assets\\fonts\\loader.css",
+      "./src\\assets\\fonts\\loader.scss",
       "./src\\styles.scss",
       "./node_modules\\tether\\dist\\css\\tether.min.css",
       "./node_modules\\bootstrap\\dist\\css\\bootstrap.min.css",
@@ -127,7 +127,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -155,7 +155,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -191,7 +191,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -225,7 +225,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -260,7 +260,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -288,7 +288,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -324,7 +324,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -358,7 +358,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.css"),
+          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),

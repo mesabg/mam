@@ -32,11 +32,12 @@
       "@mam/directives": ["./app/@directives"],
       "@mam/pages": ["./app/@pages"],
       "@mam/services": ["./app/@services"],
-      "@mam/interfaces": ["./app/#interfaces"]
+      "@mam/interfaces": ["./app/#interfaces"],
+      "@mam/responses": ["./app/@api/#responses"]
     }
-  }//,
-  //"angularCompilerOptions": {
- //   "genDir": "./dist/ngfactory",
-  //  "entryModule": "./src/app/app.module#AppModule"
-  //}  
+  },
+  "angularCompilerOptions": {
+    "genDir": "./dist/ngfactory",
+    "entryModule": "./src/app/app.module#AppModule"
+  }  
 }

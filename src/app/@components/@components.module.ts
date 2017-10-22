@@ -10,8 +10,6 @@ import { CommonModule } from '@angular/common';
 import { BannersModule } from './banners';
 import { ThumbnailsModule } from './thumbnails';
 import { AriaModule } from './aria';
-import { FooterComponent } from './footer';
-import { HeaderComponent } from './header';
 
 /**
  * This module contains all the necesary components of the SPA
@@ -26,13 +24,7 @@ import { HeaderComponent } from './header';
 	exports: [
 		BannersModule,
 		ThumbnailsModule,
-		AriaModule,
-		FooterComponent,
-		HeaderComponent
-	],
-	declarations: [
-		FooterComponent, 
-		HeaderComponent
-	],
+		AriaModule
+	]
 })
 export class ComponentsModule { }

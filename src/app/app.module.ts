@@ -9,7 +9,7 @@ import { HttpModule } from '@angular/http';
 /**
  * Local imports
  */
-import { ComponentsModule } from './@components';
+import { InstanceComponentsModule } from '@mam/instance-components';
 import { AppRoutingModule } from './app-routing.module';
 import { Layout } from './layout';
 
@@ -18,10 +18,10 @@ import { Layout } from './layout';
 		Layout
 	],
 	imports: [
-		BrowserModule/*.withServerTransition({appId: 'mam'})*/,
+		BrowserModule.withServerTransition({appId: 'mam'}),
 		FormsModule,
 		HttpModule,
-		ComponentsModule,
+		InstanceComponentsModule,
 		AppRoutingModule
 	],
 	providers: [],

@@ -11,6 +11,12 @@ import { BannersModule } from './banners';
 import { ThumbnailsModule } from './thumbnails';
 
 /**
+ * Local imports
+ */
+import { HeaderComponent } from './header';
+import { FooterComponent } from './footer';
+
+/**
  * This module contains the main instance components
  */
 @NgModule({
@@ -21,7 +27,13 @@ import { ThumbnailsModule } from './thumbnails';
 	],
 	exports: [
 		BannersModule,
-		ThumbnailsModule
+		ThumbnailsModule,
+		FooterComponent,
+		HeaderComponent
+	],
+	declarations: [
+		FooterComponent,
+		HeaderComponent
 	]
 })
 export class InstanceComponentsModule { }

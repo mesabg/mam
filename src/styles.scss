@@ -23,88 +23,88 @@ body{
 */
 
 .title{
-	font-size: 2.5rem;
+	font-size: 1.875rem;
 	font-family: 'Raleway-Light';
-	line-height: 3.375rem;
+	line-height: 2.5rem;
 
 }
 .subtitle1{
-	font-size: 5.875rem;
+	font-size: 4.375rem;
 	font-family: 'Raleway-Bold';
-	line-height: 6.875rem;
+	line-height: 5.125rem;
 }
 .subtitle2{
-	font-size: 1.5rem;
+	font-size: 1.125rem;
 	font-family: 'Raleway-Bold';
-	line-height: 2.375rem;
+	line-height: 1.75rem;
 }
 .subtitle3{
-	font-size: 2.125rem;
+	font-size: 1.5625rem;
 	font-family: 'Raleway-Light';
-	line-height: 2.937rem;
+	line-height: 2.1875rem;
 }
 .featured_content{
-	font-size: 3.75rem;
+	font-size: 2.8125rem;
 	font-family: 'Raleway-ThinItalic';
-	line-height: 3.75rem;
+	line-height: 2.8125rem;
 }
 .content{
-	font-size: 1.5rem;
+	font-size: 1.125rem;
 	font-family: 'Raleway-Light';
-	line-height: 2.5rem;
+	line-height: 1.875rem;
 }
 .button_CTA{
-	font-size: 30px;
+	font-size: 1.875rem;
 	font-family: 'Raleway-Bold';
-	letter-spacing: 1.6rem;
-	line-height: 2.937rem;
+	letter-spacing: 1.25rem;
+	line-height: 2.1875rem;
 }
 .button{
-	font-size: 1rem;
+	font-size: 0.75rem;
 	font-family: 'Raleway-Bold';
-	letter-spacing: 1.6rem;
-	line-height: 1.187rem;
+	letter-spacing: 1.25rem;
+	line-height: 0.875rem;
 }
 .quote{
-	font-size: 1.187rem;
+	font-size: 0.875rem;
 	font-family: 'Raleway-Light';
-	line-height: 1.312rem;
+	line-height: 1rem;
 }
 .quotes_autor{
-	font-size: 1rem;
+	font-size: 0.75rem;
 	font-family: 'Raleway-Bold';
-	letter-spacing: 1.6rem;
-	line-height: 1.187rem;
+	letter-spacing: 1.25rem;
+	line-height: 0.875rem;
 }
 .tag{
-	font-size: 1.5rem;
+	font-size: 1.125rem;
 	font-family: 'Raleway-Light';
-	line-height: 2.375rem;
+	line-height: 1.75rem;
 }
 .menu_section{
-	font-size: 6.625rem;
+	font-size: 5rem;
 	font-family: 'Raleway-Thin';
-	line-height: 6.875rem;
+	line-height: 5.125rem;
 }
 .title_pop_up{
-	font-size: 6.625rem;
+	font-size: 5rem;
 	font-family: 'Raleway-Thin';
-	line-height: 6.875rem;
+	line-height: 5.125rem;
 }
 .message_pop_up{
-	font-size: 3.75rem;
+	font-size: 2.8125rem;
 	font-family: 'Raleway-ThinItalic';
-	line-height: 3.75rem;
+	line-height: 2.8125rem;
 }
 .loader{
-	font-size: 6.625rem;
+	font-size: 5rem;
 	font-family: 'Raleway-Thin';
-	line-height: 6.875rem;
+	line-height: 5.125rem;
 }
 .by_name{
-	font-size: 0.875rem;
+	font-size: 0.625rem;
 	font-family: 'Raleway-Regular';
-	line-height: 0.975rem;
+	line-height: 0.6875rem;
 }
 
 /*
@@ -167,7 +167,7 @@ body{
 }
 .btn-CTA:hover rect {
 	stroke-width: 5;
-	stroke-dasharray: 15, 487;
+	stroke-dasharray: 15, 370;
 	stroke-dashoffset: 48; 
 }
 
@@ -177,70 +177,70 @@ body{
 */
 @media only screen and (min-width: 319px) and (max-width:1024px)  {
 	.title{
-		font-size: 2.125rem;
+		font-size: 1.5625rem;
 		font-family: 'Raleway-Light';
-		line-height: 2.5rem;
+		line-height: 1.875rem;
 	}
 	.subtitle{
-		font-size: 1.375rem;
+		font-size: 1rem;
 		font-family: 'Raleway-Bold';
-		line-height: 1.625rem;
+		line-height: 1.1875rem;
 	}
 	.featured_content{
-		font-size: 2.125rem;
+		font-size: 1.5625rem;
 		font-family: 'Raleway-LightItalic';
-		line-height: 2.187rem;
+		line-height: 2.1875rem;
 	}
 	.content{
-		font-size: 1.375rem;
+		font-size: 1rem;
 		font-family: 'Raleway-Light';
-		line-height: 2.937rem;
+		line-height: 1.5rem;
 	}
 	.button_CTA{
-		font-size: 1rem;
+		font-size: 0.75rem;
 		font-family: 'Raleway-Bold';
 		letter-spacing: 1.6rem;
-		line-height: 1.187rem;
+		line-height: 0.875rem;
 	}
 	.quote{
-		font-size: 1.187rem;
+		font-size: 0.875rem;
 		font-family: 'Raleway-Light';
-		line-height: 1.312rem;
+		line-height: 1rem;
 	}
 	.quotes_autor{
-		font-size: 1rem;
+		font-size: 0.75rem;
 		font-family: 'Raleway-Bold';
 		letter-spacing: 1.6rem;
-		line-height: 1.187rem;
+		line-height: 0.875rem;
 	}
 	.tag{
-		font-size: 1.19rem;
+		font-size: 0.875rem;
 		font-family: 'Raleway-Light';
-		line-height: 1.312rem;
+		line-height: 1rem;
 	}
 	.menu_section{
-		font-size: 2.5rem;
+		font-size: 1.875rem;
 		font-family: 'Raleway-Thin';
-		line-height: 2.5rem;
+		line-height: 1.875rem;
 	}
 	.title_pop_up{
-		font-size: 2.5rem;
+		font-size: 1.875rem;
 		font-family: 'Raleway-Thin';
-		line-height: 2.5rem;
+		line-height: 1.875rem;
 	}
 	.message_pop_up{
-		font-size: 2.13rem;
+		font-size: 1.5625rem;
 		font-family: 'Raleway-Light';
-		line-height: 2.937rem;
+		line-height: 2.1825rem;
 	}
 	.loader{
-		font-size: 6.625rem;
+		font-size: 5rem;
 		font-family: 'Raleway-Thin';
-		line-height: 6.875rem;
+		line-height: 5.125rem;
 	}
 	.by_name{
-		font-size: 0.875rem;
+		font-size: 0.625rem;
 		font-family: 'Raleway-Regular';
-		line-height: 0.975rem;
+		line-height: 0.625rem;
 	}
 }

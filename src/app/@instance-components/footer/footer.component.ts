@@ -1,15 +1,27 @@
+/**
+ * Global imports
+ */
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Header Instance
+ */
 @Component({
-  selector: 'mam-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+	selector: 'mam-instance-footer',
+	templateUrl: './footer.component.html'
 })
 export class FooterComponent implements OnInit {
+	constructor() { }
 
-  constructor() { }
+	/**
+	 * Events
+	 */
+	ngOnInit() {
+		this.retrieve();
+	}
 
-  ngOnInit() {
-  }
-
+	/**
+	 * Actions
+	 */
+	private retrieve (){ }
 }

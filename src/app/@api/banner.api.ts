@@ -22,9 +22,9 @@ export class BannerApi {
 	constructor(private apiService:ApiService) { }
 
 	/**
-	 * Get Main Banner Data
+	 * Get Banner Images
 	 */
-	public getMain():Observable<BannerResponse[]>{
+	public getBannerImages():Observable<BannerResponse[]>{
         return Observable.create(observer => {
             let response:BannerResponse[] = [
                 {

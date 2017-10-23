@@ -12,6 +12,12 @@ import { ThumbnailsModule } from './thumbnails';
 import { AriaModule } from './aria';
 
 /**
+ * Local components
+ */
+import { HeaderComponent } from './header';
+import { FooterComponent } from './footer';
+
+/**
  * This module contains all the necesary components of the SPA
  */
 @NgModule({
@@ -21,10 +27,16 @@ import { AriaModule } from './aria';
 		ThumbnailsModule,
 		AriaModule		
 	],
+	declarations:[
+		HeaderComponent,
+		FooterComponent
+	],
 	exports: [
 		BannersModule,
 		ThumbnailsModule,
-		AriaModule
+		AriaModule,
+		HeaderComponent,
+		FooterComponent
 	]
 })
 export class ComponentsModule { }

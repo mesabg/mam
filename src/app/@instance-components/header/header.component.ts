@@ -1,53 +1,38 @@
 /**
  * Global imports
  */
-import { 
-	Component, 
-	OnInit,
-	AfterViewInit,
-	ViewChild,
-	ViewContainerRef,
-	ElementRef } from '@angular/core';
-
-declare const $:any;
+import { Component, OnInit } from '@angular/core';
 
 /**
  * Local imports
  */
-import { SlickJS } from '@ms/components';
-import { SETTINGS } from './header.slick-config';
+import { BannerApi } from '@mam/api';
+import { BannerResponse } from '@mam/responses';
 
 /**
- * MAM Application header
+ * Header Instance
  */
 @Component({
-	selector: 'mam-header',
-	templateUrl: './header.component.html',
-	styleUrls: ['./header.component.scss']
+	selector: 'mam-instance-header',
+	templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
-	/**
-	 * View injection
-	 */
-	@ViewChild('carouselContainer', {read: ViewContainerRef}) private carouselContainer:ViewContainerRef;
-	@ViewChild('carousel') private $carouselView:ElementRef;
-	private $carousel:SlickJS;
-
-	constructor() { }
+export class HeaderComponent implements OnInit {
+	public bannerImages:BannerResponse[];
+	constructor(private bannerApi:BannerApi) { }
 
 	/**
 	 * Events
 	 */
-	ngOnInit() { }
-	ngAfterViewInit() {
-
+	ngOnInit() {
+		this.retrieve();
 	}
-
 
 	/**
 	 * Actions
 	 */
-	private initSlickJS():void{
-		this.$carousel = new SlickJS($(this.$carouselView.nativeElement), SETTINGS);
+	private retrieve (){
+		this.bannerApi.getBannerImages().subscribe((response:BannerResponse[]) =>{
+			this.bannerImages = response;
+		});
 	}
 }

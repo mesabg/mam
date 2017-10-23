@@ -5,14 +5,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**
- * Local modules
+ * MAM modules
+ */
+import { ComponentsModule } from '@mam/components';
+import { ApiModule } from '@mam/api';
+
+/**
+ * Local modules and components
  */
 import { BannersModule } from './banners';
 import { ThumbnailsModule } from './thumbnails';
-
-/**
- * Local imports
- */
 import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
 
@@ -23,17 +25,19 @@ import { FooterComponent } from './footer';
 	imports: [
 		CommonModule,
 		BannersModule,
-		ThumbnailsModule
+		ThumbnailsModule,
+		ComponentsModule,
+		ApiModule
+	],
+	declarations: [	
+		HeaderComponent,
+		FooterComponent
 	],
 	exports: [
 		BannersModule,
 		ThumbnailsModule,
-		FooterComponent,
-		HeaderComponent
-	],
-	declarations: [
-		FooterComponent,
-		HeaderComponent
+		HeaderComponent,
+		FooterComponent
 	]
 })
 export class InstanceComponentsModule { }

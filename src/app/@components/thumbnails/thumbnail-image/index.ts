@@ -1,0 +1,1 @@
+export { ThumbnailImageComponent } from './thumbnail-image.component';

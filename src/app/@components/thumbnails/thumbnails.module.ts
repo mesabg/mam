@@ -3,6 +3,7 @@
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThumbnailImageComponent } from './thumbnail-image';
 
 /**
  * This module contains all the main thumbnails
@@ -11,6 +12,11 @@ import { CommonModule } from '@angular/common';
 	imports: [
 		CommonModule
 	],
-	declarations: []
+	declarations: [
+	ThumbnailImageComponent
+	],
+	exports: [
+		ThumbnailImageComponent
+	],
 })
 export class ThumbnailsModule { }

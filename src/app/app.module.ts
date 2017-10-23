@@ -13,6 +13,7 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 import { AppRoutingModule } from './app-routing.module';
 import { Layout } from './layout';
 
+
 @NgModule({
 	declarations: [
 		Layout

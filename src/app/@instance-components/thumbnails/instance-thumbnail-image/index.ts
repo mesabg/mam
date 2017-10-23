@@ -1,0 +1,1 @@
+export { InstanceThumbnailImageComponent } from './instance-thumbnail-image.component';

@@ -1,8 +1,15 @@
 .footer{
+	height: 100vh;
+
+	.container{
+		height: 100vh;
+	}
+
 	h4{
 		text-align: center;
 		margin-top: 4rem;
 		margin-bottom: 2rem;
+		text-transform: uppercase;
 	}
 	p{
 		text-align: center;

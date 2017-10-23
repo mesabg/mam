@@ -13,6 +13,10 @@
 	font-family: 'Raleway-Medium';
 }
 
+body{
+	overflow-x: hidden !important;
+}
+
 /**
 * Global class for styles desktop
 *
@@ -50,7 +54,7 @@
 	line-height: 2.5rem;
 }
 .button_CTA{
-	font-size: 2.5rem;
+	font-size: 30px;
 	font-family: 'Raleway-Bold';
 	letter-spacing: 1.6rem;
 	line-height: 2.937rem;
@@ -107,26 +111,34 @@
 * Button styles
 *
 */
+.btn-CTA, .btn-CTA:hover, .btn-CTA:visited, .btn-CTA:active, .btn-CTA:link{
+	text-decoration: none !important;
+}
+
 .btn-CTA {
+	$width: 140px;
+	$height: 130px;
+
 	color: #b9a26a;
 	cursor: pointer;
-	display: block;
 	margin: 0 auto;
 	position: relative;
 	text-decoration: none;
-	vertical-align: middle;
+	text-align: center;
+    display: table;
 	width: 100%; 
 	background: none;
 	border-color: transparent;
-	max-width: 240px;
-	min-height: 120px;
+	min-height: $height;
 	svg {
 		position: absolute;
 		left: 50%;
 		top: 0;
 		transform: translate(-50%,0);
-		max-width: 120px;
-		max-height: 120px; 
+		max-width: $width;
+		max-height: $height; 
+		height: $height; 
+		z-index: -1;
 	}
 	rect {
 	    fill: none;
@@ -136,11 +148,16 @@
 		transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1); 
 	}
 	span{
-		position: absolute;
-		top: 50%;
-		text-align: center;
-		transform: translate(0,-50%);
-		width: 100%;
+		display: table-cell;
+		vertical-align: middle;
+		text-decoration: none;
+		color: black;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	span, span:hover, span:visited, span:active, span:link{
+		text-decoration: none !important;
 	}
 }
 

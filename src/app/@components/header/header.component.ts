@@ -8,7 +8,8 @@ import {
 	ViewChild,
 	ViewContainerRef,
 	ElementRef,
-	Input } from '@angular/core';
+	Input,
+	OnChanges } from '@angular/core';
 
 declare const $:any;
 
@@ -27,7 +28,7 @@ import { SETTINGS } from './header.slick-config';
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	/**
 	 * Input
 	 */
@@ -46,6 +47,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 	 * Events
 	 */
 	ngOnInit() { }
+	ngOnChanges() { }
 	ngAfterViewInit() {
 		this.initSlickJS();
 	}

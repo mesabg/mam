@@ -1,0 +1,23 @@
+
+.banner{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden !important;
+    .banner-content{
+        position: relative;
+        width: inherit;
+        height: inherit;
+        overflow-x: hidden !important;
+
+        .image-container{
+            width: 100vw;
+            background-color: black;
+            text-align: center;
+            img{
+                height: 100vh;
+                width: auto;
+                display: inline-block;
+            }
+        }
+    }
+}

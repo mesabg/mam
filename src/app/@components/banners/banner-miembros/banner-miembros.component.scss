@@ -1,4 +1,24 @@
-:host{
+[component-wrapper]{
+    margin-top: 3rem;
     height: 60vh;
-    background-color: #F8F8F8F8;
+    background-color: #f8f8f8 !important;
+
+    [title]{
+        height: 5vh;
+        padding-top: 12vh;
+    }
+
+    [carousel]{
+        margin-top: -5vh;
+        width: 40%;
+        margin: 0 auto;
+
+        [element]{
+            text-align: center;
+
+            img{
+                display:inline-block;
+            }
+        }
+    }
 }

@@ -1,14 +1,15 @@
-<div class="row">
-	<div class="col-12">
-		<h2> {{ titulo }} </h2>
+<div class="row" component-wrapper>
+	<div class="col-12" title>
+		<h4 class="subtitle3" font-center font-uppercase> {{ titulo }} </h4>
 	</div>
 
 	<div class="col-12">
-		<div class="row" #carousel>
-			<img 
-				*ngFor="let miembro of directorio;" 
-				[attr.src]="miembro.logo" 
-				[attr.alt]="miembro.name">
+		<div #carousel carousel>
+			<div *ngFor="let miembro of directorio;" element>
+				<img 
+					[attr.src]="miembro.logo" 
+					[attr.alt]="miembro.name">
+			</div>
 		</div>
 	</div>
 </div>

@@ -15,16 +15,26 @@ import { ThumbImage } from '@mam/interfaces';
   styleUrls: ['./thumbnail-image.component.scss']
 })
 export class ThumbnailImageComponent implements OnInit {
-  position = "full";
-
   /**
   * Inputs
   */
   @Input('thumb_Image') public thumb_Image:ThumbImage;
-
+  
+     
+  
+  /*private getData():void{
+    this.data = { 
+        color: this.thumb_Image.alt,
+        title: this.thumb_Image.src,
+        content: this.thumb_Image.position,
+        button: "Ver respuesta"
+    }
+    
+  }*/
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

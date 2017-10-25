@@ -114,7 +114,12 @@ body{
 .btn-CTA, .btn-CTA:hover, .btn-CTA:visited, .btn-CTA:active, .btn-CTA:link{
 	text-decoration: none !important;
 }
-
+.table-row{
+	display: table-row;
+}
+.table-cell{
+	display: table-cell;
+}
 .btn-CTA {
 	$width: 140px;
 	$height: 130px;

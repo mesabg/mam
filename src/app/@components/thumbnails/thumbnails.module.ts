@@ -13,7 +13,7 @@ import { ThumbnailImageComponent } from './thumbnail-image';
 		CommonModule
 	],
 	declarations: [
-	ThumbnailImageComponent
+		ThumbnailImageComponent
 	],
 	exports: [
 		ThumbnailImageComponent

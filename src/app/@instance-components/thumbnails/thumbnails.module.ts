@@ -19,7 +19,7 @@ import { InstanceThumbnailImageComponent } from './instance-thumbnail-image';
 		ApiModule
 	],
 	declarations: [
-	InstanceThumbnailImageComponent 
+		InstanceThumbnailImageComponent 
 	],
 	exports: [
 		InstanceThumbnailImageComponent

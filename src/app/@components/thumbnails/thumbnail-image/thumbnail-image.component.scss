@@ -1,27 +1,32 @@
 .container-image-full{
 	width: 100%;
-	height: 792px;
+	height: 100%;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+	position: relative;
+	clear: both;
 }
 .container-image-rigth{
-	width: 960px;
-	height: 598px;
+	width: 75%;
+	height: 100%;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	float: right;
+	position: relative;
 }
 .container-image-left{
-	width: 960px;
-	height: 598px;
+	width: 75%;
+	height: 100%;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	float: left;
+	position: relative;
 }
 img{
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	object-fit: fill;
+	/*position: absolute;*/
 }
 a{
 	z-index: 2;

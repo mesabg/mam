@@ -9,7 +9,7 @@ export class InstanceThumbnailImageComponent implements OnInit {
   public thumb_Image:ThumbImage ={
   	alt : "titulo 1",
   	src: "assets/images/foto-02.png",
-  	position : "full"
+  	position : "rigth"
   };
   constructor() { }
 

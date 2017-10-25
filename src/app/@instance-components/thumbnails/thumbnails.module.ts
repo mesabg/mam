@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
  * Local imports
  */
 import { ApiModule } from '@mam/api';
+import { ComponentsModule } from '@mam/components';
 import { InstanceThumbnailImageComponent } from './instance-thumbnail-image';
 
 /**
@@ -16,7 +17,8 @@ import { InstanceThumbnailImageComponent } from './instance-thumbnail-image';
 @NgModule({
 	imports: [
 		CommonModule,
-		ApiModule
+		ApiModule,
+		ComponentsModule
 	],
 	declarations: [
 		InstanceThumbnailImageComponent 

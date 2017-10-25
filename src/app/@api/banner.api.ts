@@ -31,7 +31,7 @@ export class BannerApi {
                     image: 'assets/images/foto-01.png',
                     name: 'Photo 1'
                 },{
-                    image: 'assets/images/foto-02.png',
+                    image: 'assets/images/majo-y-ale.png',
                     name: 'Photo 2'
                 }
             ];

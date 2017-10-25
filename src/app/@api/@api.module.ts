@@ -13,6 +13,7 @@ import { ApiModule as MsApiModule } from '@ms/api';
  * API Services
  */
 import { ImageApi } from './image.api';
+import { DirectorioApi } from './directorio.api';
 
 /**
  * This module contains API Calls (formatted)
@@ -24,7 +25,8 @@ import { ImageApi } from './image.api';
 		MsApiModule
 	],
 	providers: [
-		ImageApi
+		ImageApi,
+		DirectorioApi
 	]
 })
 export class ApiModule { }

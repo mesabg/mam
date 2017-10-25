@@ -120,6 +120,11 @@ body{
 .table-cell{
 	display: table-cell;
 }
+.call-to-action-image{
+	p,span{
+		color:white !important;
+	}
+}
 .btn-CTA {
 	$width: 140px;
 	$height: 130px;

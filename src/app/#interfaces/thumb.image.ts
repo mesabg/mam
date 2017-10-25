@@ -5,4 +5,5 @@ export interface ThumbImage{
     src:string;
     alt:string;
     position?:string;
+    place?:string;
 }

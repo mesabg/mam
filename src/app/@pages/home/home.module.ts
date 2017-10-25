@@ -1,6 +1,7 @@
 /**
  * Global imports
  */
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 /**
@@ -20,6 +21,7 @@ import { ApiModule } from '@mam/api';
  */
 @NgModule({
 	imports: [ 
+		CommonModule,
 		HomeRoutingModule,
 		InstanceComponentsModule,
 		ApiModule

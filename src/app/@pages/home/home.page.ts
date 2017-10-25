@@ -20,7 +20,6 @@ import { ImageResponse } from '@mam/responses';
 })
 export class HomePage implements OnInit {
 	public images:Observable<ImageResponse[]>;
-	public options:string[] = ['full', 'left', 'right'];
 	constructor(private api:ImageApi) { }
 
 	/**

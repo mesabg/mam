@@ -13,9 +13,10 @@ import { ImageResponse } from '@mam/responses';
 })
 export class InstanceThumbnailImageComponent implements OnInit, OnChanges {
 	@Input('image') public image:ImageResponse;
-	@Input('position') public position:string;
+	@Input('position') public position:number;
 
 	public thumb_Image:ThumbImage;
+	private options:string[] = ['full', 'right', 'left', 'right'];
 	constructor() { }
 
 	ngOnInit() { this.parse(); }
@@ -28,7 +29,9 @@ export class InstanceThumbnailImageComponent implements OnInit, OnChanges {
 		this.thumb_Image = {
 			alt: this.image.name,
 			src: this.image.image,
-			position: this.position
+			position: this.options[this.position % 4],
+			place: this.image.place
 		};
+		console.log("Here", this.thumb_Image);
 	}
 }

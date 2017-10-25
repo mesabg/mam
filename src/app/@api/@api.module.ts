@@ -12,7 +12,7 @@ import { ApiModule as MsApiModule } from '@ms/api';
 /**
  * API Services
  */
-import { BannerApi } from './banner.api';
+import { ImageApi } from './image.api';
 
 /**
  * This module contains API Calls (formatted)
@@ -24,7 +24,7 @@ import { BannerApi } from './banner.api';
 		MsApiModule
 	],
 	providers: [
-		BannerApi
+		ImageApi
 	]
 })
 export class ApiModule { }

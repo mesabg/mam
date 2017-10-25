@@ -17,7 +17,7 @@ declare const $:any;
  * Local imports
  */
 import { SlickJS } from '@ms/components';
-import { BannerResponse } from '@mam/responses';
+import { ImageResponse } from '@mam/responses';
 import { SETTINGS } from './header.slick-config';
 
 /**
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	/**
 	 * Input
 	 */
-	@Input('bannerImages') public bannerImages:BannerResponse[];
+	@Input('bannerImages') public bannerImages:ImageResponse[];
 
 	/**
 	 * View injection

@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
  * Local imports
  */
 import { ApiService, LazyParser, ServerError } from '@ms/api';
-import { BannerResponse } from './#responses';
+import { ImageResponse } from './#responses';
 
 /**
  * Service description
@@ -18,15 +18,15 @@ import { BannerResponse } from './#responses';
  * to get "Banner" data.
  */
 @Injectable()
-export class BannerApi {
+export class ImageApi {
 	constructor(private apiService:ApiService) { }
 
 	/**
 	 * Get Banner Images
 	 */
-	public getBannerImages():Observable<BannerResponse[]>{
+	public getBannerHomeImages():Observable<ImageResponse[]>{
         return Observable.create(observer => {
-            let response:BannerResponse[] = [
+            let response:ImageResponse[] = [
                 {
                     image: 'assets/images/foto-01.png',
                     name: 'Photo 1'
@@ -46,5 +46,40 @@ export class BannerApi {
 					throw Observable.throw(`An error has orurred ${response.status} ${response.statusText}`);
 				return <BannerResponse[]> LazyParser(response.json());
 			});*/
+	}
+
+
+	public getHomeImages():Observable<ImageResponse[]>{
+        return Observable.create(observer => {
+            let response:ImageResponse[] = [
+                {
+                    image: 'assets/images/majo-y-ale.png',
+					name: 'Majo y Ale',
+					place: 'Valencia, Venezuela'
+				},
+				{
+                    image: 'assets/images/mariella-y-elrick.png',
+					name: 'Mariella y Elrik',
+					place: 'Valencia, Venezuela'
+				},
+				{
+                    image: 'assets/images/isabel-y-edgar.png',
+					name: 'Isabel y Edgar',
+					place: 'Valencia, Venezuela'
+				},
+				{
+                    image: 'assets/images/carolina-y-gabriel.png',
+					name: 'Carolina y Gabriel',
+					place: 'Valencia, Venezuela'
+				},
+				{
+                    image: 'assets/images/ainhoa-y-luis.png',
+					name: 'Ainhoa y Luis',
+					place: 'Valencia, Venezuela'
+                }
+            ];
+            observer.next(response);
+            observer.complete();
+        });
 	}
 }

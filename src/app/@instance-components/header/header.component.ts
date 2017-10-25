@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
 /**
  * Local imports
  */
-import { BannerApi } from '@mam/api';
-import { BannerResponse } from '@mam/responses';
+import { ImageApi } from '@mam/api';
+import { ImageResponse } from '@mam/responses';
 
 /**
  * Header Instance
@@ -17,8 +17,8 @@ import { BannerResponse } from '@mam/responses';
 	templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
-	public bannerImages:BannerResponse[];
-	constructor(private bannerApi:BannerApi) { }
+	public bannerImages:ImageResponse[];
+	constructor(private bannerApi:ImageApi) { }
 
 	/**
 	 * Events
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
 	 * Actions
 	 */
 	private retrieve (){
-		this.bannerApi.getBannerImages().subscribe((response:BannerResponse[]) =>{
+		this.bannerApi.getBannerHomeImages().subscribe((response:ImageResponse[]) =>{
 			this.bannerImages = response;
 		});
 	}

@@ -1,1 +1,1 @@
-<mam-instance-thumbnail-image></mam-instance-thumbnail-image>
+<mam-instance-thumbnail-image *ngFor="let image of images | async; let i = index;" [image]="image" [position]="options[i%3]"></mam-instance-thumbnail-image>

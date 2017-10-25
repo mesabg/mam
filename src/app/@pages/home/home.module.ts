@@ -13,6 +13,7 @@ import { HomeRoutingModule } from './home.routing';
  * Local imports
  */
 import { InstanceComponentsModule } from '@mam/instance-components';
+import { ApiModule } from '@mam/api';
 
 /**
  * Module page declaration
@@ -20,7 +21,8 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 @NgModule({
 	imports: [ 
 		HomeRoutingModule,
-		InstanceComponentsModule
+		InstanceComponentsModule,
+		ApiModule
 	],
 	declarations: [ HomePage ]
 })

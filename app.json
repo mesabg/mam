@@ -1,0 +1,7 @@
+{
+    "name": "MAM",
+    "description": "MAM web site",
+    "repository": "git@gitlab.com:mesa_bg/mam.git",
+    "keywords": ["MAM", "Heroku"],
+    "image": "heroku/nodejs"
+}

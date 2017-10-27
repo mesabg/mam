@@ -99,7 +99,7 @@ module.exports = {
     ]
   },
   "output": {
-    "path": path.join(process.cwd(), "builds\\prod"),
+    "path": path.join(process.cwd(), "dist"),
     "filename": "[name].bundle.js",
     "chunkFilename": "[id].chunk.js"
   },

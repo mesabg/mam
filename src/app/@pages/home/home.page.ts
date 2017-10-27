@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
  */
 import { ImageApi } from '@mam/api';
 import { ImageResponse } from '@mam/responses';
-
+import { featuredContent} from '@mam/interfaces';
 /**
  * PAGE => Home
  */
@@ -20,6 +20,8 @@ import { ImageResponse } from '@mam/responses';
 })
 export class HomePage implements OnInit {
 	public images:Observable<ImageResponse[]>;
+	public featuredContent:featuredContent;
+	
 	constructor(private api:ImageApi) { }
 
 	/**
@@ -27,6 +29,7 @@ export class HomePage implements OnInit {
 	 */
 	ngOnInit() {
 		this.retrieve();
+		this.getQuote();
 	}
 
 
@@ -36,4 +39,11 @@ export class HomePage implements OnInit {
 	private retrieve():void{
 		this.images = this.api.getHomeImages();
 	}
+	private getQuote():void{
+		this.featuredContent ={
+			content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nihil laboriosam quis deleniti hic debitis possimus, voluptatum consectetur placeat cupiditate numquam, repellendus veniam sit dicta quaerat, corrupti ducimus cum ab.",
+			author: "Miguel Angel Martinez"
+		}
+	}
+
 }

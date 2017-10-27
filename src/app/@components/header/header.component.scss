@@ -20,4 +20,27 @@
             }
         }
     }
+    .lateral_bar{
+        width: 5rem;
+        height: 100%;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        z-index: 10;
+        .social_links{
+            display: block;
+            transform: rotate(90deg);
+            color: white;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+        }
+        .chat{
+            color:white;
+            text-align: center;
+        }
+        .menu_button{
+            color: white;
+            text-align: center;
+        }
+    }
 }

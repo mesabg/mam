@@ -1,4 +1,19 @@
+<div class="quote_box">
+	<div class="container">
+		<div class="row">
+			<h4 class="featured_content">{{featuredContent.content}}</h4>
+			<span class="content gold">{{featuredContent.author}}</span>
+		</div>
+	</div>
+</div>
 
+<div class="title_box">
+	<!--<div class="container">-->
+		<div class="table-row">
+			<h2 class="title">Conoce sus historias</h2>
+		</div>
+	<!--</div>-->
+</div>							
 <ng-template ngFor let-image [ngForOf]="images | async" let-i="index">
     <mam-instance-thumbnail-image 
         [image]="image" 

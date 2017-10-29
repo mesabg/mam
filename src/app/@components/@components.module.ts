@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { BannersModule } from './banners';
 import { ThumbnailsModule } from './thumbnails';
 import { AriaModule } from './aria';
+import { BoxesModule } from './boxes';
 
 /**
  * Local components
@@ -25,7 +26,8 @@ import { FooterComponent } from './footer';
 		CommonModule,
 		BannersModule,
 		ThumbnailsModule,
-		AriaModule		
+		AriaModule,
+		BoxesModule		
 	],
 	declarations:[
 		HeaderComponent,
@@ -36,7 +38,8 @@ import { FooterComponent } from './footer';
 		ThumbnailsModule,
 		AriaModule,
 		HeaderComponent,
-		FooterComponent
+		FooterComponent,
+		BoxesModule
 	]
 })
 export class ComponentsModule { }

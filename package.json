@@ -45,6 +45,7 @@
     "rxjs": "5.5.0",
     "slick-carousel": "1.8.1",
     "web-animations-js": "2.3.1",
+    "webpack": "2.4.0",
     "zone.js": "0.8.4"
   },
   "devDependencies": {
@@ -84,7 +85,6 @@
     "tslint": "4.5.0",
     "typescript": "2.5.3",
     "url-loader": "0.5.7",
-    "webpack": "2.4.0",
     "webpack-dev-server": "2.4.5"
   }
 }

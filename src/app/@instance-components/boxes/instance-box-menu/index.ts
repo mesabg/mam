@@ -1,0 +1,1 @@
+export { InstanceBoxMenuComponent } from './instance-box-menu.component';

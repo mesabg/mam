@@ -10,14 +10,11 @@ import { ServerModule } from '@angular/platform-server';
 import { AppModule } from './app.module';
 import { Layout } from './layout';
 
-/**
- * Server module definition
- */
 @NgModule({
-    imports: [
-        ServerModule,
-        AppModule
-    ],
-    bootstrap: [Layout]
+	imports: [
+		AppModule,
+		ServerModule
+	],
+	bootstrap: [ Layout ]
 })
-export class AppServer { }
+export class AppServerModule {}

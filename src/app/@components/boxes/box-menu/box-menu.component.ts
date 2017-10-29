@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-box-menu',
+  selector: 'mam-box-menu',
   templateUrl: './box-menu.component.html',
   styleUrls: ['./box-menu.component.scss']
 })

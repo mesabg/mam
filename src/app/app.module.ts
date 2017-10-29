@@ -19,7 +19,7 @@ import { Layout } from './layout';
 		Layout
 	],
 	imports: [
-		BrowserModule.withServerTransition({appId: 'mam'}),
+		BrowserModule.withServerTransition({appId: 'universal'}),
 		FormsModule,
 		HttpModule,
 		InstanceComponentsModule,

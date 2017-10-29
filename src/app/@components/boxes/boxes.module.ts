@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BoxMiniaturaComponent } from './box-miniatura';
-import { BoxMenuComponent } from './box-menu/box-menu.component';
+import { BoxMenuComponent } from './box-menu';
 
 @NgModule({
   imports: [
@@ -12,7 +12,8 @@ import { BoxMenuComponent } from './box-menu/box-menu.component';
   	BoxMenuComponent
   ],
   exports: [
-  	BoxMiniaturaComponent
+  	BoxMiniaturaComponent,
+    BoxMenuComponent
   ],
 })
 export class BoxesModule { }

@@ -19,7 +19,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
+      "styles": [ 
         "assets/fonts/loader.scss",
         "styles.scss",
         "../node_modules/tether/dist/css/tether.min.css",

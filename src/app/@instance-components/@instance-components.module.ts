@@ -18,6 +18,7 @@ import { ThumbnailsModule } from './thumbnails';
 import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
 import { BoxesModule } from './boxes';
+import { InstanceBoxMenuComponent } from './instance-boxes/instance-box-menu/instance-box-menu.component';
 /**
  * This module contains the main instance components
  */
@@ -32,7 +33,8 @@ import { BoxesModule } from './boxes';
 	],
 	declarations: [	
 		HeaderComponent,
-		FooterComponent
+		FooterComponent,
+		InstanceBoxMenuComponent
 	],
 	exports: [
 		BannersModule,

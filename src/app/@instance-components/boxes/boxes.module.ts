@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { ComponentsModule } from '@mam/components';
 import { InstanceBoxMiniaturaComponent } from './instance-box-miniatura/instance-box-miniatura.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ],
   declarations: [
   	InstanceBoxMiniaturaComponent
   ],
   exports: [
-	InstanceBoxMiniaturaComponent
+	  InstanceBoxMiniaturaComponent
   ],
 })
 export class BoxesModule { }

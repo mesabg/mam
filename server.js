@@ -2,6 +2,8 @@
 
 /* Server specific version of Zone.js */
 require('zone.js/dist/zone-node');
+require('reflect-metadata');
+require('es6-shim');
 
 const express = require('express');
 const ngUniversal = require('@nguniversal/express-engine');
@@ -27,7 +29,7 @@ app.use(express.static(`${__dirname}/dist`));
 
 /* Configure Angular Express engine */
 app.engine('html', ngUniversal.ngExpressEngine({
-  bootstrap: appServer.AppServerModuleNgFactory
+  bootstrap: appServer.AppServerModule
 }));
 app.set('view engine', 'html');
 app.set('views', 'dist');

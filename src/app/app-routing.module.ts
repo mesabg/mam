@@ -7,11 +7,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 //-- Routing
 const routes: Routes = [
-	{
+	/*{
 		path: '',
-		loadChildren: './@pages/home/home.module#HomeModule'
-	},
-	{
+		loadChildren: '@pages/home/home.module#HomeModule'
+	},*/
+	/*{
 		path: 'contacto',
 		loadChildren: './@pages/contacto/contacto.module#ContactoModule'
 	},
@@ -26,13 +26,13 @@ const routes: Routes = [
 	{
 		path: 'portafolio',
 		loadChildren: './@pages/portafolio/portafolio.module#PortafolioModule'
-	}
+	}*/
 ];
 
 
 @NgModule({
 	imports: [
-		RouterModule.forRoot(routes, {useHash: true})
+		RouterModule.forRoot(routes, {useHash: false})
 	],
 	exports: [RouterModule]
 })

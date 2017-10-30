@@ -19,7 +19,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [ 
+      "styles": [
         "assets/fonts/loader.scss",
         "styles.scss",
         "../node_modules/tether/dist/css/tether.min.css",
@@ -40,12 +40,11 @@
         "prod": "environments/environment.prod.ts"
       }
     },
-
     {
       "name": "universal",
-      "platform": "server",
       "root": "src",
       "outDir": "dist-server",
+      "platform": "server",
       "main": "main-server.ts",
       "tsconfig": "tsconfig.server.json",
       "environmentSource": "environments/environment.ts",
@@ -62,13 +61,16 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json"
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
     },
     {
-      "project": "src/tsconfig.spec.json"
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
     },
     {
-      "project": "e2e/tsconfig.e2e.json"
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
     }
   ],
   "test": {
@@ -78,6 +80,9 @@
   },
   "defaults": {
     "styleExt": "scss",
+    "class": {
+      "spec": false
+    },
     "component": {
     }
   }

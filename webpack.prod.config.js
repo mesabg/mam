@@ -1,21 +1,24 @@
 const fs = require('fs');
 const path = require('path');
+const ConcatPlugin = require('webpack-concat-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
-const CompressionPlugin = require("compression-webpack-plugin");
 const cssnano = require('cssnano');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 const { NoEmitOnErrorsPlugin, SourceMapDevToolPlugin, NamedModulesPlugin } = require('webpack');
-const { GlobCopyWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
+const { InsertConcatAssetsWebpackPlugin, NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AotPlugin } = require('@ngtools/webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
 const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_modules');
-const entryPoints = ["inline","polyfills","sw-register","scripts","styles","vendor","main"];
+const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
 const minimizeCss = false;
 const baseHref = "/";
 const deployUrl = "";
@@ -68,7 +71,8 @@ module.exports = {
       "./node_modules",
       "./node_modules"
     ],
-    "symlinks": true
+    "symlinks": true,
+    "alias": {}
   },
   "resolveLoader": {
     "modules": [
@@ -83,19 +87,14 @@ module.exports = {
     "polyfills": [
       "./src\\polyfills.ts"
     ],
-    "scripts": [
-      "script-loader!./node_modules\\jquery\\dist\\jquery.min.js",
-      "script-loader!./node_modules\\tether\\dist\\js\\tether.min.js",
-      "script-loader!./node_modules\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "script-loader!./node_modules\\slick-carousel\\slick\\slick.min.js"
-    ],
     "styles": [
       "./src\\assets\\fonts\\loader.scss",
       "./src\\styles.scss",
       "./node_modules\\tether\\dist\\css\\tether.min.css",
       "./node_modules\\bootstrap\\dist\\css\\bootstrap.min.css",
       "./node_modules\\slick-carousel\\slick\\slick.css",
-      "./node_modules\\slick-carousel\\slick\\slick-theme.css"
+      "./node_modules\\slick-carousel\\slick\\slick-theme.css",
+      "./node_modules\\font-awesome\\css\\font-awesome.css"
     ]
   },
   "output": {
@@ -110,7 +109,7 @@ module.exports = {
         "test": /\.js$/,
         "loader": "source-map-loader",
         "exclude": [
-          /\/node_modules\//
+          /(\\|\/)node_modules(\\|\/)/
         ]
       },
       {
@@ -119,11 +118,19 @@ module.exports = {
       },
       {
         "test": /\.(eot|svg|cur)$/,
-        "loader": "file-loader?name=[name].[hash:20].[ext]"
+        "loader": "file-loader",
+        "options": {
+          "name": "[name].[hash:20].[ext]",
+          "limit": 10000
+        }
       },
       {
         "test": /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|ani)$/,
-        "loader": "url-loader?name=[name].[hash:20].[ext]&limit=10000"
+        "loader": "url-loader",
+        "options": {
+          "name": "[name].[hash:20].[ext]",
+          "limit": 10000
+        }
       },
       {
         "exclude": [
@@ -132,7 +139,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -160,7 +168,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -196,7 +205,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -230,7 +240,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -265,7 +276,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -293,7 +305,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -329,7 +342,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -363,7 +377,8 @@ module.exports = {
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
-          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css")
+          path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick-theme.css"),
+          path.join(process.cwd(), "node_modules\\font-awesome\\css\\font-awesome.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -393,24 +408,58 @@ module.exports = {
       },
       {
         "test": /\.ts$/,
-        "loader": "@ngtools/webpack"
+        "use": [
+          "@ngtools/webpack"
+        ]
       }
     ]
   },
   "plugins": [
     new NoEmitOnErrorsPlugin(),
-    new GlobCopyWebpackPlugin({
-      "patterns": [
-        "assets",
-        "favicon.ico"
-      ],
-      "globOptions": {
-        "cwd": path.join(process.cwd(), "src"),
-        "dot": true,
-        "ignore": "**/.gitkeep"
+    new ConcatPlugin({
+      "uglify": false,
+      "sourceMap": true,
+      "name": "scripts",
+      "fileName": "[name].bundle.js",
+      "filesToConcat": [
+        "node_modules\\jquery\\dist\\jquery.min.js",
+        "node_modules\\tether\\dist\\js\\tether.min.js",
+        "node_modules\\bootstrap\\dist\\js\\bootstrap.min.js",
+        "node_modules\\slick-carousel\\slick\\slick.min.js"
+      ]
+    }),
+    new InsertConcatAssetsWebpackPlugin([
+      "scripts"
+    ]),
+    new CopyWebpackPlugin([
+      {
+        "context": "src",
+        "to": "",
+        "from": {
+          "glob": "assets/**/*",
+          "dot": true
+        }
+      },
+      {
+        "context": "src",
+        "to": "",
+        "from": {
+          "glob": "favicon.ico",
+          "dot": true
+        }
       }
+    ], {
+      "ignore": [
+        ".gitkeep"
+      ],
+      "debug": "warning"
     }),
     new ProgressPlugin(),
+    new CircularDependencyPlugin({
+      "exclude": /(\\|\/)node_modules(\\|\/)/,
+      "failOnError": false
+    }),
+    new NamedLazyChunksWebpackPlugin(),
     new HtmlWebpackPlugin({
       "template": "./src\\index.html",
       "filename": "./index.html",
@@ -443,10 +492,6 @@ module.exports = {
       "baseHref": "/"
     }),
     new CommonsChunkPlugin({
-      "minChunks": 2,
-      "async": "common"
-    }),
-    new CommonsChunkPlugin({
       "name": [
         "inline"
       ],
@@ -472,9 +517,17 @@ module.exports = {
       "fallbackModuleFilenameTemplate": "[resource-path]?[hash]",
       "sourceRoot": "webpack:///"
     }),
+    new CommonsChunkPlugin({
+      "name": [
+        "main"
+      ],
+      "minChunks": 2,
+      "async": "common"
+    }),
     new NamedModulesPlugin({}),
     new AotPlugin({
       "mainPath": "main.ts",
+      "replaceExport": false,
       "hostReplacementPaths": {
         "environments\\environment.ts": "environments\\environment.prod.ts"
       },

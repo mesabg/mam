@@ -11,7 +11,7 @@ import {
 	Input,
 	OnChanges } from '@angular/core';
 
-declare const $:any;
+import $ = require('jquery');
 
 /**
  * Local imports
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	@ViewChild('carousel') private $carouselView:ElementRef;
 	private $carousel:SlickJS;
 
-	constructor() { }
+	constructor(private elementRef:ElementRef) { }
 
 	/**
 	 * Events

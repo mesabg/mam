@@ -35,9 +35,5 @@
       "@mam/interfaces": ["./app/#interfaces"],
       "@mam/responses": ["./app/@api/#responses"]
     }
-  },
-  "angularCompilerOptions": {
-    "genDir": "./dist/ngfactory",
-    "entryModule": "./src/app/app.module#AppModule"
-  }  
+  }
 }

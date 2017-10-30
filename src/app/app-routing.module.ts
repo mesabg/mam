@@ -15,10 +15,10 @@ export function loadHomeModule() {
 
 //-- Routing
 const routes: Routes = [
-	{
+	/*{
 		path: '',
 		loadChildren: loadHomeModule,
-	},
+	},*/
 	/*{
 		path: 'contacto',
 		loadChildren: './@pages/contacto/contacto.module#ContactoModule'

@@ -2,8 +2,12 @@
     "extends": "./tsconfig.app.json",
     "compilerOptions": {
         "outDir": "../out-tsc/server",
-        /* For now, Node only understand CommonJS modules, so you can't stick to es2015 here */
-        "module": "commonjs"
+        "module": "commonjs",
+        "target": "es5",
+        "baseUrl": "",
+        "types": [
+            "node"
+        ]
     },
     "exclude": [
         "test.ts",
@@ -11,6 +15,7 @@
     ],
     /* Additional informations to bootstrap Angular */
     "angularCompilerOptions": {
-        "entryModule": "app/app-server.module#AppServerModule"
+        "entryModule": "app/app-server.module#AppServerModule",
+        "strictMetadataEmit": true
     }
 }

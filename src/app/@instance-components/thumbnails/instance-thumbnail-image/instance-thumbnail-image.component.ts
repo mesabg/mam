@@ -20,7 +20,7 @@ export class InstanceThumbnailImageComponent implements OnInit, OnChanges {
 	constructor() { }
 
 	ngOnInit() { this.parse(); }
-	ngOnChanges() { this.parse; }
+	ngOnChanges() { this.parse(); }
 
 	/**
 	 * Actions

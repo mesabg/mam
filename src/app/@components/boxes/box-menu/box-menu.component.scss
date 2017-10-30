@@ -2,6 +2,21 @@
     width: 100vw;
     height: 100vh;
     overflow-x: hidden !important;
+    background-color: black;
+    position: relative;
+    z-index: 5;
+    .links{
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(-30%,-50%);
+    }
+    h2{
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        color: #a2a2a2;
+        margin-left: 3rem;
+    }
     .logo{
         position: absolute;
         top: 0.5rem;
@@ -12,8 +27,8 @@
         width: 5rem;
         height: 100%;
         position: absolute;
-        right: 1rem;
-        top: 0rem;
+        right: 2rem;
+        top: 0;
         z-index: 10;
         i{
             font-size: 2rem;

@@ -1,15 +1,13 @@
-<div class="container">
-	<div class="row">
-		<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-			<img [attr.src] ="miniatura.image" class="Image_Miniatura">
+<div class="container miniatura-box">
+	<div class="image_box">
+		<img [attr.src] ="miniatura.image" class="Image_Miniatura">
+	</div>
+	<div class="text_box">
+		<div class="row">
+			<p class="content miniatura_content">{{miniatura.content}}</p>
 		</div>
-		<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-			<div class="row">
-				<p>{{miniatura.content}}</p>
-			</div>
-			<div class="row">
-				<p>{{miniatura.author}}</p>
-			</div>
+		<div class="row">
+			<p class="by_name miniatura_by_name">{{miniatura.author}}</p>
 		</div>
 	</div>
 </div>

@@ -6,7 +6,7 @@
 	<div class="lateral_bar">
 		<div class="relative">
 			<div class="menu_button">
-				<i class="fa fa-bars" aria-hidden="true"></i>
+				<i class="fa fa-bars" aria-hidden="true" (click)="onClick.emit()" ></i>
 			</div>	
 			<p class="social_links social-instagram" ><span >Instagram</span></p> 
 			<p class="social_links social-facebook" ><span >Facebook</span></p> 
@@ -20,6 +20,8 @@
 			<img [attr.src]="image.image" [attr.alt]="image.name">
 		</div>
 	</div>
-	<div class="box-miniatura" #miniatura></div>
+	<div class="box-miniatura" #grid_Miniatura>
+		<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
+	</div>
 </div>
 

@@ -1,7 +1,7 @@
 /**
  * Global imports
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 /**
  * This component represents the layout of the SPA
@@ -14,4 +14,8 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 	constructor() { }
 	ngOnInit() { }
+
+	public changeMenu(){
+		console.log("hola");
+	}
 }

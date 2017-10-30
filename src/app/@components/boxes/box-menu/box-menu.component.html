@@ -1,12 +1,16 @@
-<div #carouselContainer></div>
-
-<div class="banner">
+<div class="ghost-header">
 	<img src="assets/images/logo.png" alt="" class="logo">
 	<!-- navigation lateral bar -->
+	<div class="links">
+		<h2 class="title_pop_up">Portafolio</h2>
+		<h2 class="title_pop_up">Historias</h2>
+		<h2 class="title_pop_up">Miguel Angel Martinez</h2>
+		<h2 class="title_pop_up">Contacto</h2>
+	</div>
 	<div class="lateral_bar">
 		<div class="relative">
 			<div class="menu_button">
-				<i class="fa fa-bars" aria-hidden="true" (click)="onClick.emit()" ></i>
+				<i class="fa fa-times" aria-hidden="true"></i>
 			</div>	
 			<p class="social_links social-instagram" ><span >Instagram</span></p> 
 			<p class="social_links social-facebook" ><span >Facebook</span></p> 
@@ -14,14 +18,4 @@
 			<div class="chat"><i class="fa fa-comments" aria-hidden="true"></i></div>
 		</div>
 	</div>
-	<div class="banner-content" #carousel>
-		<!-- Carousel is loaded here -->
-		<div class="image-container" *ngFor="let image of bannerImages;">
-			<img [attr.src]="image.image" [attr.alt]="image.name">
-		</div>
-	</div>
-	<div class="box-miniatura" #grid_Miniatura>
-		<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
-	</div>
 </div>
-

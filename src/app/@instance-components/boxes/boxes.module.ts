@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { InstanceBoxMiniaturaComponent } from './instance-box-miniatura';
+import { InstanceBoxMenuComponent } from './instance-box-menu';
+
 import { ComponentsModule } from '@mam/components';
-import { InstanceBoxMiniaturaComponent } from './instance-box-miniatura/instance-box-miniatura.component';
+
+
 
 @NgModule({
   imports: [
@@ -10,10 +14,13 @@ import { InstanceBoxMiniaturaComponent } from './instance-box-miniatura/instance
     ComponentsModule
   ],
   declarations: [
-  	InstanceBoxMiniaturaComponent
+  	InstanceBoxMiniaturaComponent,
+  	InstanceBoxMenuComponent
   ],
   exports: [
-	  InstanceBoxMiniaturaComponent
+	InstanceBoxMiniaturaComponent,
+  InstanceBoxMenuComponent
+
   ],
 })
 export class BoxesModule { }

@@ -1,11 +1,18 @@
 .quote_box{
-	h4, span{
-		text-align: center;
-	}
+	position: relative;
 	background-color: #a2a2a2;
 	height: 400px;
 	width: 100%;
-	span{
+	.text{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 80%;
+	}
+	h4, p{
+		text-align: center;
+	}
+	p{
 		color: #b9a26a;
 		margin: 0 auto;
 	}
@@ -20,4 +27,8 @@
 	    vertical-align: middle;
 	    text-align: center;
 	}
+}
+.relative{
+	margin: 0 auto;
+	width: 80%,
 }

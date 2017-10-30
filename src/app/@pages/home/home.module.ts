@@ -26,6 +26,7 @@ import { ApiModule } from '@mam/api';
 		InstanceComponentsModule,
 		ApiModule
 	],
-	declarations: [ HomePage ]
+	declarations: [ HomePage ],
+	exports: [ HomePage ]
 })
 export class HomeModule { }

@@ -14,6 +14,13 @@ import { MamModule } from './@pages/mam/mam.module';
 import { PortafolioModule } from './@pages/portafolio/portafolio.module';
 import { NotFoundModule } from './@pages/not-found/not-found.module';
 
+import { HomePage } from './@pages/home/home.page';
+import { ContactoPage } from './@pages/contacto/contacto.page';
+import { HistoriasPage } from './@pages/historias/historias.page';
+import { MamPage } from './@pages/mam/mam.page';
+import { PortafolioPage } from './@pages/portafolio/portafolio.page';
+import { NotFoundPage } from './@pages/not-found/not-found.page';
+
 export function homeLoader() { return HomeModule; }
 export function contactoLoader() { return ContactoModule; }
 export function historiasLoader() { return HistoriasModule; }
@@ -25,33 +32,39 @@ export function notFoundLoader() { return NotFoundModule; }
 const routes: Routes = [
 	{
 		path: '',
-		loadChildren: homeLoader
+		component: HomePage
 	},
 	{
 		path: 'contacto',
-		loadChildren: contactoLoader
+		component: ContactoPage
 	},
 	{
 		path: 'historias',
-		loadChildren: historiasLoader
+		component: HistoriasPage
 	},
 	{
 		path: 'mam',
-		loadChildren: mamLoader
+		component: MamPage
 	},
 	{
 		path: 'portafolio',
-		loadChildren: portafolioLoader
+		component: PortafolioPage
 	},
 	{
 		path: '**',
-		loadChildren: notFoundLoader
+		component: NotFoundPage
 	}
 ];
 
 
 @NgModule({
 	imports: [
+		HomeModule,
+		ContactoModule,
+		HistoriasModule,
+		MamModule,
+		PortafolioModule,
+		NotFoundModule,
 		RouterModule.forRoot(routes, {useHash: true})
 	],
 	exports: [RouterModule]

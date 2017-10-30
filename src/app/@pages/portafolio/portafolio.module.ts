@@ -22,6 +22,7 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 		PortafolioRoutingModule,
 		InstanceComponentsModule
 	],
-	declarations: [ PortafolioPage ]
+	declarations: [ PortafolioPage ],
+	exports: [ PortafolioPage ]
 })
 export class PortafolioModule { }

@@ -22,6 +22,7 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 		MamRoutingModule,
 		InstanceComponentsModule
 	],
-	declarations: [ MamPage ]
+	declarations: [ MamPage ],
+	exports: [ MamPage ]
 })
 export class MamModule { }

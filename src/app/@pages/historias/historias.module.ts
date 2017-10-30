@@ -22,6 +22,7 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 		HistoriasRoutingModule,
 		InstanceComponentsModule
 	],
-	declarations: [ HistoriasPage ]
+	declarations: [ HistoriasPage ],
+	exports: [ HistoriasPage ]
 })
 export class HistoriasModule { }

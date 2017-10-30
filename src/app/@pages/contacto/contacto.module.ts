@@ -22,6 +22,7 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 		ContactoRoutingModule,
 		InstanceComponentsModule
 	],
-	declarations: [ ContactoPage ]
+	declarations: [ ContactoPage ],
+	exports: [ ContactoPage ]
 })
 export class ContactoModule { }

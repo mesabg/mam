@@ -22,7 +22,8 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 		NotFoundRoutingModule,
 		InstanceComponentsModule
 	],
-	declarations: [ NotFoundPage ]
+	declarations: [ NotFoundPage ],
+	exports: [ NotFoundPage ]
 })
 export class NotFoundModule { }
 

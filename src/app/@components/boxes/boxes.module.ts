@@ -12,7 +12,6 @@ import { BoxMenuComponent } from './box-menu';
 
 
 @NgModule({
-<<<<<<< HEAD
   imports: [
     CommonModule
   ],
@@ -24,16 +23,6 @@ import { BoxMenuComponent } from './box-menu';
   	BoxMiniaturaComponent,
     BoxMenuComponent
   ],
-=======
-	imports: [
-		CommonModule
-	],
-	declarations: [
-		BoxMiniaturaComponent
-	],
-	exports: [
-		BoxMiniaturaComponent
-	]
->>>>>>> e6c11b93090b9cc4ecdf098ab3781b9c541df924
+
 })
 export class BoxesModule { }

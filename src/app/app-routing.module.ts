@@ -4,13 +4,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+/**
+ * Module loaders
+ */
+import { HomeModule } from './@pages/home/home.module';
+
+export function loadHomeModule() {
+    return HomeModule;
+}
 
 //-- Routing
 const routes: Routes = [
-	/*{
+	{
 		path: '',
-		loadChildren: '@pages/home/home.module#HomeModule'
-	},*/
+		loadChildren: loadHomeModule,
+	},
 	/*{
 		path: 'contacto',
 		loadChildren: './@pages/contacto/contacto.module#ContactoModule'

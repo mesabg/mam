@@ -18,9 +18,8 @@ import { ComponentsModule } from '@mam/components';
   	InstanceBoxMenuComponent
   ],
   exports: [
-	InstanceBoxMiniaturaComponent,
-  InstanceBoxMenuComponent
-
-  ],
+	  InstanceBoxMiniaturaComponent,
+    InstanceBoxMenuComponent
+  ]
 })
 export class BoxesModule { }

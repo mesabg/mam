@@ -52,9 +52,7 @@
     "rxjs": "5.4.2",
     "slick-carousel": "^1.8.1",
     "web-animations-js": "^2.3.1",
-    "zone.js": "0.8.14"
-  },
-  "devDependencies": {
+    "zone.js": "0.8.14",
     "@angular/cli": "1.4.9",
     "@angular/compiler-cli": "4.2.4",
     "@angular/language-service": "4.2.4",
@@ -95,5 +93,7 @@
     "circular-dependency-plugin": "^3.0.0",
     "webpack-concat-plugin": "1.4.0",
     "copy-webpack-plugin": "^4.1.1"
+  },
+  "devDependencies": {
   }
 }

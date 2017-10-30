@@ -25,11 +25,13 @@
 
         .image-container{
             width: 100vw;
+            height: 100vh;
             background-color: black;
             text-align: center;
+            overflow-y: hidden;
             img{
-                height: 100vh;
-                width: auto;
+                width: 100vw;
+                height: auto;
                 display: inline-block;
             }
         }

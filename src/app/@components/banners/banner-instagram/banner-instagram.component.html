@@ -1,0 +1,20 @@
+<div class="row" component-wrapper>
+	<div class="col-12" title>
+		<h4 class="subtitle3" font-center font-uppercase> {{ titulo }} </h4>
+	</div>
+
+	<div class="col-12">
+		<div #carousel carousel>
+			<div *ngFor="let resource of instagram;" element>
+				<div element-wrapper>
+					<img 
+						[attr.src]="resource.image" 
+						[attr.alt]="resource.name">
+				</div>
+				<div description>
+					<p class="content"> {{resource.description}} </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

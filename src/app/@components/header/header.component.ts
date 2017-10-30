@@ -13,7 +13,7 @@ import {
 	EventEmitter,
 	OnChanges } from '@angular/core';
 
-import $ = require('jquery');
+declare const $:any;
 
 /**
  * Local imports

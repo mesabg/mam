@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'mam-box-menu',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./box-menu.component.scss']
 })
 export class BoxMenuComponent implements OnInit {
+  @Output('close') public close:EventEmitter<any> = new EventEmitter<any>(); 
 
   constructor() { }
 

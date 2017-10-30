@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common';
  */
 import { ApiModule } from '@mam/api';
 import { ComponentsModule } from '@mam/components';
-import { InstanceBannerMiembrosComponent } from './instance-banner-miembros/instance-banner-miembros.component';
+import { InstanceBannerMiembrosComponent } from './instance-banner-miembros';
+import { InstanceBannerInstagramComponent } from './instance-banner-instagram';
 
 /**
  * This module conatains the instance banners of the site
@@ -21,10 +22,12 @@ import { InstanceBannerMiembrosComponent } from './instance-banner-miembros/inst
 		ComponentsModule
 	],
 	declarations: [
-		InstanceBannerMiembrosComponent
+		InstanceBannerMiembrosComponent,
+		InstanceBannerInstagramComponent
 	],
 	exports: [
-		InstanceBannerMiembrosComponent
+		InstanceBannerMiembrosComponent,
+		InstanceBannerInstagramComponent
 	]
 })
 export class BannersModule { }

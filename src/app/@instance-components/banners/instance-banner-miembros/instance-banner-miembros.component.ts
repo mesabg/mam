@@ -13,8 +13,7 @@ import { DirectorioResponse } from '@mam/responses';
 
 @Component({
 	selector: 'mam-instance-banner-miembros',
-	templateUrl: './instance-banner-miembros.component.html',
-	styleUrls: ['./instance-banner-miembros.component.scss']
+	template: `<mam-banner-miembros [titulo]="titulo" [directorio]="directorio | async"></mam-banner-miembros>`
 })
 export class InstanceBannerMiembrosComponent implements OnInit {
 	public directorio:Observable<DirectorioResponse[]>;

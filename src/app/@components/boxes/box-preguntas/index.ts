@@ -1,0 +1,1 @@
+export { BoxPreguntasComponent } from './box-preguntas.component';

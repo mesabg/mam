@@ -1,0 +1,1 @@
+export { InstanceBoxPreguntasComponent } from './instance-box-preguntas.component';

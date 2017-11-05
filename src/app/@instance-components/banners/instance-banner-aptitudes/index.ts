@@ -1,0 +1,1 @@
+export { InstanceBannerAptitudesComponent } from './instance-banner-aptitudes.component';

@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
  */
 import { BannerMiembrosComponent } from './banner-miembros';
 import { BannerInstagramComponent } from './banner-instagram';
+import { BannerAptitudesComponent } from './banner-aptitudes';
+import { BannerLogrosComponent } from './banner-logros';
 
 /**
  * This module contains all the necesary Banners of the SPA
@@ -19,11 +21,15 @@ import { BannerInstagramComponent } from './banner-instagram';
 	],
 	declarations: [
 		BannerMiembrosComponent,
-		BannerInstagramComponent
+		BannerInstagramComponent,
+		BannerAptitudesComponent,
+		BannerLogrosComponent
 	],
 	exports: [
 		BannerMiembrosComponent,
-		BannerInstagramComponent
+		BannerInstagramComponent,
+		BannerAptitudesComponent,
+		BannerLogrosComponent
 	]
 })
 export class BannersModule { }

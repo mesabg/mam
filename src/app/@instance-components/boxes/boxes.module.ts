@@ -5,6 +5,8 @@ import { InstanceBoxMiniaturaComponent } from './instance-box-miniatura';
 import { InstanceBoxMenuComponent } from './instance-box-menu';
 
 import { ComponentsModule } from '@mam/components';
+import { InstanceBoxBioComponent } from './instance-box-bio';
+import { InstanceBoxPreguntasComponent } from './instance-box-preguntas';
 
 
 
@@ -15,11 +17,15 @@ import { ComponentsModule } from '@mam/components';
   ],
   declarations: [
   	InstanceBoxMiniaturaComponent,
-  	InstanceBoxMenuComponent
+  	InstanceBoxMenuComponent,
+  	InstanceBoxBioComponent,
+  	InstanceBoxPreguntasComponent
   ],
   exports: [
 	  InstanceBoxMiniaturaComponent,
-    InstanceBoxMenuComponent
+    InstanceBoxMenuComponent,
+    InstanceBoxBioComponent,
+    InstanceBoxPreguntasComponent
   ]
 })
 export class BoxesModule { }

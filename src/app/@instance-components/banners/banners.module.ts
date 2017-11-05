@@ -11,6 +11,9 @@ import { ApiModule } from '@mam/api';
 import { ComponentsModule } from '@mam/components';
 import { InstanceBannerMiembrosComponent } from './instance-banner-miembros';
 import { InstanceBannerInstagramComponent } from './instance-banner-instagram';
+import { InstanceBannerLogrosComponent } from './instance-banner-logros';
+import { InstanceBannerAptitudesComponent } from './instance-banner-aptitudes';
+
 
 /**
  * This module conatains the instance banners of the site
@@ -23,11 +26,16 @@ import { InstanceBannerInstagramComponent } from './instance-banner-instagram';
 	],
 	declarations: [
 		InstanceBannerMiembrosComponent,
-		InstanceBannerInstagramComponent
+		InstanceBannerInstagramComponent,
+		InstanceBannerLogrosComponent,
+		InstanceBannerAptitudesComponent,
+		
 	],
 	exports: [
 		InstanceBannerMiembrosComponent,
-		InstanceBannerInstagramComponent
+		InstanceBannerInstagramComponent,
+		InstanceBannerAptitudesComponent,
+		InstanceBannerLogrosComponent
 	]
 })
 export class BannersModule { }

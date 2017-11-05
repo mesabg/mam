@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
  */
 import { BoxMiniaturaComponent } from './box-miniatura';
 import { BoxMenuComponent } from './box-menu';
+import { BoxBioComponent } from './box-bio';
+import { BoxPreguntasComponent } from './box-preguntas';
 
 
 @NgModule({
@@ -17,11 +19,15 @@ import { BoxMenuComponent } from './box-menu';
   ],
   declarations: [
   	BoxMiniaturaComponent,
-  	BoxMenuComponent
+  	BoxMenuComponent,
+  	BoxBioComponent,
+  	BoxPreguntasComponent
   ],
   exports: [
   	BoxMiniaturaComponent,
-    BoxMenuComponent
+    BoxMenuComponent,
+    BoxBioComponent,
+    BoxPreguntasComponent
   ],
 
 })

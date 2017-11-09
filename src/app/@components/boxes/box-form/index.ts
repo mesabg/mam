@@ -1,0 +1,1 @@
+export { BoxFormComponent } from './box-form.component';

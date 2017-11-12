@@ -41,10 +41,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	 */
 	@Input('bannerImages') public bannerImages:ImageResponse[];
 
-	/**
-	* Ouput
-	*/
-	@Output() public onClick:EventEmitter<void> = new EventEmitter<void>();
+	
 	/**
 	 * View injection
 	 */

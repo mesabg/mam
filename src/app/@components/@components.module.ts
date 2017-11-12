@@ -17,6 +17,7 @@ import { BoxesModule } from './boxes';
  */
 import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
+import { HeaderStickyComponent } from './header-sticky';
 
 /**
  * This module contains all the necesary components of the SPA
@@ -31,7 +32,8 @@ import { FooterComponent } from './footer';
 	],
 	declarations:[
 		HeaderComponent,
-		FooterComponent
+		FooterComponent,
+		HeaderStickyComponent
 	],
 	exports: [
 		BannersModule,
@@ -39,7 +41,8 @@ import { FooterComponent } from './footer';
 		AriaModule,
 		HeaderComponent,
 		FooterComponent,
-		BoxesModule
+		BoxesModule,
+		HeaderStickyComponent
 	]
 })
 export class ComponentsModule { }

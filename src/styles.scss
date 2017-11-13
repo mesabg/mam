@@ -16,7 +16,56 @@
 body{
 	overflow-x: hidden !important;
 }
+img:hover{
+    -moz-transform: scale(1.08,1.08);
+    -ms-transform: scale(1.08,1.08);
+    -webkit-transform: scale(1.08,1.08);
+    transform: scale(1.08,1.08);
+}
+img{
+	-moz-transition-duration: 6s;
+    -o-transition-duration: 6s;
+    -webkit-transition-duration: 6s;
+    transition-duration: 6s;
+    -moz-transition-timing-function: x2;
+    -o-transition-timing-function: x2;
+    -webkit-transition-timing-function: x2;
+    transition-timing-function: x2;
+}
+    
 
+/*.btn-2 {
+  $btn-color: random-color($max:200); red;
+  $btn-color-dark: shade($btn-color, 40%);
+  color: tint($btn-color);
+  
+  &:before,
+  &:after {
+    content: '';
+    @include absolute(0,0,0,0);
+  }
+
+  &:before {
+    right: -50px;
+    border-right: 50px solid transparent;
+    border-bottom: $btn-height solid $btn-color-dark;
+    transform: translateX(-100%);
+  }
+  
+  &:after {
+    left: -50px;
+    border-left: 50px solid transparent;
+    border-top: $btn-height solid $btn-color-dark;
+    transform: translateX(100%);
+  }
+
+  &:hover {
+    color: tint($btn-color, 75%);
+
+    &:before { transform: translateX(-49%); }
+    &:after { transform: translateX(49%); }
+  }
+}*/
 /**
 * Global class for styles desktop
 *

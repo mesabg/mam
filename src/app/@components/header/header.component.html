@@ -4,8 +4,16 @@
 	<img src="assets/images/logo.png" alt="" class="logo">
 	<div class="banner-content" #carousel>
 		<!-- Carousel is loaded here -->
-		<div class="image-container" *ngFor="let image of bannerImages;">
+		<div class="image-container container-image" *ngFor="let image of bannerImages;" >
 			<img [attr.src]="image.image" [attr.alt]="image.name">
+			<div class="call-to-action-image">
+				<a href="#" class="btn-CTA">
+					<svg>
+						<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
+					</svg>
+						<span class="button_CTA" font-uppercase>Ver portafolio</span>	
+				</a>
+			</div>
 		</div>
 	</div>
 	<div class="box-miniatura" #grid_Miniatura>

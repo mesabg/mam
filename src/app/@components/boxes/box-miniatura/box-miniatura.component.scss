@@ -8,13 +8,17 @@
 	height: 100%;
 }
 .Image_Miniatura{
-	/*max-height: 300px;*/
-	max-width: 160px;
+	height: 100px;
+	width: 100px;
 }
 .miniatura_content{
 	text-align: left;
 	margin-bottom: 1rem;
 	color:#a2a2a2;
+	
+}
+.text-miniatura{
+	padding-left: 1rem;
 }
 .miniatura_by_name{
 	margin-top: 0;
@@ -25,5 +29,5 @@
 	float: left;
 }
 .text_box{
-	float: right;
+	padding-left: 20%;
 }

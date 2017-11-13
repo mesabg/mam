@@ -1,4 +1,4 @@
-<div class="container-image-full" *ngIf= "thumb_Image.position == 'full'">
+<div class="container-image container-image-full" *ngIf= "thumb_Image.position == 'full'">
 	<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt">
 	<div class="call-to-action-image">
 		<a href="#" class="btn-CTA">
@@ -10,14 +10,14 @@
 			 </div>
 			 <div class="table-row" >
 			    <div class="table-cell" >
-			      <p class="content" >{{ thumb_Image?.place }}</p>
+			      <p class="tag" >{{ thumb_Image?.place }}</p>
 			    </div>
 			</div>			
 		</a>
 	</div>
 </div>
 
-<div class="container-image-full">
+<div class="container-image container-image-full">
 	<div class="container-image-rigth" *ngIf= "thumb_Image.position == 'right'">
 		<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt">
 		<div class="call-to-action-image">
@@ -30,7 +30,7 @@
 				 </div>
 				 <div class="table-row" >
 				    <div class="table-cell" >
-				      <p class="content" >{{ thumb_Image?.place }}</p>
+				      <p class="tag" >{{ thumb_Image?.place }}</p>
 				    </div>
 				</div>			
 			</a>
@@ -38,7 +38,7 @@
 	</div>
 </div>
 
-<div class="container-image-full">
+<div class="container-image container-image-full">
 	<div class="container-image-left" *ngIf= "thumb_Image.position == 'left'">
 		<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt">
 		<div class="call-to-action-image">
@@ -51,7 +51,7 @@
 				 </div>
 				 <div class="table-row" >
 				    <div class="table-cell" >
-				      <p class="content" >{{ thumb_Image?.place }}</p>
+				      <p class="tag" >{{ thumb_Image?.place }}</p>
 				    </div>
 				</div>			
 			</a>

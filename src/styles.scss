@@ -16,11 +16,14 @@
 body{
 	overflow-x: hidden !important;
 }
-img:hover{
-    -moz-transform: scale(1.08,1.08);
-    -ms-transform: scale(1.08,1.08);
-    -webkit-transform: scale(1.08,1.08);
-    transform: scale(1.08,1.08);
+.container-image:hover{
+	img{
+		-moz-transform: scale(1.08,1.08);
+    	-ms-transform: scale(1.08,1.08);
+    	-webkit-transform: scale(1.08,1.08);
+    	transform: scale(1.08,1.08);
+	}
+    
 }
 img{
 	-moz-transition-duration: 6s;
@@ -32,40 +35,13 @@ img{
     -webkit-transition-timing-function: x2;
     transition-timing-function: x2;
 }
-    
-
-/*.btn-2 {
-  $btn-color: random-color($max:200); red;
-  $btn-color-dark: shade($btn-color, 40%);
-  color: tint($btn-color);
-  
-  &:before,
-  &:after {
-    content: '';
-    @include absolute(0,0,0,0);
-  }
-
-  &:before {
-    right: -50px;
-    border-right: 50px solid transparent;
-    border-bottom: $btn-height solid $btn-color-dark;
-    transform: translateX(-100%);
-  }
-  
-  &:after {
-    left: -50px;
-    border-left: 50px solid transparent;
-    border-top: $btn-height solid $btn-color-dark;
-    transform: translateX(100%);
-  }
-
-  &:hover {
-    color: tint($btn-color, 75%);
-
-    &:before { transform: translateX(-49%); }
-    &:after { transform: translateX(49%); }
-  }
-}*/
+.uppercase{
+	text-transform: uppercase;
+}
+.blockScroll{
+	/*position: fixed !important;*/
+	overflow-y: hidden !important;
+}    
 /**
 * Global class for styles desktop
 *
@@ -122,7 +98,7 @@ img{
 .quotes_autor{
 	font-size: 0.75rem;
 	font-family: 'Raleway-Bold';
-	letter-spacing: 1.25rem;
+	/*letter-spacing: 1.25rem;*/
 	line-height: 0.875rem;
 }
 .tag{
@@ -306,7 +282,7 @@ img{
 	.quotes_autor{
 		font-size: 0.75rem;
 		font-family: 'Raleway-Bold';
-		letter-spacing: 1.6rem;
+		/*letter-spacing: 1.6rem;*/
 		line-height: 0.875rem;
 	}
 	.tag{
@@ -344,4 +320,7 @@ img{
 
 [mouseable]:hover{
 	cursor: pointer;
+}
+[golden]{
+	color: #b9a26a !important;
 }

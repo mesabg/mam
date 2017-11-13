@@ -4,6 +4,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThumbnailImageComponent } from './thumbnail-image';
+import { ThumbnailBlockImageComponent } from './thumbnail-block-image';
 
 /**
  * This module contains all the main thumbnails
@@ -13,10 +14,12 @@ import { ThumbnailImageComponent } from './thumbnail-image';
 		CommonModule
 	],
 	declarations: [
-		ThumbnailImageComponent
+		ThumbnailImageComponent,
+		ThumbnailBlockImageComponent
 	],
 	exports: [
-		ThumbnailImageComponent
+		ThumbnailImageComponent,
+		ThumbnailBlockImageComponent
 	],
 })
 export class ThumbnailsModule { }

@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { ApiModule } from '@mam/api';
 import { ComponentsModule } from '@mam/components';
 import { InstanceThumbnailImageComponent } from './instance-thumbnail-image';
+import { InstanceThumbnailBlockImageComponent } from './instance-thumbnail-block-image/instance-thumbnail-block-image.component';
 
 /**
  * This module conatains the instance thumbnails of the site
@@ -21,7 +22,8 @@ import { InstanceThumbnailImageComponent } from './instance-thumbnail-image';
 		ComponentsModule
 	],
 	declarations: [
-		InstanceThumbnailImageComponent 
+		InstanceThumbnailImageComponent,
+		InstanceThumbnailBlockImageComponent 
 	],
 	exports: [
 		InstanceThumbnailImageComponent

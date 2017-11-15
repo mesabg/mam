@@ -2,6 +2,13 @@
  * Global imports
  */
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+/**
+ * Local imports
+ */
+import { ImageApi } from '@mam/api';
+import { ImageResponse } from '@mam/responses';
 
 /**
  * PAGE => Portafolio
@@ -12,6 +19,27 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./portafolio.page.scss']
 })
 export class PortafolioPage implements OnInit {
-	constructor() { }
-	ngOnInit() { }
+	public images:Observable<ImageResponse[]>;
+	public titulo:string = "Sigue estas y otras historias en instagram";
+
+	constructor(private api:ImageApi) { }
+
+	/**
+	 * Events
+	 */
+	ngOnInit() {
+		this.retrieve();
+	}
+
+
+	/**
+	 * Actions
+	 */
+	private retrieve():void{
+		this.images = this.api.getHomeImages();
+	}
+
+	public changeMenu(){
+		console.log("hola");
+	}
 }

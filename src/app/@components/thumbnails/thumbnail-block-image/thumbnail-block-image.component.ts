@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+/**
+ * Global imports
+ */
+import { 
+	Component, 
+	OnInit,
+	Input } from '@angular/core';
 
+/**
+ * local imports
+ */
+import { ImageResponse } from '@mam/responses';
+	
+
+/**
+ * Component description
+ */
 @Component({
-  selector: 'app-thumbnail-block-image',
-  templateUrl: './thumbnail-block-image.component.html',
-  styleUrls: ['./thumbnail-block-image.component.scss']
+	selector: 'mam-thumbnail-block-image',
+	templateUrl: './thumbnail-block-image.component.html',
+	styleUrls: ['./thumbnail-block-image.component.scss']
 })
 export class ThumbnailBlockImageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	@Input('images') public images:ImageResponse[];
+	constructor() { }
+	ngOnInit() { }
 }

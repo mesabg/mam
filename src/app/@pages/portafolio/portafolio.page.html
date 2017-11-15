@@ -1,3 +1,10 @@
-<p>
-  portafolio works!
-</p>
+<mam-instance-header-sticky></mam-instance-header-sticky>
+<mam-instance-header (onClick)="changeMenu()"></mam-instance-header>
+
+<br>
+<br>
+<h4 class="title" font-uppercase font-center>Lo mejor de cada historia</h4>
+
+<mam-thumbnail-block-image [images]="images | async"></mam-thumbnail-block-image>
+<br>
+<br>

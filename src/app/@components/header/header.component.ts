@@ -13,6 +13,8 @@ import {
 	EventEmitter,
 	OnChanges } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 declare const $:any;
 
 /**
@@ -50,7 +52,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	@ViewChild('grid_Miniatura') private $gridMiniatura:ElementRef;
 	private $carousel:SlickJS;
 	public miniatura:Miniatura;
-	constructor() { }
+	constructor(private router:Router) { }
 
 	/**
 	 * Events
@@ -80,4 +82,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	}
 
 
+	public goto(url:string){
+		this.router.navigateByUrl(url);
+	}
 }

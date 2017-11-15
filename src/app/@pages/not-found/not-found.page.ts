@@ -19,16 +19,25 @@ import { ImageResponse } from '@mam/responses';
 	styleUrls: ['./not-found.page.scss']
 })
 export class NotFoundPage implements OnInit {
-	
+	public images:Observable<ImageResponse[]>;
+	public instagram:Observable<ImageResponse[]>;
+	public titulo:string = "Sigue estas y otras historias en instagram";
+
 	constructor(private api:ImageApi) { }
 
 	/**
 	 * Events
 	 */
-	ngOnInit() { this.retrieve(); }
+	ngOnInit() {
+		this.retrieve();
+	}
+
 
 	/**
 	 * Actions
 	 */
-	private retrieve():void{}
+	private retrieve():void{
+		this.images = this.api.getHomeImages();
+		this.instagram = this.api.getInstagramImages();
+	}
 }

@@ -46,4 +46,7 @@ export class HomePage implements OnInit {
 		}
 	}
 
+	public changeMenu(){
+		console.log("hola");
+	}
 }

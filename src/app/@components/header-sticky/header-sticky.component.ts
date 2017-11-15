@@ -1,4 +1,5 @@
-import { Component, 
+import { 
+	Component, 
 	OnInit,
 	AfterViewInit,
 	ViewChild,
@@ -8,6 +9,8 @@ import { Component,
 	Output,
 	EventEmitter,
 	OnChanges  } from '@angular/core';
+
+import { Router } from '@angular/router';
 
 declare const $:any;
 
@@ -22,7 +25,7 @@ export class HeaderStickyComponent implements OnInit {
 	* Ouput
 	*/
 	@Output() public onClick:EventEmitter<void> = new EventEmitter<void>();
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
@@ -41,5 +44,12 @@ export class HeaderStickyComponent implements OnInit {
  		
  	}
  	
+ }
+
+
+
+ public goto(url:string){
+	this.router.navigateByUrl(url);
+	$("body").removeClass("blockScroll");
  }
 }

@@ -1,6 +1,7 @@
 /**
  * Global imports
  */
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 /**
@@ -13,6 +14,7 @@ import { NotFoundRoutingModule } from './not-found.routing';
  * Local imports
  */
 import { InstanceComponentsModule } from '@mam/instance-components';
+import { ComponentsModule } from '@mam/components';
 
 /**
  * Module page declaration
@@ -20,7 +22,9 @@ import { InstanceComponentsModule } from '@mam/instance-components';
 @NgModule({
 	imports: [ 
 		NotFoundRoutingModule,
-		InstanceComponentsModule
+		InstanceComponentsModule,
+		ComponentsModule,
+		CommonModule
 	],
 	declarations: [ NotFoundPage ],
 	exports: [ NotFoundPage ]

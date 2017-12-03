@@ -14,5 +14,39 @@ export const SETTINGS:SlickJSObject = {
     autoplaySpeed: 6000,
     dots: false,
     arrows: false,
-    infinite: true
+    infinite: true,
+    centerMode: true,
+    responsive: [{
+        breakpoint: 320,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            infinite: true,
+        }
+    },{
+        breakpoint: 376,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            infinite: true,
+        }
+    },{
+        breakpoint: 426,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            infinite: true,
+        }
+    },{
+        breakpoint: 769,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            infinite: true,
+        }
+    }]
 };

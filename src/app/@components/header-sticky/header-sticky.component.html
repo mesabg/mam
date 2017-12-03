@@ -18,7 +18,6 @@
 		<div class="relative">
 			<div class="menu_button">
 				<i class="fa fa-bars navbar-toggle hamButton" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbar" (click)="greaterWidth()"></i>
-				<!--<i class="fa fa-bars" aria-hidden="true" (click)="onClick.emit()" mouseable class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></i>-->
 			</div>	
 			<p class="social_links social-instagram " golden ><span >Instagram</span></p> 
 			<p class="social_links social-facebook " golden ><span >Facebook</span></p> 
@@ -27,4 +26,37 @@
 		</div>
 	</div>
 </div>
-<!--<mam-instance-box-menu style="display:none;"></mam-instance-box-menu>-->
+
+<!--Stycky bar mobile-->
+<div class="stickybar-mobile">
+	<nav class="navbar">
+	  <div class="container-fluid">
+	    <div class="collapse navbar-collapse" id="myNavbarMobile">
+	      <div class="ghost-header">
+				<img src="assets/images/logo.png" alt="" class="logo">
+				<div class="links">
+					<h2 > <span class="menu_section" mouseable (click)="goto('portafolio')">Portafolio</span> </h2>
+					<h2 > <span class="menu_section" mouseable>Historias</span> </h2>
+					<h2 > <span class="menu_section" mouseable>Miguel Angel Martinez</span> </h2>
+					<h2 > <span class="menu_section" mouseable>Contacto</span> </h2>
+					<div class="social-networks">
+						<ul class="list-inline">
+							<li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/mamfotografo/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li class="list-inline-item"><a target="_blank" href="https://wwww.facebook.com/mamfotografo/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li class="list-inline-item"><a target="_blank" href="https://twitter.com/mamfotografo/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	    </div>
+	  </div>
+	</nav>
+	<div class="lateral_bar">
+		<div class="relative">
+			<div class="chat"><i class="fa fa-comments " golden aria-hidden="true"></i></div>
+			<div class="menu_button">
+				<i class="fa fa-bars navbar-toggle hamButton" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbarMobile" (click)="greaterWidthMobile()"></i>
+			</div>	
+		</div>
+	</div>
+</div>

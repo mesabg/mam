@@ -92,4 +92,145 @@
             top: 5%;
             right: 1rem;
         }
+}
+
+.stickybar-mobile{
+    height: 100vh;
+    width: 100px;
+    background-color: transparent;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    .container-fluid{
+        padding-left: 0 !important;
+        height: inherit;
+        width: inherit;
     }
+    .navbar{
+        padding: 0 !important;
+        height: inherit;
+        width: inherit;
+    }
+    .ghost-header{
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden !important;
+        background-color: black;
+        position: relative;
+        z-index: 5;
+        .links{
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-30%,-50%);
+            width: 100%;
+
+            span:hover{
+                color: #b9a26a !important;
+            }
+            .social-networks{
+                width: 100%;
+                height: 50px;
+                margin-top: 2rem;
+            }
+            .list-inline{
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%,0);
+            }
+            .list-inline-item{
+                width: 40px;
+                height: 40px;
+                background-color: #b9a26a;
+                text-align: center;
+
+                a{
+                    color: white;
+                    line-height: 2.5rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        h2{
+            width: 100%;
+            text-align: center;
+            color: #a2a2a2;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            
+        }
+        .logo{
+            position: absolute;
+            top: 0.5rem;
+            left: 2.2rem;
+            z-index: 2;
+        }
+    }
+    .lateral_bar{
+        width: 4rem;
+        height: 100px;
+        position: absolute;
+        right: 0rem;
+        top: 0.5rem;
+        z-index: 10;
+
+        .chat{
+            color: white;
+            text-align: center;
+            position: absolute;
+            /* bottom: 9%; */
+            right: 4.5rem;
+            top: 1%;
+        }
+        .menu_button{
+            color: white;
+            text-align: center;
+            position: absolute;
+            top: 1%;
+            right: 1.5rem;
+        }
+
+    }
+    
+}
+
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+    .stickybar{
+        display: none;
+    }
+    .styckybar-mobile{
+        display: block;
+    }
+}
+@media only screen and (min-width: 375px) and (max-width: 425px) {
+    .stickybar{
+        display: none;
+    }
+    .styckybar-mobile{
+        display: block;
+    }
+}
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+    .stickybar{
+        display: none;
+    }
+    .styckybar-mobile{
+        display: block;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .stickybar{
+        display: none;
+    }
+    .styckybar-mobile{
+        display: block;
+    }
+}
+@media only screen and (min-width: 1024px)  {
+    .stickybar{
+        display: block;
+    }
+    .stickybar-mobile{
+        display: none !important;
+    }
+}

@@ -16,7 +16,9 @@
 body{
 	overflow-x: hidden !important;
 }
-.container-image:hover{
+.container-image-full:hover,
+.container-image-rigth:hover,
+.container-image-left:hover{
 	img{
 		-moz-transform: scale(1.08,1.08);
     	-ms-transform: scale(1.08,1.08);
@@ -243,21 +245,24 @@ img{
 	stroke-dashoffset: 48; 
 }
 
-/**
+/*
 * Global class for styles mobile 320
 *
 */
-@media only screen and (min-width: 319px) and (max-width:1024px)  {
+
+@media only screen and (min-width: 319px) and (max-width: 1024px )  {
+
 	.title{
 		font-size: 1.5625rem;
 		font-family: 'Raleway-Light';
 		line-height: 1.875rem;
 	}
-	.subtitle{
+	.subtitle,.subtitle1,.subtitle2,.subtitle3{
 		font-size: 1rem;
 		font-family: 'Raleway-Bold';
 		line-height: 1.1875rem;
 	}
+
 	.featured_content{
 		font-size: 1.5625rem;
 		font-family: 'Raleway-LightItalic';

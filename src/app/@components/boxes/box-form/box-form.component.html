@@ -1,45 +1,60 @@
-<div class="container form_box">
-	<div class="row">
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="text" name="nameAndLastName" placeholder="Nombre y Apellido">
-		</div>
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="email" name="email" placeholder="Correo">
+<form [formGroup]="myForm" (ngSubmit)="send()" class = "formulario">
+	<div class="container form_box">
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="text" name="nameAndLastName" placeholder="Nombre y Apellido" formControlName="nameAndLastName">
+				<div class="error" *ngIf="!myForm.controls['nameAndLastName'].valid &&myForm.controls['nameAndLastName'].touched ">Tu debes colocar un nombre válido.</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="email" name="email" placeholder="Correo" formControlName="email">
+				<div class="error" *ngIf="!myForm.controls['email'].valid &&myForm.controls['email'].touched ">Tu debes colocar un email válido.</div>
+			</div>
+		
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="number" name="phone" placeholder="Teléfono" autocomplete="true" formControlName="phone">
+				<div class="error" *ngIf="!myForm.controls['phone'].valid &&myForm.controls['phone'].touched ">Tu debes colocar un telefono válido.</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="text" name="SocialNetwork" placeholder="Red social" formControlName="SocialNetwork">
+				<div class="error" *ngIf="!myForm.controls['SocialNetwork'].valid &&myForm.controls['SocialNetwork'].touched ">Tu debes colocar una red social válida.</div>
+			</div>
+		
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="date" name="dateWedding" placeholder="fecha boda" formControlName="dateWedding">
+				<div class="error" *ngIf="!myForm.controls['dateWedding'].valid &&myForm.controls['dateWedding'].touched ">Tu debes colocar una fecha válida.</div>
+				<!--<my-date-picker [options]="myDatePickerOptions"
+	                (dateChanged)="onDateChanged($event)"></my-date-picker>-->
+			</div>
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="text" name="locationChurch" placeholder="Dirección de la Iglesia" formControlName="locationChurch">
+				<div class="error" *ngIf="!myForm.controls['locationChurch'].valid &&myForm.controls['locationChurch'].touched ">Tu debes colocar una dirección.</div>
+			</div>
+		
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="text" name="locationReception" placeholder="Dirección de la recepción" formControlName="locationReception">
+				<div class="error" *ngIf="!myForm.controls['locationReception'].valid &&myForm.controls['locationReception'].touched ">Tu debes colocar una dirección.</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
+				<input type="number" name="numInvited" placeholder="Numero de invitados" formControlName="numInvited">
+				<div class="error" *ngIf="!myForm.controls['numInvited'].valid &&myForm.controls['numInvited'].touched ">Tu debes colocar una cantidad de invitados.</div>
+			</div>
+		
+			<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+				<textarea name="details" placeholder="Otros detalles" formControlName="details"></textarea>
+				<div class="error" *ngIf="!myForm.controls['details'].valid &&myForm.controls['details'].touched ">Tu debes colocar unos detalles.</div>
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="tel" name="phone" placeholder="Teléfono" autocomplete="true">
-		</div>
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="" name="SocialNetwork" placeholder="Red social">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="date" name="dateWedding" placeholder="fecha boda">
-			<!--<my-date-picker [options]="myDatePickerOptions"
-                (dateChanged)="onDateChanged($event)"></my-date-picker>-->
-		</div>
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="text" name="locationChurch" placeholder="Dirección de la Iglesia">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="text" name="locationReception" placeholder="Dirección de la recepción">
-		</div>
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<input type="" name="numInvited" placeholder="Numero de invitados">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-			<textarea name="details" placeholder="Otros detalles" ></textarea>
-		</div>
-	</div>
-</div>
 
+	<div class="call-to-action">
+		<a href="#" class="btn-CTA">
+			<svg>
+				<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
+			</svg>
+			<span class="button_CTA">Hagamos tu historia</span> 
+		</a>
+	</div>
+</form>
 
 
 

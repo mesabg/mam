@@ -3,6 +3,7 @@
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /**
  * Local imports
@@ -16,7 +17,8 @@ import { BoxFormComponent } from './box-form';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   declarations: [
   	BoxMiniaturaComponent,

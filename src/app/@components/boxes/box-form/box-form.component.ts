@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {IMyDpOptions, IMyDateModel} from 'mydatepicker';
-
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 declare var $ :any;
 @Component({
   selector: 'mam-box-form',
@@ -15,7 +15,23 @@ export class BoxFormComponent implements OnInit {
         // other options...
         dateFormat: 'dd.mm.yyyy',
     };
-  constructor() { }
+
+    public myForm: FormGroup; 
+    constructor(public fb: FormBuilder,) { 
+      
+      this.myForm = this.fb.group({
+      nameAndLastName: ["",Validators.required],
+      email: ["",Validators.compose([Validators.required,Validators.minLength(6)])],
+      phone: ["",Validators.required],
+      SocialNetwork: ["",Validators.required],
+      dateWedding: ["",Validators.required],
+      locationChurch: ["",Validators.required],
+      locationReception: ["",Validators.required],
+      numInvited: ["",Validators.required],
+      details: ["",Validators.required],
+      });
+
+    }
 
   ngOnInit() {
   }

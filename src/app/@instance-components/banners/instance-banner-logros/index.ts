@@ -1,1 +1,0 @@
-export { InstanceBannerLogrosComponent } from './instance-banner-logros.component';

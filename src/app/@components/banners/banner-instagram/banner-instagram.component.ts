@@ -1,3 +1,4 @@
+/* tslint:disable */
 /**
  * Global imports
  */
@@ -44,6 +45,7 @@ export class BannerInstagramComponent implements OnInit, AfterViewInit {
 	ngOnInit() { }
 	ngAfterViewInit() {
 		this.initSlickJS();
+		console.log("Instagram :: ", this.instagram);
 	}
 
 

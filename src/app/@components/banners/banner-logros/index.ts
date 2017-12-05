@@ -1,1 +1,0 @@
-export { BannerLogrosComponent } from './banner-logros.component';

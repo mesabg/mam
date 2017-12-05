@@ -1,5 +1,6 @@
 
 export interface Logro {
-	img:string;
+    img:string;
+    title:string;
     content:string;
 }

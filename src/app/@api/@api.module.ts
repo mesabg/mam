@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -14,8 +15,9 @@ import { ApiModule as MsApiModule } from '@ms/api';
  */
 import { ImageApi } from './image.api';
 import { DirectorioApi } from './directorio.api';
-
 import { PreguntaApi } from './pregunta.api';
+import { MAMApi } from './mam.api';
+
 /**
  * This module contains API Calls (formatted)
  */
@@ -29,6 +31,7 @@ import { PreguntaApi } from './pregunta.api';
 		ImageApi,
 		DirectorioApi,
 		PreguntaApi,
+		MAMApi
 	]
 })
 export class ApiModule { }

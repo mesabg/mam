@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Local imports
  */
@@ -8,9 +9,9 @@ import { SlickJSObject } from '@ms/components';
  */
 export const SETTINGS:SlickJSObject = {
     rows: 1,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay: false,
     autoplaySpeed: 6000,
     dots: false,
     arrows: false,

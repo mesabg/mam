@@ -5,7 +5,8 @@ import {
   Input,
   ViewChild,
   AfterViewInit,
-  ElementRef } from '@angular/core';
+  ElementRef,
+  OnChanges } from '@angular/core';
 
 
 import { Color } from '@mam/enums';
@@ -19,7 +20,7 @@ declare const $:any;
   templateUrl: './banner-carousel.component.html',
   styleUrls: ['./banner-carousel.component.scss']
 })
-export class BannerCarouselComponent implements OnInit, AfterViewInit {
+export class BannerCarouselComponent implements OnInit, AfterViewInit, OnChanges {
   @Input('color') public color:Color;
   @Input('title') public title:string;
   @Input('elements') public elements:Logro[];
@@ -39,7 +40,10 @@ export class BannerCarouselComponent implements OnInit, AfterViewInit {
 	ngAfterViewInit() {
     this.initSlickJS();
     console.log("Elements :: ", this.elements);
-	}
+  }
+  ngOnChanges(){
+    console.log("On Changes :: ", this.elements);
+  }
 
 
 	/**

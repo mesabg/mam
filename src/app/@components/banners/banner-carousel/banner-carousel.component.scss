@@ -1,8 +1,16 @@
 [component-container]{
-
+    padding: 8%;
 }
 
 
 [component-container].grey{
     background-color: #f8f8f8;
+}
+
+[topic]{
+    padding: 40px;
+
+    img {
+        margin: 0 auto;
+    }
 }

@@ -21,7 +21,7 @@ export class BannerInstanceAptitudesComponent implements OnInit {
 	public elements:Observable<Aptitud[]>;
 	constructor(private api:MAMApi) { }
 
-	ngOnInit() { }
+	ngOnInit() { this.retrieve(); }
 
 	private retrieve(){
 		this.elements = this.api.getAptitudes();

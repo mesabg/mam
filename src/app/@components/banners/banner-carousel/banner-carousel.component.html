@@ -1,21 +1,23 @@
 <div class="row" [ngClass]="{'grey': color == 2 }" component-container>
 	<br>
 	<div class="col-12">
-		<h3 class="title" font-uppercase font-center> {{title}} </h3>
+		<h4 class="title" font-uppercase font-center> {{title}} </h4>
 	</div>
 	<br>
 	<div class="col-12">
 		<div #carousel carousel>
-			<div *ngFor="let element of elements;" class="row">
+			<div *ngFor="let element of elements;" class="row" font-center topic>
 				<div class="col-12" image-container>
 					<img 
 						[attr.src]="element.img" 
 						[attr.alt]="element.title">
 				</div>
+				<br>
 
 				<div class="col-12" title>
 					<h5 class="title"> {{element.title}} </h5>
 				</div>
+				<br>
 
 				<div description>
 					<p> {{element.content}} </p>

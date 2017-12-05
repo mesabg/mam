@@ -8,11 +8,7 @@ import { Logro } from 'app/#interfaces/logro.interface';
 @Component({
 	selector: 'mam-banner-instance-logros',
 	template: `
-		<mam-banner-carousel 
-			[color]="color" 
-			[title]="title" 
-			[elements]="elements | async">
-		</mam-banner-carousel>
+		<mam-banner-carousel [color]="color" [title]="title" [elements]="elements | async"> </mam-banner-carousel>
 	`,
 })
 export class BannerInstanceLogrosComponent implements OnInit {
@@ -21,7 +17,9 @@ export class BannerInstanceLogrosComponent implements OnInit {
 	public elements:Observable<Logro[]>;
 	constructor(private api:MAMApi) { }
 
-	ngOnInit() { }
+	ngOnInit() {
+    this.retrieve();
+  }
 
 	private retrieve(){
 		this.elements = this.api.getLogros();

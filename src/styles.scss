@@ -329,3 +329,10 @@ img{
 [golden]{
 	color: #b9a26a !important;
 }
+
+
+[inverted]{
+	filter: invert(100%);
+	position: absolute;
+    left: 8px;
+}

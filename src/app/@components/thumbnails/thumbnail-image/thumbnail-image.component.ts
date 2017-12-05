@@ -6,7 +6,9 @@ import {
 	ViewContainerRef,
 	ElementRef,
 	Input,
-	OnChanges } from '@angular/core';
+  OnChanges,
+  Output,
+  EventEmitter } from '@angular/core';
 	
 import { ThumbImage } from '@mam/interfaces';
 @Component({
@@ -19,6 +21,7 @@ export class ThumbnailImageComponent implements OnInit {
   * Inputs
   */
   @Input('thumb_Image') public thumb_Image:ThumbImage;
+  @Output('onClick') public onClick:EventEmitter<ThumbImage> = new EventEmitter<ThumbImage>();
   
      
   

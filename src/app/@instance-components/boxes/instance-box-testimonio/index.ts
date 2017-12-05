@@ -1,0 +1,1 @@
+export { InstanceBoxTestimonioComponent } from './instance-box-testimonio.component';

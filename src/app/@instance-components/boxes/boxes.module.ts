@@ -8,6 +8,9 @@ import { ComponentsModule } from '@mam/components';
 import { InstanceBoxBioComponent } from './instance-box-bio';
 import { InstanceBoxPreguntasComponent } from './instance-box-preguntas';
 import { InstanceBoxFormComponent } from './instance-box-form';
+import { InstanceBoxTestimonioComponent } from './instance-box-testimonio';
+import { InstanceBoxHistoriaComponent } from './instance-box-historia';
+import { InstanceBoxAgradecimientoComponent } from './instance-box-agradecimiento';
 
 
 
@@ -21,14 +24,20 @@ import { InstanceBoxFormComponent } from './instance-box-form';
   	InstanceBoxMenuComponent,
   	InstanceBoxBioComponent,
   	InstanceBoxPreguntasComponent,
-  	InstanceBoxFormComponent
+  	InstanceBoxFormComponent,
+  	InstanceBoxTestimonioComponent,
+  	InstanceBoxHistoriaComponent,
+  	InstanceBoxAgradecimientoComponent
   ],
   exports: [
 	  InstanceBoxMiniaturaComponent,
     InstanceBoxMenuComponent,
     InstanceBoxBioComponent,
     InstanceBoxPreguntasComponent,
-    InstanceBoxFormComponent
+    InstanceBoxFormComponent,
+    InstanceBoxTestimonioComponent,
+    InstanceBoxHistoriaComponent,
+    InstanceBoxAgradecimientoComponent
   ]
 })
 export class BoxesModule { }

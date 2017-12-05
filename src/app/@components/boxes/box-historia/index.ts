@@ -1,0 +1,1 @@
+export { BoxHistoriaComponent } from './box-historia.component';

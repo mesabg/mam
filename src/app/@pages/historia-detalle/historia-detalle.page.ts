@@ -1,3 +1,4 @@
+/*tslint:disable*/
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,4 +13,7 @@ export class HistoriaDetallePage implements OnInit {
   ngOnInit() {
   }
 
+  public changeMenu(){
+    
+  }
 }

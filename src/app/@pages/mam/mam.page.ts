@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -14,4 +15,8 @@ import { Component, OnInit } from '@angular/core';
 export class MamPage implements OnInit {
 	constructor() { }
 	ngOnInit() { }
+
+	public changeMenu(){
+    
+	}
 }

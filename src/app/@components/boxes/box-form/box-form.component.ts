@@ -1,8 +1,9 @@
+/*tslint:disable*/
 import { Component, OnInit } from '@angular/core';
-
 import {IMyDpOptions, IMyDateModel} from 'mydatepicker';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-declare var $ :any;
+declare var $:any;
+
 @Component({
   selector: 'mam-box-form',
   templateUrl: './box-form.component.html',
@@ -42,4 +43,7 @@ export class BoxFormComponent implements OnInit {
         // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     }
 
+    public send(){
+
+    }
 }

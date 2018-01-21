@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -53,5 +54,10 @@ export class HistoriasPage implements OnInit {
 
 	public desplegarDetalle(event){
 		console.log("Desplegar detalle de ", event);
+	}
+
+
+	public goto(where:string){
+		//-- DO SOMETHING
 	}
 }

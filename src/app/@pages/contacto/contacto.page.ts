@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -37,5 +38,9 @@ export class ContactoPage implements OnInit {
 	 */
 	private retrieve():void{
 		this.preguntas = this.api.getContactQuestions();
+	}
+
+	public changeMenu(){
+		//-- DO SOMETHING
 	}
 }

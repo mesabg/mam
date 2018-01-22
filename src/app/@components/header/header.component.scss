@@ -7,16 +7,18 @@
     overflow-x: hidden !important;
     .logo{
         position: absolute;
-        top: 0.5rem;
-        left: 1rem;
+        top: 1.5rem;
+        left: 1.5rem;
         z-index: 2;
+        height: 40px;
+        width: auto;
     }
     .box-miniatura{
         position: absolute;
         width: 600px;
         height: 150px;
         z-index: 2;
-        bottom: 1.5rem;
+        bottom: 0.5rem;
         left: 2rem;
     }
     .banner-content{
@@ -31,6 +33,7 @@
             background-color: black;
             text-align: center;
             overflow-y: hidden;
+            position: relative;
             img{
                 width: 100vw;
                 height: auto;
@@ -42,3 +45,4 @@
 
 
 .logo:hover{ cursor: pointer; }
+

@@ -1,6 +1,10 @@
+$golden: #b9a26a;
+$menu-animation-duration: 400ms;
+$menu-animation-timing:   ease-out;
+
 .stickybar{
     height: 100vh;
-    width: 100px;
+    width: 70px;
     background-color: transparent;
     z-index: 100;
     position: fixed;
@@ -23,9 +27,9 @@
             top: 50%;
             left: 30%;
             transform: translate(-30%,-50%);
-            span:hover{
+            /*span:hover{
                 color: #b9a26a !important;
-            }
+            }*/
         }
         h2{
             margin-bottom: 1.5rem;
@@ -43,7 +47,7 @@
 }
 
 .lateral_bar{
-        width: 5rem;
+        width: 3.5rem;
         height: 100%;
         position: absolute;
         right: 1rem;
@@ -83,6 +87,10 @@
             position: absolute;
             bottom: 9%;
             right: 1rem;
+            img{
+                height: 30px;
+                width: auto;
+            }
 
         }
         .menu_button{
@@ -93,3 +101,185 @@
             right: 1rem;
         }
     }
+    
+    .link-effect-4 {
+        span {
+            position: relative;
+            &::before {
+                position: absolute;
+                left: 0;
+                overflow: hidden;
+                max-height: 0;
+                color: #fff;
+                
+                -webkit-transition: max-height 0.5s;
+                -moz-transition: max-height 0.5s;
+                transition: max-height 0.5s;
+            }
+            &#portafolio::before {
+                content: "Portafolio";
+            }
+            &#mam::before {
+                content: "Miguel Angel Martinez";
+            }
+            &#historias::before {
+                content: "Historias";
+            }
+            &#contacto::before {
+                content: "Contacto";
+            }
+            &:hover{
+                &::before{
+                    max-height: 100%;
+                }
+            }
+        }
+    } 
+    // The micro clearfix 
+    // ------------------
+    @mixin clearfix { 
+        *zoom:1;
+        &:before, &:after { 
+            content: ""; 
+            display: table; 
+        }
+        &:after { 
+            clear: both; 
+        }
+    }
+    .link-effect-2{
+        overflow: hidden;
+        p {
+            overflow: hidden;
+           /* padding: 20px;
+            height: 1em;*/
+            color: #b9a26a !important;
+            font-weight: 400;
+             span {
+                position: relative;
+                display: inline-block;
+                transition: 0.3s;
+                writing-mode: vertical-lr;
+                &::before {
+                    color: white;
+                    position: absolute;
+                    top: 100%;
+                    
+                    font-weight: 800;
+                    transform: translate3d(0,0,0);
+                }
+                &#instagram::before{
+                    content: "Instagram";
+                }
+                &#facebook::before{
+                    content: "Facebook";
+                }
+                &#twitter::before{
+                    content: "Twitter";
+                }
+            }
+            &:hover{
+                span{
+                    transform: translateY(-100%);
+                }
+            }
+        }
+    }
+    
+
+.burger-click-region{
+    width:30px;
+    height: 30px;
+}
+.burger-menu-piece {
+  display: block;
+  position: absolute;
+  width: 30px;
+  border-top: 6px solid #a2a2a2;
+  transform-origin: 50% 50%;
+  transition: transform $menu-animation-duration $menu-animation-timing;
+  
+  &:nth-child(1) {
+    top: 0;
+  }
+  
+  &:nth-child(2) {
+    top: 12px;
+    opacity: 1;
+    transition: transform $menu-animation-duration $menu-animation-timing, opacity 0ms linear $menu-animation-duration / 2;
+  }
+  
+  &:nth-child(3) {
+    top: 24px;
+  }
+  
+  .active & {
+    
+      &:nth-child(1) {
+        animation: burger-open-top $menu-animation-duration $menu-animation-timing forwards;
+        border-top: 6px solid #a2a2a2;
+      }
+    
+      &:nth-child(2) {
+        opacity: 0;
+        transition: transform $menu-animation-duration $menu-animation-timing, opacity 0ms linear $menu-animation-duration / 2;
+      }
+    
+      &:nth-child(3) {
+        animation: burger-open-bot $menu-animation-duration $menu-animation-timing forwards;
+        border-top: 6px solid $golden;
+      }
+  }
+  
+  .closing & {
+    &:nth-child(1) {
+      animation: burger-close-top $menu-animation-duration $menu-animation-timing forwards;
+    }
+    
+    &:nth-child(3) {
+      animation: burger-close-bot $menu-animation-duration $menu-animation-timing forwards;
+    }
+  }
+}
+
+@keyframes burger-open-top {
+  50% {
+    transform: translate3d(0, 12px, 0);
+  }
+  100% {
+    transform: translate3d(0, 12px, 0) rotate(45deg);
+  }
+}
+
+@keyframes burger-open-bot {
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+  100% {
+    transform: translate3d(0, -12px, 0) rotate(-45deg);
+  }
+}
+
+@keyframes burger-close-top {
+  0% {
+    transform: translate3d(0, 12px, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate3d(0, 12px, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes burger-close-bot {
+  0% {
+    transform: translate3d(0, -12px, 0) rotate(-45deg);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

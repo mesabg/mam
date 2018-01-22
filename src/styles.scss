@@ -16,6 +16,25 @@
 body{
 	overflow-x: hidden !important;
 }
+.slick-prev:before{
+	content: url("assets/svg/_on.svg") !important;
+	transform: rotateY(90deg);
+}
+.slick-next:before{
+	content: url("assets/svg/_on.svg") !important;
+}
+.bannerHome{
+	.slick-prev.slick-arrow{
+    	color: white;
+        left: 6rem;
+        z-index: 30;
+	}
+	.slick-next.slick-arrow{
+		color: white;
+		right: 6.5rem;
+		z-index: 30;
+	}
+}
 .container-image:hover{
 	img{
 		-moz-transform: scale(1.08,1.08);

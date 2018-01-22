@@ -1,3 +1,4 @@
+/*tslint:disable*/
 import { 
 	Component, 
 	OnInit,
@@ -29,6 +30,7 @@ export class HeaderStickyComponent implements OnInit {
 
   ngOnInit() {
   }
+
  public greaterWidth():void{
  	if(! this.expanded){
  		$(".stickybar").css("width", "100vw");

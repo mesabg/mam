@@ -18,32 +18,9 @@ input, textarea{
 body{
 	overflow-x: hidden !important;
 }
-<<<<<<< HEAD
-.slick-prev:before{
-	content: url("assets/svg/_on.svg") !important;
-	transform: rotateY(90deg);
-}
-.slick-next:before{
-	content: url("assets/svg/_on.svg") !important;
-}
-.bannerHome{
-	.slick-prev.slick-arrow{
-    	color: white;
-        left: 6rem;
-        z-index: 30;
-	}
-	.slick-next.slick-arrow{
-		color: white;
-		right: 6.5rem;
-		z-index: 30;
-	}
-}
-.container-image:hover{
-=======
 .container-image-full:hover,
 .container-image-rigth:hover,
 .container-image-left:hover{
->>>>>>> fe4897306f64b209459a0af83d230436c13a2bb3
 	img{
 		-moz-transform: scale(1.08,1.08);
     	-ms-transform: scale(1.08,1.08);

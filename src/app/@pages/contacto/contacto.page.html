@@ -1,2 +1,28 @@
-<mam-instance-box-preguntas></mam-instance-box-preguntas>
+<mam-instance-header-sticky></mam-instance-header-sticky>
+<mam-instance-header (onClick)="changeMenu()"></mam-instance-header>
+<br>
+<div class="container">
+	<div class="row">
+		<h2 class="title" style="text-align: center;">{{contacto.text}}</h2>
+		<br>
+		<p class="featured_content">{{contacto.description}}</p>
+	</div>
+</div>
+<br>
 <mam-instance-box-form></mam-instance-box-form>
+<br>
+<div class="container">
+	<div class="row">
+		<h2 class="title" >Preguntas frecuentes</h2>
+	</div>
+</div>
+<mam-instance-box-preguntas [questions]="preguntas" ></mam-instance-box-preguntas>
+<br>
+<div class="container">
+	<div class="row">
+		<h4 class="featured_content">Para otras preguntas escribenos a <strong>MAMFOTOGRAFO@GMAIL.COM</strong></h4>
+	</div>
+</div>
+
+<mam-instance-banner-instagram></mam-instance-banner-instagram>
+<mam-instance-box-agradecimiento></mam-instance-box-agradecimiento>

@@ -1,0 +1,1 @@
+export { InstanceBoxHistoriaComponent } from './instance-box-historia.component';

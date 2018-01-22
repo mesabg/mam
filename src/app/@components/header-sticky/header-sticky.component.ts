@@ -34,12 +34,36 @@ export class HeaderStickyComponent implements OnInit {
  		$(".stickybar").css("width", "100vw");
  		$("body").addClass("blockScroll");
  		this.expanded =true;
+ 		$(".hamButton").removeClass("fa-bars");
+ 		$(".hamButton").addClass("fa-times");
  	}
  	else{
  		this.expanded =false;
  		setTimeout(function(){
  			$(".stickybar").css("width", "100px");
  			$("body").removeClass("blockScroll");
+ 			$(".hamButton").removeClass("fa-times");
+ 			$(".hamButton").addClass("fa-bars");
+ 		},1000);
+ 		
+ 	}
+ 	
+ }
+  public greaterWidthMobile():void{
+ 	if(! this.expanded){
+ 		$(".stickybar-mobile").css("width", "100vw");
+ 		$("body").addClass("blockScroll");
+ 		this.expanded =true;
+ 		$(this).removeClass("fa-bars");
+ 		$(this).addClass("fa-times");
+ 	}
+ 	else{
+ 		this.expanded =false;
+ 		setTimeout(function(){
+ 			$(".stickybar-mobile").css("width", "100px");
+ 			$("body").removeClass("blockScroll");
+ 			$(this).removeClass("fa-times");
+ 			$(this).addClass("fa-bars");
  		},1000);
  		
  	}

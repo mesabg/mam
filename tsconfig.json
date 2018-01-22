@@ -33,6 +33,7 @@
       "@mam/pages": ["./app/@pages"],
       "@mam/services": ["./app/@services"],
       "@mam/interfaces": ["./app/#interfaces"],
+      "@mam/enums": ["./app/#enums"],
       "@mam/responses": ["./app/@api/#responses"]
     }
   }

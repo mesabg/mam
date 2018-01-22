@@ -1,7 +1,7 @@
 /**
  * Global components
  */
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { ThumbImage } from '@mam/interfaces';
 import { ImageResponse } from '@mam/responses';
 
@@ -14,6 +14,7 @@ import { ImageResponse } from '@mam/responses';
 export class InstanceThumbnailImageComponent implements OnInit, OnChanges {
 	@Input('image') public image:ImageResponse;
 	@Input('position') public position:number;
+	@Output('onClick') public onClick:EventEmitter<any> = new EventEmitter<any>();
 
 	public thumb_Image:ThumbImage;
 	private options:string[] = ['full', 'right', 'left', 'right'];

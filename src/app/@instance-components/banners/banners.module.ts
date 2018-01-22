@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -11,8 +12,8 @@ import { ApiModule } from '@mam/api';
 import { ComponentsModule } from '@mam/components';
 import { InstanceBannerMiembrosComponent } from './instance-banner-miembros';
 import { InstanceBannerInstagramComponent } from './instance-banner-instagram';
-import { InstanceBannerLogrosComponent } from './instance-banner-logros';
-import { InstanceBannerAptitudesComponent } from './instance-banner-aptitudes';
+import { BannerInstanceLogrosComponent } from './banner-instance-logros';
+import { BannerInstanceAptitudesComponent } from './banner-instance-aptitudes';
 
 
 /**
@@ -27,15 +28,14 @@ import { InstanceBannerAptitudesComponent } from './instance-banner-aptitudes';
 	declarations: [
 		InstanceBannerMiembrosComponent,
 		InstanceBannerInstagramComponent,
-		InstanceBannerLogrosComponent,
-		InstanceBannerAptitudesComponent,
-		
+		BannerInstanceLogrosComponent,
+		BannerInstanceAptitudesComponent,
 	],
 	exports: [
 		InstanceBannerMiembrosComponent,
 		InstanceBannerInstagramComponent,
-		InstanceBannerAptitudesComponent,
-		InstanceBannerLogrosComponent
+		BannerInstanceAptitudesComponent,
+		BannerInstanceLogrosComponent
 	]
 })
 export class BannersModule { }

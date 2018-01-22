@@ -1,4 +1,5 @@
 export interface Aptitud {
-	img:string;
+    img:string;
+    title:string;
     content:string;
 }

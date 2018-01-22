@@ -10,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeModule } from './@pages/home/home.module';
 import { ContactoModule } from './@pages/contacto/contacto.module';
 import { HistoriasModule } from './@pages/historias/historias.module';
+import { HistoriaDetalleModule } from './@pages/historia-detalle/historia-detalle.module';
 import { MamModule } from './@pages/mam/mam.module';
 import { PortafolioModule } from './@pages/portafolio/portafolio.module';
 import { NotFoundModule } from './@pages/not-found/not-found.module';
@@ -17,6 +18,7 @@ import { NotFoundModule } from './@pages/not-found/not-found.module';
 import { HomePage } from './@pages/home/home.page';
 import { ContactoPage } from './@pages/contacto/contacto.page';
 import { HistoriasPage } from './@pages/historias/historias.page';
+import { HistoriaDetallePage } from './@pages/historia-detalle/historia-detalle.page';
 import { MamPage } from './@pages/mam/mam.page';
 import { PortafolioPage } from './@pages/portafolio/portafolio.page';
 import { NotFoundPage } from './@pages/not-found/not-found.page';
@@ -43,6 +45,10 @@ const routes: Routes = [
 		component: HistoriasPage
 	},
 	{
+		path: 'historia-detalle/:slug',
+		component: HistoriaDetallePage
+	},
+	{
 		path: 'mam',
 		component: MamPage
 	},
@@ -65,6 +71,7 @@ const routes: Routes = [
 		MamModule,
 		PortafolioModule,
 		NotFoundModule,
+		HistoriaDetalleModule,
 		RouterModule.forRoot(routes, {useHash: true})
 	],
 	exports: [RouterModule]

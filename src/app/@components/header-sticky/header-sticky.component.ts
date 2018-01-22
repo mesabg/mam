@@ -1,3 +1,4 @@
+/*tslint:disable*/
 import { 
 	Component, 
 	OnInit,
@@ -29,6 +30,7 @@ export class HeaderStickyComponent implements OnInit {
 
   ngOnInit() {
   }
+
  public greaterWidth():void{
  	if(! this.expanded){
  		$(".stickybar").css("width", "100vw");
@@ -76,4 +78,27 @@ export class HeaderStickyComponent implements OnInit {
 	this.router.navigateByUrl(url);
 	$("body").removeClass("blockScroll");
  }
+
+ public burgerEffect (){
+	var clickDelay = 500,
+    clickDelayTimer = null;
+	if(clickDelayTimer === null) {
+		var $burger = $(".burger-click-region");
+		if($burger.hasClass('active')) {
+			$burger.addClass('closing');
+			$burger.removeClass('active');
+		}
+		else{
+			$burger.addClass('active');
+		}
+		clickDelayTimer = setTimeout(function () {
+		$burger.removeClass('closing');
+		clearTimeout(clickDelayTimer);
+		clickDelayTimer = null;
+		}, clickDelay);
+	}
+
+ }
+ 
+
 }

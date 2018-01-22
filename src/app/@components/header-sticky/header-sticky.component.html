@@ -4,11 +4,11 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <div class="ghost-header">
 				<img src="assets/images/logo.png" alt="" class="logo">
-				<div class="links">
-					<h2 class="menu_section" > <span class="menu_section" mouseable (click)="goto('portafolio')">Portafolio</span> </h2>
-					<h2 class="menu_section" > <span class="menu_section" mouseable>Historias</span> </h2>
-					<h2 class="menu_section" > <span class="menu_section" mouseable>Miguel Angel Martinez</span> </h2>
-					<h2 class="menu_section" > <span class="menu_section" mouseable>Contacto</span> </h2>
+				<div class="links link-effect-4">
+					<h2 class="menu_section" > <span class="menu_section" id="portafolio" mouseable (click)="goto('portafolio')">Portafolio</span> </h2>
+					<h2 class="menu_section" > <span class="menu_section" id="historias" mouseable>Historias</span> </h2>
+					<h2 class="menu_section" > <span class="menu_section" id="mam" mouseable>Miguel Angel Martinez</span> </h2>
+					<h2 class="menu_section" > <span class="menu_section" id="contacto" mouseable>Contacto</span> </h2>
 				</div>
 			</div>
 	    </div>
@@ -17,12 +17,22 @@
 	<div class="lateral_bar">
 		<div class="relative">
 			<div class="menu_button">
-				<i class="fa fa-bars navbar-toggle hamButton" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbar" (click)="greaterWidth()"></i>
+				<!--<i class="fa fa-bars navbar-toggle hamButton" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbar" (click)="greaterWidth()"></i>-->
+				<div class="burger-click-region" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbar" (click)="greaterWidth();burgerEffect()">
+						<span class="burger-menu-piece"></span>
+						<span class="burger-menu-piece"></span>
+						<span class="burger-menu-piece"></span>
+				</div>
+			</div>
+			<div class="link-effect-2">
+					<p class="social_links social-instagram " golden ><span id="instagram" >Instagram</span></p> 
+					<p class="social_links social-facebook " golden ><span id="facebook">Facebook</span></p> 
+					<p class="social_links social-twitter " golden  ><span id="twitter">Twitter</span></p> 
 			</div>	
-			<p class="social_links social-instagram " golden ><span >Instagram</span></p> 
-			<p class="social_links social-facebook " golden ><span >Facebook</span></p> 
-			<p class="social_links social-twitter " golden ><span >Twitter</span></p> 
-			<div class="chat"><i class="fa fa-comments " golden aria-hidden="true"></i></div>
+			
+			<div class="chat">
+				<img src="assets/svg/contact-on.svg" alt="">
+			</div>
 		</div>
 	</div>
 </div>

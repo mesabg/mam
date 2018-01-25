@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -42,6 +43,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	 * Input
 	 */
 	@Input('bannerImages') public bannerImages:ImageResponse[];
+	@Input('miniaturas') public miniaturas:Miniatura[];
 
 	
 	/**
@@ -57,8 +59,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	/**
 	 * Events
 	 */
-	ngOnInit() { 
-		this.parse();}
+	ngOnInit() { this.parse();}
 	ngOnChanges() { }
 	ngAfterViewInit() {
 		this.initSlickJS();
@@ -70,15 +71,15 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	 */
 	private initSlickJS():void{
 		this.$carousel = new SlickJS($(this.$carouselView.nativeElement), SETTINGS);
+		this.$carousel.eventAfterChange.subscribe(event => {
+			let slide = event.currentSlide.currentSlide;
+			this.miniatura = this.miniaturas[slide];
+		});
 	}
 
 
 	private parse():void{
-		this.miniatura = {
-			content: "Lorem ipsum dolor sit amet, consectetur aoris ipsa.",
-			author: "Lorem ipsum dolor sit amet, consectetur aoris ipsa." ,
-			image: "assets/images/foto-01.png",
-		};
+		this.miniatura = this.miniaturas[0];
 	}
 
 

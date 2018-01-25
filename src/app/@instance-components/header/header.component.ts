@@ -1,38 +1,55 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
-import { Component, OnInit } from '@angular/core';
+import { 
+	Component, 
+	OnInit,
+	ViewChild,
+	ViewContainerRef,
+	ComponentFactory,
+	ComponentFactoryResolver } from '@angular/core';
 
 /**
  * Local imports
  */
 import { ImageApi } from '@mam/api';
 import { ImageResponse } from '@mam/responses';
+import { Miniatura } from '@mam/interfaces';
+import { HeaderComponent as Header } from '@mam/components';
 
 /**
  * Header Instance
  */
 @Component({
 	selector: 'mam-instance-header',
-	templateUrl: './header.component.html'
+	template: '<div #renderer></div>',
 })
 export class HeaderComponent implements OnInit {
-	public bannerImages:ImageResponse[];
-	constructor(private bannerApi:ImageApi) { }
+	@ViewChild('renderer', {read:ViewContainerRef}) private renderer:ViewContainerRef;
+
+	constructor(
+		private bannerApi:ImageApi, 
+		private resolver:ComponentFactoryResolver) { }
 
 	/**
 	 * Events
 	 */
-	ngOnInit() {
-		this.retrieve();
+	async ngOnInit() {
+		this.render(await this.bannerApi.getBannerHomeImages(), await this.bannerApi.getBannerHomeImagesTestimonies());
 	}
 
 	/**
 	 * Actions
 	 */
-	private retrieve (){
-		this.bannerApi.getBannerHomeImages().subscribe((response:ImageResponse[]) =>{
-			this.bannerImages = response;
-		});
+	private render (images:ImageResponse[], testimonies:Miniatura[]){
+		//-- Creating component
+		let factory = this.resolver.resolveComponentFactory(Header);
+		let reference = this.renderer.createComponent(factory);
+		let component = (<Header>reference.instance);
+
+		//-- Setting component params
+		component.bannerImages = images;
+		component.miniaturas = testimonies;
 	}
 }

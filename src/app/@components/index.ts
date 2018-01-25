@@ -8,3 +8,5 @@ export { ComponentsModule } from './@components.module';
 export { BannerInstagramComponent } from './banners';
 
 export { ThumbnailInstagramCarouselComponent } from './thumbnails';
+
+export { HeaderComponent } from './header';

@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -43,6 +44,9 @@ import { HeaderStickyComponent } from './header-sticky';
 		FooterComponent,
 		BoxesModule,
 		HeaderStickyComponent
+	],
+	entryComponents: [
+		HeaderComponent
 	]
 })
 export class ComponentsModule { }

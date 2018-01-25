@@ -39,8 +39,9 @@ export class HomePage implements OnInit {
 	 * Actions
 	 */
 	private retrieve():void{
-		this.images = this.api.getHomeImages();
+		this.images = this.api.getHighlightImages();
 	}
+
 	private async getQuote(): Promise<void> {
 		let response = await this.mamApi.getBiography();
 		this.featuredContent = {

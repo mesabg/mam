@@ -1,7 +1,13 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
 import { Component, OnInit } from '@angular/core';
+
+/**
+ * Local imports
+ */
+import { MAMApi } from '@mam/api';
 
 /**
  * Header Instance
@@ -11,7 +17,8 @@ import { Component, OnInit } from '@angular/core';
 	templateUrl: './footer.component.html'
 })
 export class FooterComponent implements OnInit {
-	constructor() { }
+	public description:Promise<string>;
+	constructor(private mamApi:MAMApi) { }
 
 	/**
 	 * Events
@@ -23,5 +30,7 @@ export class FooterComponent implements OnInit {
 	/**
 	 * Actions
 	 */
-	private retrieve (){ }
+	private retrieve (){
+		this.description = this.mamApi.getContactoBrief();
+	}
 }

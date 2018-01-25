@@ -3,18 +3,8 @@
 		<h4 class="title" font-center font-uppercase> {{ titulo }} </h4>
 	</div>
 
+	<div #render></div>
 	<div class="col-12">
-		<div #carousel carousel>
-			<div *ngFor="let resource of instagram;" element class="container-image">
-				<div element-wrapper>
-					<img 
-						[attr.src]="resource.image" 
-						[attr.alt]="resource.name">
-				</div>
-				<div description>
-					<p class="quote"> {{resource.description}} </p>
-				</div>
-			</div>
-		</div>
+		<div #carousel carousel></div>
 	</div>
 </div>

@@ -49,6 +49,22 @@ export class ImageApi {
 			});*/
 	}
 
+	public getHighlightImages():Observable<ImageResponse[]>{
+		return this.apiService
+				.get('highlights')
+				.map(response => response.json())
+				.map(response => {
+					return response.article.map(article => {
+						return {
+							image: article.main.url,
+							name: article.name,
+							place: article.location,
+							description: null
+						}
+					});
+				});
+	}
+
 
 	public getHomeImages():Observable<ImageResponse[]>{
         return Observable.create(observer => {
@@ -125,14 +141,13 @@ export class ImageApi {
 	}
 
 
-	public getInstagramImages_():Observable <ImageResponse[]>{
+	public getInstagramImages_():Promise <ImageResponse[]>{
 			//let url = "https://api.instagram.com/v1/users/453683505/?access_token=1938189795.b070b02.1811e2423c574187b8fe7c67a2890f8a";
 			let url = "https://www.instagram.com/mamfotografo/?__a=1";
 			return this.apiService
 					.get(url, true)
 					.map(response => response.json())
 					.map(response => {
-						console.log("Response :: ", response);
 						return response.user.media.nodes.map(element => {
 							let n = element.thumbnail_resources.length;
 							return {
@@ -142,6 +157,6 @@ export class ImageApi {
 								place: null
 							};
 						});
-					});
+					}).toPromise();
 	}
 }

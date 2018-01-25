@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global components
  */
@@ -33,6 +34,5 @@ export class InstanceThumbnailImageComponent implements OnInit, OnChanges {
 			position: this.options[this.position % 4],
 			place: this.image.place
 		};
-		console.log("Here", this.thumb_Image);
 	}
 }

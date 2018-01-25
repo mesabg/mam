@@ -128,4 +128,18 @@ export class MAMApi {
 			return reason;
 		}
 	}
+
+
+	public async getContactoBrief(): Promise<any>{
+		try {
+			return this.apiService
+					.get('CTA-contact')
+					.map(response => response.json())
+					.map(response => response.page[0].content.brief)
+					.toPromise();
+		} catch (reason) {
+			console.log("An error ocurred while retrieving contact brief");
+			return reason;
+		}
+	}
 }

@@ -20,7 +20,7 @@ import { ImageResponse } from './#responses';
  */
 @Injectable()
 export class ImageApi {
-	constructor(private apiService:ApiService) { }
+	constructor(private apiService:ApiService) {}
 
 	/**
 	 * Get Banner Images
@@ -122,5 +122,26 @@ export class ImageApi {
             observer.next(response);
             observer.complete();
         });
+	}
+
+
+	public getInstagramImages_():Observable <ImageResponse[]>{
+			//let url = "https://api.instagram.com/v1/users/453683505/?access_token=1938189795.b070b02.1811e2423c574187b8fe7c67a2890f8a";
+			let url = "https://www.instagram.com/mamfotografo/?__a=1";
+			return this.apiService
+					.get(url, true)
+					.map(response => response.json())
+					.map(response => {
+						console.log("Response :: ", response);
+						return response.user.media.nodes.map(element => {
+							let n = element.thumbnail_resources.length;
+							return {
+								image: element.thumbnail_resources[ n == 0 ? 0 : n - 1 ].src,
+								description: element.caption,
+								name: null,
+								place: null
+							};
+						});
+					});
 	}
 }

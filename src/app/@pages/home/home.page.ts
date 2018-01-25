@@ -41,11 +41,10 @@ export class HomePage implements OnInit {
 	private retrieve():void{
 		this.images = this.api.getHomeImages();
 	}
-	private async getQuote(): Promise<void>{
+	private async getQuote(): Promise<void> {
 		let response = await this.mamApi.getBiography();
-		console.log("Response is :: ", response);
 		this.featuredContent = {
-			content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nihil laboriosam quis deleniti hic debitis possimus, voluptatum consectetur placeat cupiditate numquam, repellendus veniam sit dicta quaerat, corrupti ducimus cum ab.",
+			content: response.biography[0].authorQuote,
 			author: "Miguel Ángel Martínez"
 		}
 	}

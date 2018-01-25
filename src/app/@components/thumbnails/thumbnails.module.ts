@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThumbnailImageComponent } from './thumbnail-image';
 import { ThumbnailBlockImageComponent } from './thumbnail-block-image';
+import { ThumbnailInstagramCarouselComponent } from './thumbnail-instagram-carousel';
 
 /**
  * This module contains all the main thumbnails
@@ -15,11 +16,16 @@ import { ThumbnailBlockImageComponent } from './thumbnail-block-image';
 	],
 	declarations: [
 		ThumbnailImageComponent,
-		ThumbnailBlockImageComponent
+		ThumbnailBlockImageComponent,
+		ThumbnailInstagramCarouselComponent
 	],
 	exports: [
 		ThumbnailImageComponent,
-		ThumbnailBlockImageComponent
+		ThumbnailBlockImageComponent,
+		ThumbnailInstagramCarouselComponent
 	],
+	entryComponents: [
+		ThumbnailInstagramCarouselComponent
+	]
 })
 export class ThumbnailsModule { }

@@ -4,6 +4,8 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 /**
  * Local imports
@@ -33,7 +35,9 @@ export class InstanceBannerInstagramComponent implements OnInit {
 	/**
 	 * Actions
 	 */
-	private retrieve():void{
-		this.instagram = this.api.getInstagramImages();
+	private async retrieve(): Promise<void>{
+		this.instagram = this.api.getInstagramImages_();
+		let response = await this.api.getInstagramImages_().toPromise();
+		console.log("Response is :: ", response);
 	}
 }

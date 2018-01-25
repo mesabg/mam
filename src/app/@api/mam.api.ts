@@ -122,7 +122,7 @@ export class MAMApi {
 
 	public async getBiography(): Promise<any> {
 		try {
-			return (await this.apiService.get('biography').toPromise());
+			return (await this.apiService.get('biography').map(response => response.json()).toPromise());
 		} catch (reason) {
 			console.log("An error ocurred while retrieving biography data");
 			return reason;

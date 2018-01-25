@@ -24,8 +24,9 @@ export class ApiService {
 		this.headers.append('Content-Type', 'application/json');
 	}
 
-	public get(method: string): Observable<any> {
-		return this.http.get(this.baseUrl + method, { headers: this.headers} );
+	public get(method: string, fullUrl: boolean = false): Observable<any> {
+		if (!fullUrl) { return this.http.get(this.baseUrl + method); }
+		return this.http.get(method);
 	}
 
 	public post(method: string, body: any): Observable<any> {

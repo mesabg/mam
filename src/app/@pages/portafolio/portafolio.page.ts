@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -36,7 +37,7 @@ export class PortafolioPage implements OnInit {
 	 * Actions
 	 */
 	private retrieve():void{
-		this.images = this.api.getHomeImages();
+		this.images = this.api.getHighlightImages();
 	}
 
 	public changeMenu(){

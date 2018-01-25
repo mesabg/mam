@@ -1,0 +1,9 @@
+
+@font-face {
+	font-family: 'Raleway-ExtraLight';
+	src: url('fonts/Raleway-ExtraLight.eot');
+	src: local('☺'), url('fonts/Raleway-ExtraLight.woff') format('woff'), url('fonts/Raleway-ExtraLight.ttf') format('truetype'), url('fonts/Raleway-ExtraLight.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+

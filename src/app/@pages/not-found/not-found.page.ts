@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -20,7 +21,6 @@ import { ImageResponse } from '@mam/responses';
 })
 export class NotFoundPage implements OnInit {
 	public images:Observable<ImageResponse[]>;
-	public instagram:Observable<ImageResponse[]>;
 	public titulo:string = "Sigue estas y otras historias en instagram";
 
 	constructor(private api:ImageApi) { }
@@ -37,7 +37,6 @@ export class NotFoundPage implements OnInit {
 	 * Actions
 	 */
 	private retrieve():void{
-		this.images = this.api.getHomeImages();
-		this.instagram = this.api.getInstagramImages();
+		this.images = this.api.getHighlightImages();
 	}
 }

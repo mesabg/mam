@@ -39,7 +39,7 @@ export class HistoriasPage implements OnInit {
 	 * Actions
 	 */
 	private retrieve():void{
-		this.images = this.api.getHomeImages();
+		this.images = this.api.getHighlightImages();
 	}
 	private getQuote():void{
 		this.featuredContent ={

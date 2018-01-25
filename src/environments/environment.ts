@@ -5,12 +5,10 @@
 
 export const environment = {
 	production: false,
-	API:{
-		BASE: "http://",
-		VERSION: "v1",
+	API: {
+		BASE: 'https://mam-restful-api.herokuapp.com/api',
 		URL: function(){
-			return `${environment.API.BASE}/${environment.API.VERSION}/`;
-		},
-		KEY: "Q0FOSUE="
+			return `${environment.API.BASE}/`;
+		}
 	}
 };

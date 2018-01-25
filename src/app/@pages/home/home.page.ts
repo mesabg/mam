@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -7,9 +8,10 @@ import { Observable } from 'rxjs';
 /**
  * Local imports
  */
-import { ImageApi } from '@mam/api';
+import { ImageApi, MAMApi } from '@mam/api';
 import { ImageResponse } from '@mam/responses';
 import { featuredContent} from '@mam/interfaces';
+
 /**
  * PAGE => Home
  */
@@ -22,7 +24,7 @@ export class HomePage implements OnInit {
 	public images:Observable<ImageResponse[]>;
 	public featuredContent:featuredContent;
 	
-	constructor(private api:ImageApi) { }
+	constructor(private api:ImageApi, private mamApi:MAMApi) { }
 
 	/**
 	 * Events
@@ -39,10 +41,12 @@ export class HomePage implements OnInit {
 	private retrieve():void{
 		this.images = this.api.getHomeImages();
 	}
-	private getQuote():void{
-		this.featuredContent ={
+	private async getQuote(): Promise<void>{
+		let response = await this.mamApi.getBiography();
+		console.log("Response is :: ", response);
+		this.featuredContent = {
 			content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nihil laboriosam quis deleniti hic debitis possimus, voluptatum consectetur placeat cupiditate numquam, repellendus veniam sit dicta quaerat, corrupti ducimus cum ab.",
-			author: "Miguel Angel Martinez"
+			author: "Miguel Ángel Martínez"
 		}
 	}
 

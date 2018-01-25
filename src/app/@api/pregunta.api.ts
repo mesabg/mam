@@ -1,3 +1,4 @@
+/*tslint:disable*/
 /**
  * Global imports
  */
@@ -5,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 /**
  * Local imports
@@ -19,15 +21,15 @@ import { PreguntaResponse } from './#responses';
  */
 @Injectable()
 export class PreguntaApi {
-	constructor(private apiService:ApiService) { }
+	constructor(private apiService: ApiService) { }
 
 	/**
 	 * Get preguntas contact
 	 */
 
-	public getContactQuestions():Observable<PreguntaResponse[]>{
+	public getContactQuestions(): Observable<PreguntaResponse[]>{
         return Observable.create(observer => {
-            let response:PreguntaResponse[] = [
+            let response: PreguntaResponse[] = [
                 {
                     question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit laborum, blanditiis rerum minima doloribus quos, pariatur animi repudiandae repellendus molestias dicta dignissimos labore dolorum error ipsum ut aut. Distinctio, inventore!',
 					answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde molestias inventore, voluptatem consequatur harum dolorem et doloremque optio. Obcaecati consectetur distinctio voluptates saepe dolor molestias labore eius placeat, nihil alias.',

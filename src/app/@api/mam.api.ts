@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 /**
  * Local imports
@@ -116,5 +117,15 @@ export class MAMApi {
             observer.next(response);
             observer.complete();
         });
+	}
+
+
+	public async getBiography(): Promise<any> {
+		try {
+			return (await this.apiService.get('biography').toPromise());
+		} catch (reason) {
+			console.log("An error ocurred while retrieving biography data");
+			return reason;
+		}
 	}
 }

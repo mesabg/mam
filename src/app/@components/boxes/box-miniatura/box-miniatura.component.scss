@@ -8,8 +8,9 @@
 	height: 100%;
 }
 .Image_Miniatura{
-	height: 100px;
-	width: 100px;
+	height: 100%;
+	//width: 100px;
+	width: auto;
 }
 .miniatura_content{
 	text-align: left;
@@ -27,6 +28,9 @@
 }
 .image_box{
 	float: left;
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
 }
 .text_box{
 	padding-left: 20%;

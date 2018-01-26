@@ -28,11 +28,17 @@ export class DirectorioApi {
         return Observable.create(observer => {
             let response:DirectorioResponse[] = [
                 {
-                    logo: 'assets/images/fearless.png',
-                    name: 'FEARLESS'
+                    logo: 'https://www.fearlessphotographers.com/banner-display.cfm?photogID=7836',
+                    name: 'FEARLESS',
+                    iframe: true,
+                    clickeable: true
+                    
                 },{
-                    logo: 'assets/images/mywed.png',
-                    name: 'Mywed'
+                    logo: 'https://mywed.com/images/mywed-logo/logo_mywed_vertical_black.svg',
+                    name: 'Los mejores fotógrafos de boda de todo el mundo están en MyWed',
+                    iframe: false,
+                    url: "https://mywed.com/es/",
+                    clickeable:true
                 }
             ];
             observer.next(response);

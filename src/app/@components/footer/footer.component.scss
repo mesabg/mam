@@ -62,13 +62,40 @@
 		min-width: 280px;
 		min-height: 48px;
 	}
-
+	.btn-special-nohover{
+		color: #b9a26a;
+		cursor: pointer;
+		display: block;
+	    margin: 0 auto;
+		position: relative;
+		text-decoration: none;
+		vertical-align: middle;
+		width: 100%; 
+		background: none;
+		border-color: transparent;
+		min-width: 280px;
+		min-height: 48px;
+	}
+	.btn-special-nohover svg{
+		height: 48px;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%; 
+	}
 	.btn-special svg {
 	   height: 48px;
 	   left: 0;
 	   position: absolute;
 	   top: 0;
 	   width: 100%; 
+	}
+	.btn-special-nohover rect{
+		fill: none;
+	    stroke: #b9a26a;
+	    stroke-width: 2;
+	    stroke-dasharray: 403, 0;
+	    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1); 
 	}
 	.btn-special rect {
 	    fill: none;
@@ -93,6 +120,18 @@
 		transform: translate(0,-50%);
 		width: 100%;
 
+	}
+}
+.no-pointer {
+	cursor: default !important;
+	a{
+		cursor: default !important;
+		svg{
+			cursor: default !important;
+		}
+		span{
+			cursor: default !important;
+		}
 	}
 }
 /*

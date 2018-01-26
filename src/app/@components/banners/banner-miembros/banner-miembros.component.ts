@@ -8,6 +8,7 @@ import {
 	ViewChild,
 	ElementRef,
 	AfterViewInit } from '@angular/core';
+//import {DomSanitizationService} from '@angular/platform-browser';
 declare const $:any;
 
 /**
@@ -36,14 +37,21 @@ export class BannerMiembrosComponent implements OnInit, AfterViewInit {
 	@ViewChild('carousel') private $carouselView:ElementRef;
 	private $carousel:SlickJS;
 
-	constructor() { }
+	//constructor(sanitizer:DomSanitizationService) { }
 
 	/**
 	 * Events
 	 */
-	ngOnInit() { }
+	ngOnInit() {
+		this.directorio.forEach( (data)=>{
+			//this.sanitizer.bypassSecurityTrustUrl(data.url);
+		})
+	 }
 	ngAfterViewInit() {
 		this.initSlickJS();
+	}
+	ngOnChanges(){
+
 	}
 
 

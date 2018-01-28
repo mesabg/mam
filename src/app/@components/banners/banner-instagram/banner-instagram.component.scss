@@ -1,11 +1,11 @@
 [component-wrapper]{
     margin-top: 3rem;
-    height: 60vh;
+    height: 80vh;
     background-color: white !important;
 
     [title]{
-        height: 5vh;
-        padding-top: 7vh;
+        height: 10vh;
+        padding-top: 5vh;
     }
 
 
@@ -23,7 +23,8 @@
             [element-wrapper]{
                 text-align: center;
                 overflow-y: hidden;
-                max-height: 220px;
+                //max-height: 220px;
+                position: relative;
                 img{
                     display:inline-block;
                     width: 100%;

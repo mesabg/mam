@@ -39,9 +39,11 @@ $menu-animation-timing:   ease-out;
         }
         .logo{
             position: absolute;
-            top: 0.5rem;
-            left: 2.2rem;
+            top: 1.5rem;
+            left: 1.5rem;
             z-index: 2;
+            height: 40px;
+            width: auto;  
         }
     }
 }
@@ -355,9 +357,11 @@ $menu-animation-timing:   ease-out;
         }
         .logo{
             position: absolute;
-            top: 0.5rem;
-            left: 2.2rem;
+            top: 1.5rem;
+            left: 1.5rem;
             z-index: 2;
+            height: 40px;
+            width: auto;
         }
     }
     .lateral_bar{

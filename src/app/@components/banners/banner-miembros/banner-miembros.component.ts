@@ -25,6 +25,7 @@ import { SETTINGS } from './banner-miembros.slick-config';
 	styleUrls: ['./banner-miembros.component.scss']
 })
 export class BannerMiembrosComponent implements OnInit, AfterViewInit {
+	
 	/**
 	 * Inputs
 	 */

@@ -42,7 +42,8 @@ export class HeaderStickyComponent implements OnInit {
  	else{
  		this.expanded =false;
  		setTimeout(function(){
- 			$(".stickybar").css("width", "100px");
+			 //$(".stickybar").css("width", "100px");
+			 $(".stickybar").css("width", "58px");
  			$("body").removeClass("blockScroll");
  			$(".hamButton").removeClass("fa-times");
  			$(".hamButton").addClass("fa-bars");

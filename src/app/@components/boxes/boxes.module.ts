@@ -16,6 +16,7 @@ import { BoxFormComponent } from './box-form';
 import { BoxTestimonioComponent } from './box-testimonio';
 import { BoxHistoriaComponent } from './box-historia';
 import { BoxAgradecimientoComponent } from './box-agradecimiento';
+import { BoxCollageComponent } from './box-collage';
 //import { MyDatePickerModule } from 'mydatepicker';
 
 @NgModule({
@@ -32,6 +33,7 @@ import { BoxAgradecimientoComponent } from './box-agradecimiento';
   	BoxTestimonioComponent,
   	BoxHistoriaComponent,
   	BoxAgradecimientoComponent,
+  	BoxCollageComponent,
    //// MyDatePickerModule
   ],
   exports: [
@@ -42,7 +44,8 @@ import { BoxAgradecimientoComponent } from './box-agradecimiento';
     BoxFormComponent,
     BoxTestimonioComponent,
     BoxHistoriaComponent,
-    BoxAgradecimientoComponent
+    BoxAgradecimientoComponent,
+    BoxCollageComponent
     //MyDatePickerModule
   ],
 

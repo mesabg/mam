@@ -45,6 +45,9 @@ a{
 		margin: 0;
 	}
 }
+.call-to-action-image{
+	z-index: 100;
+}
 @media only screen and (min-width:  320px) and (max-width: 375px) {
 	.container-image-full,.container-image-rigth,.container-image-left{
 		width: 100%;

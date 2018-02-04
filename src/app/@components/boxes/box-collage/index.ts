@@ -1,0 +1,1 @@
+export { BoxCollageComponent } from './box-collage.component';

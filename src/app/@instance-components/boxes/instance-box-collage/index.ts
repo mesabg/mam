@@ -1,0 +1,1 @@
+export { InstanceBoxCollageComponent } from './instance-box-collage.component';

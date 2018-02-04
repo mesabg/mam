@@ -11,6 +11,7 @@ import { InstanceBoxFormComponent } from './instance-box-form';
 import { InstanceBoxTestimonioComponent } from './instance-box-testimonio';
 import { InstanceBoxHistoriaComponent } from './instance-box-historia';
 import { InstanceBoxAgradecimientoComponent } from './instance-box-agradecimiento';
+import { InstanceBoxCollageComponent } from './instance-box-collage';
 
 
 
@@ -27,7 +28,8 @@ import { InstanceBoxAgradecimientoComponent } from './instance-box-agradecimient
   	InstanceBoxFormComponent,
   	InstanceBoxTestimonioComponent,
   	InstanceBoxHistoriaComponent,
-  	InstanceBoxAgradecimientoComponent
+  	InstanceBoxAgradecimientoComponent,
+  	InstanceBoxCollageComponent
   ],
   exports: [
 	  InstanceBoxMiniaturaComponent,
@@ -37,7 +39,8 @@ import { InstanceBoxAgradecimientoComponent } from './instance-box-agradecimient
     InstanceBoxFormComponent,
     InstanceBoxTestimonioComponent,
     InstanceBoxHistoriaComponent,
-    InstanceBoxAgradecimientoComponent
+    InstanceBoxAgradecimientoComponent,
+    InstanceBoxCollageComponent
   ]
 })
 export class BoxesModule { }

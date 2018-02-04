@@ -457,3 +457,23 @@ img{
 		}
 	}
   }
+
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1250px){
+	body{
+		width: 94vw !important;
+   }
+}
+
+@media only screen and (min-width: 1250px) and (max-width: 1440px){
+    body{
+		width: 95vw !important;
+   }
+}
+
+@media only screen and (min-width: 1440px){
+    body{
+		width: 96vw !important;
+   }
+}

@@ -2,7 +2,8 @@
     z-index: 10;
 }
 .banner{
-    width: 100vw;
+    //width: 100vw;
+    width: 96.4vw;
     height: 100vh;
     overflow-x: hidden !important;
     .logo{
@@ -28,14 +29,16 @@
         overflow-x: hidden !important;
 
         .image-container{
-            width: 100vw;
+            //width: 100vw;
+            width: 96.4vw;
             height: 100vh;
             background-color: black;
             text-align: center;
             overflow-y: hidden;
             position: relative;
             img{
-                width: 100vw;
+                //width: 100vw;
+                width: 96.4vw;
                 height: auto;
                 display: inline-block;
             }
@@ -46,3 +49,11 @@
 
 .logo:hover{ cursor: pointer; }
 
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+    .bannerHome{
+        .logo{
+            display: none;
+        }
+    }
+
+}

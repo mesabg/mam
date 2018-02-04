@@ -37,15 +37,19 @@ export class HeaderStickyComponent implements OnInit {
  		$("body").addClass("blockScroll");
  		this.expanded =true;
  		$(".hamButton").removeClass("fa-bars");
- 		$(".hamButton").addClass("fa-times");
+		$(".hamButton").addClass("fa-times");
+		$(".lateral_bar").addClass("dark-theme");
+		$(".chat").find("img").attr("src", "assets/svg/contact-on.svg");
  	}
  	else{
  		this.expanded =false;
  		setTimeout(function(){
 			 //$(".stickybar").css("width", "100px");
-			 $(".stickybar").css("width", "58px");
+			$(".stickybar").css("width", "3.6vw");
  			$("body").removeClass("blockScroll");
- 			$(".hamButton").removeClass("fa-times");
+			$(".hamButton").removeClass("fa-times");
+			$(".lateral_bar").removeClass("dark-theme");
+			$(".chat").find("img").attr("src", "assets/svg/contact-black.svg");
  			$(".hamButton").addClass("fa-bars");
  		},1000);
  		
@@ -54,20 +58,25 @@ export class HeaderStickyComponent implements OnInit {
  }
   public greaterWidthMobile():void{
  	if(! this.expanded){
- 		$(".stickybar-mobile").css("width", "100vw");
+ 		//$(".stickybar-mobile").css("width", "100vw");
  		$("body").addClass("blockScroll");
  		this.expanded =true;
- 		$(this).removeClass("fa-bars");
- 		$(this).addClass("fa-times");
+		$(this).removeClass("fa-bars");
+		$(".chat.mobile").find("img").hide();
+		$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-white.svg");
+		$(this).addClass("fa-times");
+		
  	}
  	else{
  		this.expanded =false;
  		setTimeout(function(){
- 			$(".stickybar-mobile").css("width", "100px");
+ 			//$(".stickybar-mobile").css("width", "100px");
  			$("body").removeClass("blockScroll");
- 			$(this).removeClass("fa-times");
+			$(this).removeClass("fa-times");
+			$(".chat.mobile").show();
+			$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-black.svg");
  			$(this).addClass("fa-bars");
- 		},1000);
+ 		},200);
  		
  	}
  	

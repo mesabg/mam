@@ -1,3 +1,4 @@
+$golden: #b9a26a;
 .call-to-action-image{
     z-index: 10;
 }
@@ -47,13 +48,72 @@
 }
 
 
+.loader:before{
+	display: block;
+	position: absolute;
+	content: "";
+	left: -100px;
+	width: 100px;
+	height: 10px;
+	background-color: $golden;
+    animation: loading linear infinite;
+    animation-duration: 6.4s;
+}
+@keyframes loading {
+    /*from {left: -100px; width: 10%;}
+    20% {width: 20%;}
+    40% {width: 40%;}
+	50% {width: 50%;}
+	70% {width: 70%;}
+	80% {left: 50%;}
+	95% {left: 120%;}
+    to {left: 100%;}*/
+    0%{ width: 10%}
+    100%{width: 110%}
+}
 .logo:hover{ cursor: pointer; }
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
-    .bannerHome{
+@media only screen and (min-width: 320px) and (max-width: 1023px) {
+    .banner{
+        height: auto;
+        padding-top: 8vh;
         .logo{
             display: none;
         }
     }
-
+    .banner-content{
+        height: 50vh !important;
+        .slick-list{
+            height: 100% !important;
+        }
+        .image-container{
+            height: 100% !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        img{
+            height: 100% !important;
+            width: auto !important;
+        }
+    }
+    .box-miniatura{
+        display: none;
+    }
+    .box-miniatura-mobile{
+        margin-bottom: 2rem;
+    }
 }
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .banner-content{
+        img{
+            height: auto !important;
+            width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width:1024px){
+    .box-miniatura-mobile{
+        display: none;
+    }
+}
+

@@ -11,10 +11,11 @@ export const SETTINGS:SlickJSObject = {
     slidesToShow: 4,
     slidesToScroll: 4,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 5000,
     dots: false,
     arrows: false,
     infinite: true,
+    pauseOnHover: false,
     responsive: [{
         breakpoint: 426,
         settings: {

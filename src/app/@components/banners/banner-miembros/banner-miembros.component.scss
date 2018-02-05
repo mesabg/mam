@@ -28,6 +28,21 @@ iframe{
     width:148px;
     height:148px;
 }
+.box-element >*{
+    margin: 0 auto;
+    display: block;
+    a{
+        height: 100%;
+        width: 100%;
+        img{
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}
+.no-top{
+    top: 0 !important;
+}
 @media only screen and (min-width: 320px) and (max-width: 375px) {
     [component-wrapper]{
         height: 80vh;

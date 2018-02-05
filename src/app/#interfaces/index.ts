@@ -9,4 +9,5 @@
  export { Logro } from './logro.interface';
  export { Aptitud } from './aptitud.interface';
  export { Pregunta } from './pregunta.interface';
-  export { Contacto } from './contacto.interface';
+ export { Contacto } from './contacto.interface';
+ export { Collage } from './collage.interface';

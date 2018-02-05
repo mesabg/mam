@@ -185,6 +185,7 @@ $menu-animation-timing:   ease-out;
                 display: inline-block;
                 transition: 0.3s;
                 writing-mode: vertical-lr;
+                cursor: pointer;
                 &::before {
                     //color: white;
                     color: $golden;

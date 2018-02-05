@@ -1,3 +1,4 @@
+$golden: #b9a26a;
 [component-wrapper]{
     margin-top: 3rem;
     height: 80vh;
@@ -62,12 +63,38 @@
         }
     }
 }
-
+.loader:before{
+	display: block;
+	position: absolute;
+	content: "";
+	left: -100px;
+	width: 100px;
+	height: 10px;
+	background-color: $golden;
+    animation: loading linear infinite;
+    animation-duration: 5200ms;
+}
+@keyframes loading {
+    /*from {left: -100px; width: 10%;}
+    20% {width: 20%;}
+    40% {width: 40%;}
+	50% {width: 50%;}
+	70% {width: 70%;}
+	80% {left: 50%;}
+	95% {left: 120%;}
+    to {left: 100%;}*/
+    0%{ width: 10%}
+    100%{width: 110%}
+}
 @media only screen and (min-width: 320px) and (max-width: 375px) {
     [component-wrapper][_ngcontent-c9] {
         margin-top: 3rem;
         height: 80vh;
         background-color: white !important;
+        [title]{
+            height: 10vh;
+            padding-top: 4vh;
+        }
     }   
 }
 
@@ -76,6 +103,10 @@
         margin-top: 3rem;
         height: 80vh;
         background-color: white !important;
+        [title]{
+            height: 10vh;
+            padding-top: 5vh;
+        }
     }   
 }
 
@@ -84,6 +115,10 @@
         margin-top: 3rem;
         height: 80vh;
         background-color: white !important;
+        [title]{
+            height: 10vh;
+            padding-top: 5vh;
+        }
     }   
 }
 
@@ -92,10 +127,75 @@
         margin-top: 3rem;
         height: 80vh;
         background-color: white !important;
+        [title]{
+            height: 10vh;
+            padding-top: 5vh;
+        }
     }   
 }
 @media only screen and (min-width: 1024px)  {
     [component-wrapper][_ngcontent-c9] {
+        margin-top: 3rem;
+        height: 90vh;
+        background-color: white !important;
+    }   
+}
+
+
+////// queries for title and loader
+
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+    [component-wrapper] {
+        margin-top: 3rem;
+        height: 80vh;
+        background-color: white !important;
+        [title]{
+            height: 10vh;
+            padding-top: 4vh;
+        }
+    }   
+}
+
+@media only screen and (min-width: 375px) and (max-width: 425px) {
+    [component-wrapper] {
+        margin-top: 3rem;
+        height: 85vh;
+        background-color: white !important;
+        [title]{
+            height: 12vh;
+            padding-top: 2vh;
+        }
+    }   
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+    [component-wrapper] {
+        margin-top: 3rem;
+        height: 105vh;
+        background-color: white !important;
+        [title]{
+            height: 14vh;
+            padding-top: 5vh;
+        }
+    }
+    [component-wrapper] [carousel] [element] [element-wrapper] img{
+        width: 90%;
+    }   
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    [component-wrapper] {
+        margin-top: 3rem;
+        height: 80vh;
+        background-color: white !important;
+        [title]{
+            height: 10vh;
+            padding-top: 5vh;
+        }
+    }   
+}
+@media only screen and (min-width: 1024px)  {
+    [component-wrapper] {
         margin-top: 3rem;
         height: 90vh;
         background-color: white !important;

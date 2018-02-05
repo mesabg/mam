@@ -18,6 +18,15 @@ $easing: ease-in-out;
 a{
 	text-decoration: none;
 }
+/* Loader */
+.loader {
+	height: 10px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	//background-color: #ddd;
+}
+
 input, textarea{
 	font-family: 'Raleway-Medium' !important;
 }
@@ -29,9 +38,6 @@ body{
 	left: 5.5rem !important;
 	z-index: 10;
 	font-size: 2rem;
-	.slick-arrow{
-
-	}
 	&:hover{
 		&:before{
 			content: url("assets/svg/white_left_arrow_shadow.svg") !important;
@@ -460,6 +466,17 @@ img{
 
 
 
+@media only screen and (min-width: 320px) and (max-width:1024px){
+	// Styles for slick js in banner home mobile
+	.banner-content{
+		.slick-list{
+			height: 100% !important;
+			.slick-track{
+				height: 100%;
+			}
+		}
+	}
+}
 @media only screen and (min-width: 1024px) and (max-width: 1250px){
 	body{
 		width: 94vw !important;
@@ -477,3 +494,4 @@ img{
 		width: 96vw !important;
    }
 }
+

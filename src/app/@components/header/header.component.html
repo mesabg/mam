@@ -1,10 +1,9 @@
 <div #carouselContainer></div>
 
 <div class="banner bannerHome">
-	
 	<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="goto('')">
 	<div class="banner-content" #carousel>
-		<!-- Carousel is loaded here -->
+		
 		<div class="image-container container-image" *ngFor="let image of bannerImages;" style="position: relative;">
 			<div class="overlay"></div>
 			<img [attr.src]="image.image" [attr.alt]="image.name">
@@ -22,5 +21,8 @@
 	<div class="box-miniatura" #grid_Miniatura>
 		<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
 	</div>
+	<div class="box-miniatura-mobile" #grid_Miniatura>
+			<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
+	</div>
 </div>
-
+<div class="loader"></div>

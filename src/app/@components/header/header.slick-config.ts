@@ -14,5 +14,6 @@ export const SETTINGS:SlickJSObject = {
     autoplaySpeed: 6000,
     dots: false,
     arrows: true,
-    infinite: true
+    infinite: true,
+    pauseOnHover: false
 };

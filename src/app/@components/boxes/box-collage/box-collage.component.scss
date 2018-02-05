@@ -1,0 +1,60 @@
+.container-image-full{
+	width: 100%;
+	height: 100%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	position: relative;
+	overflow: hidden;
+}
+img{
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+}
+.box-collage{
+	width: 80vw;
+	height: 100%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+}
+
+.collage-box{
+    margin: 0;
+}
+.collage-box-triple{
+    img{
+        min-height: 100%;
+        width: auto;
+    }
+}
+.collage-box-double{
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+.collage-box-full{
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+.not-padding{
+    padding: 0;
+}
+.center{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.not-overflow{
+	overflow: hidden !important;
+	position: relative;
+}
+
+

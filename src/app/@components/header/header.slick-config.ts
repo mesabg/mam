@@ -15,5 +15,6 @@ export const SETTINGS:SlickJSObject = {
     dots: false,
     arrows: true,
     infinite: true,
-    pauseOnHover: false
+    pauseOnHover: false,
+    pauseOnFocus:false,
 };

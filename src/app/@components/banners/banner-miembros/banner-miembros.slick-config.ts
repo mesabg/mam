@@ -16,6 +16,8 @@ export const SETTINGS:SlickJSObject = {
     arrows: false,
     infinite: true,
     centerMode: true,
+    pauseOnHover: false,
+    pauseOnFocus:false,
     responsive: [{
         breakpoint: 320,
         settings: {

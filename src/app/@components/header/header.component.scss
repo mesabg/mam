@@ -7,6 +7,7 @@ $golden: #b9a26a;
     width: 96.4vw;
     height: 100vh;
     overflow-x: hidden !important;
+    position: relative;
     .logo{
         position: absolute;
         top: 1.5rem;
@@ -116,4 +117,19 @@ $golden: #b9a26a;
         display: none;
     }
 }
-
+@media only screen and (min-width:1024px) and (max-width: 1200px){
+    .banner{
+        height: 82vh;
+    }
+    .banner-content{
+        height: 82vh !important;
+        .slick-list{
+            height: 100% !important;
+        }
+        .image-container{
+            height: 100% !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+    }
+}

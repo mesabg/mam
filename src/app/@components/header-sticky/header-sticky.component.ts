@@ -12,7 +12,11 @@ import {
 	OnChanges  } from '@angular/core';
 
 import { Router } from '@angular/router';
-
+/**
+ * Local Imports
+ * CTA Service
+ */
+import { CTAService } from '@mam/services';
 declare const $:any;
 
 @Component({
@@ -22,13 +26,15 @@ declare const $:any;
 })
 export class HeaderStickyComponent implements OnInit {
 	public expanded:boolean = false;
+	
 	/**
 	* Ouput
 	*/
 	@Output() public onClick:EventEmitter<void> = new EventEmitter<void>();
-  constructor(private router:Router) { }
+  constructor(public CTA:CTAService,private router:Router) { }
 
   ngOnInit() {
+	 // this.CTA.contacto();
   }
 
  public greaterWidth():void{
@@ -36,21 +42,16 @@ export class HeaderStickyComponent implements OnInit {
  		$(".stickybar").css("width", "100vw");
  		$("body").addClass("blockScroll");
  		this.expanded =true;
- 		$(".hamButton").removeClass("fa-bars");
-		$(".hamButton").addClass("fa-times");
 		$(".lateral_bar").addClass("dark-theme");
 		$(".chat").find("img").attr("src", "assets/svg/contact-on.svg");
  	}
  	else{
  		this.expanded =false;
  		setTimeout(function(){
-			 //$(".stickybar").css("width", "100px");
 			$(".stickybar").css("width", "3.6vw");
  			$("body").removeClass("blockScroll");
-			$(".hamButton").removeClass("fa-times");
 			$(".lateral_bar").removeClass("dark-theme");
 			$(".chat").find("img").attr("src", "assets/svg/contact-black.svg");
- 			$(".hamButton").addClass("fa-bars");
  		},1000);
  		
  	}
@@ -94,11 +95,6 @@ public callRRSS(socialNetwork){
 }
 
 
- public goto(url:string){
-	this.router.navigateByUrl(url);
-	$("body").removeClass("blockScroll");
- }
-
  public burgerEffect (){
 	var clickDelay = 500,
     clickDelayTimer = null;
@@ -120,5 +116,4 @@ public callRRSS(socialNetwork){
 
  }
  
-
 }

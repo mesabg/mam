@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 import { PreguntaApi } from '@mam/api';
 import { PreguntaResponse } from '@mam/responses';
 import { Contacto } from '@mam/interfaces';
-
+//import { BodaForm } from '@mam/interfaces';
 /**
  * PAGE => Contacto
  */
@@ -29,7 +29,15 @@ export class ContactoPage implements OnInit {
 	public preguntas:Observable<PreguntaResponse[]>;
 	constructor(private api:PreguntaApi) { }
 	ngOnInit() {
-		this.retrieve();
+		//-- Form initialization
+		/*this.formService.initForm(ARNAC_FORM);
+		this.formService
+			.submit$
+			.subscribe((data:ARNACForm) =>{
+				//-- Parse data and call a function to resolve
+				this.resolveSubmit(data);
+			});	
+		this.retrieve();*/
 	}
 
 
@@ -42,5 +50,21 @@ export class ContactoPage implements OnInit {
 
 	public changeMenu(){
 		//-- DO SOMETHING
+	}
+	public showThanks(){
+		//-- DO SOMETHING
+	}
+
+	private resolveSubmit(formData):void{
+		/*this.api.publishARNAC(formData).subscribe((state:APIStatus) =>{
+			if (state.status === 'AC'){ 
+				//-- Correct answer		
+			}else if (state.status === 'WA'){ 
+				//-- Wrong answer			
+			}else{ 
+				//-- Unknown error
+			}
+			this.formService.unlockSubmit();
+		});*/
 	}
 }

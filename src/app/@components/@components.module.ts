@@ -4,7 +4,7 @@
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ServicesModule } from '@mam/services';
 /**
  * Local imports
  */
@@ -29,7 +29,8 @@ import { HeaderStickyComponent } from './header-sticky';
 		BannersModule,
 		ThumbnailsModule,
 		AriaModule,
-		BoxesModule		
+		BoxesModule,
+		ServicesModule		
 	],
 	declarations:[
 		HeaderComponent,

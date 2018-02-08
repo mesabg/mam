@@ -22,11 +22,14 @@ declare const $:any;
 @Component({
   selector: 'mam-header-sticky',
   templateUrl: './header-sticky.component.html',
-  styleUrls: ['./header-sticky.component.scss']
+  styleUrls: ['./header-sticky.component.scss'],
+  host: {
+	'(window:resize)': 'onResize()'
+	},
 })
 export class HeaderStickyComponent implements OnInit {
 	public expanded:boolean = false;
-	
+	public expandedMobile:boolean = false;
 	/**
 	* Ouput
 	*/
@@ -36,7 +39,24 @@ export class HeaderStickyComponent implements OnInit {
   ngOnInit() {
 	 // this.CTA.contacto();
   }
-
+public onResize(){
+	
+	if( $(window).width() < 1024){
+		if(this.expanded){
+			console.log("entre");
+			this.expandedMobile =false;
+			this.greaterWidthMobile();
+		}
+	}
+	else{
+		if(this.expandedMobile){
+			this.expanded =true;
+			this.greaterWidth();
+		}
+	}
+	console.log("desktop |"+ this.expanded);
+	console.log("mobile |"+ this.expandedMobile);
+}
  public greaterWidth():void{
  	if(! this.expanded){
  		$(".stickybar").css("width", "100vw");
@@ -46,7 +66,10 @@ export class HeaderStickyComponent implements OnInit {
 		$(".chat").find("img").attr("src", "assets/svg/contact-on.svg");
  	}
  	else{
- 		this.expanded =false;
+		this.expanded =false;
+		/*if(this.expandedMobile){
+			this.greaterWidthMobile();
+		}*/
  		setTimeout(function(){
 			$(".stickybar").css("width", "3.6vw");
  			$("body").removeClass("blockScroll");
@@ -57,26 +80,27 @@ export class HeaderStickyComponent implements OnInit {
  	}
  	
  }
-  public greaterWidthMobile():void{
- 	if(! this.expanded){
- 		//$(".stickybar-mobile").css("width", "100vw");
+public greaterWidthMobile():void{
+ 	if(! this.expandedMobile){
  		$("body").addClass("blockScroll");
- 		this.expanded =true;
-		$(this).removeClass("fa-bars");
+ 		this.expandedMobile =true;
+		//$(this).removeClass("fa-bars");
 		$(".chat.mobile").find("img").hide();
 		$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-white.svg");
-		$(this).addClass("fa-times");
+		//$(this).addClass("fa-times");
 		
  	}
  	else{
- 		this.expanded =false;
+		this.expandedMobile =false;
+		/*if(this.expanded){
+			this.greaterWidth();
+		}*/
  		setTimeout(function(){
- 			//$(".stickybar-mobile").css("width", "100px");
  			$("body").removeClass("blockScroll");
-			$(this).removeClass("fa-times");
+			//$(this).removeClass("fa-times");
 			$(".chat.mobile").show();
 			$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-black.svg");
- 			$(this).addClass("fa-bars");
+ 			//$(this).addClass("fa-bars");
  		},200);
  		
  	}

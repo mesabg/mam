@@ -10,8 +10,8 @@
 .container-image-rigth{
 	width: 75%;
 	height: 100%;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	//margin-top: 1rem;
+	//margin-bottom: 1rem;
 	float: right;
 	position: relative;
 	overflow: hidden;
@@ -19,8 +19,8 @@
 .container-image-left{
 	width: 75%;
 	height: 100%;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	//margin-top: 1rem;
+	//margin-bottom: 1rem;
 	float: left;
 	position: relative;
 	overflow: hidden;
@@ -30,6 +30,9 @@ img{
 	height: 100%;
 	object-fit: fill;
 	/*position: absolute;*/
+}
+.thumbnail{
+	margin: 1rem 0 1rem 0;
 }
 a{
 	z-index: 2;

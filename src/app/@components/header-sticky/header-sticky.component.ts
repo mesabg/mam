@@ -43,21 +43,24 @@ public onResize(){
 	
 	if( $(window).width() < 1024){
 		if(this.expanded){
-			console.log("entre");
-			/*this.expandedMobile =false;
-			this.greaterWidthMobile();*/
-			this.openMobile();
+			if(!this.expandedMobile){
+				$(".stickybar-mobile").find(".burger-click-region").click();
+				this.greaterWidthMobile();
+		     	this.burgerEffectMobile();
+			}
+			
 		}
 	}
 	else{
 		if(this.expandedMobile){
-			/*this.expanded =true;
-			this.greaterWidth();*/
-			this.openDesktop();
+			if( ! this.expanded){
+				$(".stickybar-mobile").find(".burger-click-region").click();
+				this.greaterWidthMobile();
+				this.burgerEffectMobile();
+				
+			}
 		}
 	}
-	console.log("desktop |"+ this.expanded);
-	console.log("mobile |"+ this.expandedMobile);
 }
  public greaterWidth():void{
  	if(! this.expanded){
@@ -77,9 +80,6 @@ public onResize(){
  		},1000);
  		
 	 }
-	 $(".stickybar-mobile").find(".burger-click-region").click();
-	 this.greaterWidthMobile();
-	 this.burgerEffectMobile();
  	
  }
 public greaterWidthMobile():void{
@@ -99,10 +99,8 @@ public greaterWidthMobile():void{
  		},200);
  		
 	 }
-	 $(".stickybar").find(".burger-click-region").click();
-	 this.greaterWidth();
-	 this.burgerEffect();
- }
+
+}
 public callRRSS(socialNetwork){
 	if(socialNetwork == "instagram"){
 		window.open("https://www.instagram.com/mamfotografo/", "_blank");
@@ -158,16 +156,4 @@ public callRRSS(socialNetwork){
 
  }
  
- /**
-  * name
-  */
- public openMobile() {
-	 
- }
- /**
-  * name
-  */
- public openDesktop() {
-	 
- }
 }

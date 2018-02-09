@@ -4,10 +4,10 @@
 	</div>
 	<div class="text_box">
 		<div class="row">
-			<span class="quote miniatura_content text-miniatura">{{miniatura.content}}</span>
+			<span class="quote miniatura_content text-miniatura" [innerHTML]="content"></span>
 		</div>
 		<div class="row">
-			<span class="quotes_autor miniatura_by_name text-miniatura" font-uppercase>{{miniatura.author}}</span>
+			<span class="quotes_autor miniatura_by_name text-miniatura" font-uppercase [innerHTML]="author"></span>
 		</div>
 	</div>
 </div>

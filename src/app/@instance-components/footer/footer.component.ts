@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
  * Local imports
  */
 import { MAMApi } from '@mam/api';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 /**
  * Header Instance
@@ -18,13 +19,15 @@ import { MAMApi } from '@mam/api';
 })
 export class FooterComponent implements OnInit {
 	public description:Promise<string>;
-	constructor(private mamApi:MAMApi) { }
+	public parseDescription:SafeHtml;
+	constructor(private mamApi:MAMApi,private domSanitizer:DomSanitizer) { }
 
 	/**
 	 * Events
 	 */
 	ngOnInit() {
 		this.retrieve();
+		
 	}
 
 	/**
@@ -32,5 +35,16 @@ export class FooterComponent implements OnInit {
 	 */
 	private retrieve (){
 		this.description = this.mamApi.getContactoBrief();
+		this.description.then( (data)=> {
+			console.log(data);
+			this.parseDescription = this.parse(data);
+		})
+		.catch((e) => {console.log(e);})
+	}
+	
+	private parse(value:string):SafeHtml{
+		return this.domSanitizer.bypassSecurityTrustHtml(value);
 	}
 }
+
+	

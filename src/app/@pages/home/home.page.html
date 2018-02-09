@@ -4,9 +4,9 @@
 <div class="quote_box">
 	<div class="relative table">
 		<div class="text">
-			<h4 class="featured_content">{{featuredContent?.content}}</h4>
+			<h4 class="featured_content" [innerHTML]="quote"></h4>
 			<br>
-			<p class="quotes_autor gold uppercase">{{featuredContent?.author}}</p>
+			<p class="quotes_autor gold uppercase" [innerHTML]="author"></p>
 		</div>
 	</div>
 </div>

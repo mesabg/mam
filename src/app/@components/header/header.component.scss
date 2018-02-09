@@ -74,6 +74,16 @@ $golden: #b9a26a;
 }
 .logo:hover{ cursor: pointer; }
 
+.banner-content{
+    .image-container.container-image{
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+
+
+
 @media only screen and (min-width: 320px) and (max-width: 1023px) {
     .banner{
         height: auto;
@@ -93,8 +103,8 @@ $golden: #b9a26a;
             overflow: hidden !important;
         }
         img{
-            height: 100% !important;
-            width: auto !important;
+           // height: 100% !important;
+           // width: auto !important;
         }
     }
     .box-miniatura{
@@ -107,8 +117,8 @@ $golden: #b9a26a;
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .banner-content{
         img{
-            height: auto !important;
-            width: 100% !important;
+           // height: auto !important;
+           // width: 100% !important;
         }
     }
 }
@@ -130,6 +140,53 @@ $golden: #b9a26a;
             height: 100% !important;
             position: relative !important;
             overflow: hidden !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+    .banner-content{
+        height: 25vh !important;
+        img{
+           // height: auto !important;
+           // width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width: 400px) and (max-width: 475px) {
+    .banner-content{
+        height: 35vh !important;
+        img{
+           // height: auto !important;
+          //  width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width: 475px) and (max-width: 600px) {
+    .banner-content{
+        height: 40vh !important;
+        img{
+          //  height: auto !important;
+            //width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .banner-content{
+        height: 50vh !important;
+        img{
+           // height: auto !important;
+           // width: 100% !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .banner-content{
+        height: 60vh !important;
+        img{
+            //height: auto !important;
+           // width: 100% !important;
         }
     }
 }

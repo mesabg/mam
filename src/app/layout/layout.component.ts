@@ -15,7 +15,4 @@ export class LayoutComponent implements OnInit {
 	constructor() { }
 	ngOnInit() { }
 
-	public changeMenu(){
-		console.log("hola");
-	}
 }

@@ -47,8 +47,7 @@ public onResize(){
 				$(".stickybar-mobile").find(".burger-click-region").click();
 				this.greaterWidthMobile();
 		     	this.burgerEffectMobile();
-			}
-			
+			}		
 		}
 	}
 	else{
@@ -56,8 +55,7 @@ public onResize(){
 			if( ! this.expanded){
 				$(".stickybar-mobile").find(".burger-click-region").click();
 				this.greaterWidthMobile();
-				this.burgerEffectMobile();
-				
+				this.burgerEffectMobile();				
 			}
 		}
 	}
@@ -67,7 +65,7 @@ public onResize(){
  		$(".stickybar").css("width", "100vw");
  		$("body").addClass("blockScroll");
  		this.expanded =true;
-		 $(".stickybar").find(".lateral_bar").addClass("dark-theme");
+		$(".stickybar").find(".lateral_bar").addClass("dark-theme");
 		$(".chat").find("img").attr("src", "assets/svg/contact-on.svg");
  	}
  	else{
@@ -77,7 +75,7 @@ public onResize(){
  			$("body").removeClass("blockScroll");
 			 $(".stickybar").find(".lateral_bar").removeClass("dark-theme");
 			$(".chat").find("img").attr("src", "assets/svg/contact-black.svg");
- 		},1000);
+ 		},100);
  		
 	 }
  	
@@ -126,6 +124,7 @@ public callRRSS(socialNetwork){
 		else{
 			$burger.addClass('active');
 		}
+		
 		clickDelayTimer = setTimeout(function () {
 		$burger.removeClass('closing');
 		clearTimeout(clickDelayTimer);

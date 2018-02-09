@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 import { ImageApi, MAMApi } from '@mam/api';
 import { ImageResponse } from '@mam/responses';
 import { featuredContent} from '@mam/interfaces';
-
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 /**
  * PAGE => Home
  */
@@ -23,8 +23,9 @@ import { featuredContent} from '@mam/interfaces';
 export class HomePage implements OnInit {
 	public images:Observable<ImageResponse[]>;
 	public featuredContent:featuredContent;
-	
-	constructor(private api:ImageApi, private mamApi:MAMApi) { }
+	public quote:SafeHtml;
+	public author:SafeHtml;
+	constructor(private domSanitizer:DomSanitizer,private api:ImageApi, private mamApi:MAMApi) { }
 
 	/**
 	 * Events
@@ -46,11 +47,13 @@ export class HomePage implements OnInit {
 		let response = await this.mamApi.getBiography();
 		this.featuredContent = {
 			content: response.biography[0].authorQuote,
-			author: "Miguel Ángel Martínez"
+			author: response.biography[0].name
 		}
+		this.quote = this.featuredContent.content;
+		this.author = this.featuredContent.author;
+		
 	}
-
-	public changeMenu(){
-		console.log("hola");
+	private parse(value:string):SafeHtml{
+		return this.domSanitizer.bypassSecurityTrustHtml(value);
 	}
 }

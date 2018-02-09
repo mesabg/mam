@@ -9,6 +9,7 @@ import {
 	ElementRef } from '@angular/core';
 
 import { Miniatura } from '@mam/interfaces';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 declare const $:any;
 
 @Component({
@@ -21,13 +22,17 @@ export class BoxMiniaturaComponent implements OnInit, OnChanges {
 	@ViewChild('element') public element:ElementRef;
 
 	private state = 'hidden';
-	
-	constructor() { }
+	public author:SafeHtml;
+	public content:SafeHtml;
+	constructor(private domSanitizer:DomSanitizer) { }
 
 	/**
 	 * Events
 	 */
-	ngOnInit() { }
+	ngOnInit() {
+		this.content = this.sanitizer(this.miniatura.content);
+		this.author = this.sanitizer(this.miniatura.author);
+	 }
 	ngOnChanges() {
 		let self = this;
 		if (this.state === 'hidden')
@@ -37,5 +42,8 @@ export class BoxMiniaturaComponent implements OnInit, OnChanges {
 				.fadeOut(250, function(){ self.state = 'hidden'; })
 				.fadeIn(250, function(){ self.state = 'visible'; });
 		}
+	}
+	private sanitizer(value:string): SafeHtml{
+		return this.domSanitizer.bypassSecurityTrustHtml(value) ;
 	}
 }

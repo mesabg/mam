@@ -4,6 +4,5 @@
 export interface Collage{
     src:string;
     alt:string;
-    position?:string;
-    place?:string;
+    description?:string;
 }

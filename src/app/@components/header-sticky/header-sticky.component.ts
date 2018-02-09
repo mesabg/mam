@@ -44,14 +44,16 @@ public onResize(){
 	if( $(window).width() < 1024){
 		if(this.expanded){
 			console.log("entre");
-			this.expandedMobile =false;
-			this.greaterWidthMobile();
+			/*this.expandedMobile =false;
+			this.greaterWidthMobile();*/
+			this.openMobile();
 		}
 	}
 	else{
 		if(this.expandedMobile){
-			this.expanded =true;
-			this.greaterWidth();
+			/*this.expanded =true;
+			this.greaterWidth();*/
+			this.openDesktop();
 		}
 	}
 	console.log("desktop |"+ this.expanded);
@@ -62,49 +64,44 @@ public onResize(){
  		$(".stickybar").css("width", "100vw");
  		$("body").addClass("blockScroll");
  		this.expanded =true;
-		$(".lateral_bar").addClass("dark-theme");
+		 $(".stickybar").find(".lateral_bar").addClass("dark-theme");
 		$(".chat").find("img").attr("src", "assets/svg/contact-on.svg");
  	}
  	else{
 		this.expanded =false;
-		/*if(this.expandedMobile){
-			this.greaterWidthMobile();
-		}*/
  		setTimeout(function(){
 			$(".stickybar").css("width", "3.6vw");
  			$("body").removeClass("blockScroll");
-			$(".lateral_bar").removeClass("dark-theme");
+			 $(".stickybar").find(".lateral_bar").removeClass("dark-theme");
 			$(".chat").find("img").attr("src", "assets/svg/contact-black.svg");
  		},1000);
  		
- 	}
+	 }
+	 $(".stickybar-mobile").find(".burger-click-region").click();
+	 this.greaterWidthMobile();
+	 this.burgerEffectMobile();
  	
  }
 public greaterWidthMobile():void{
  	if(! this.expandedMobile){
  		$("body").addClass("blockScroll");
  		this.expandedMobile =true;
-		//$(this).removeClass("fa-bars");
 		$(".chat.mobile").find("img").hide();
 		$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-white.svg");
-		//$(this).addClass("fa-times");
 		
  	}
  	else{
 		this.expandedMobile =false;
-		/*if(this.expanded){
-			this.greaterWidth();
-		}*/
  		setTimeout(function(){
  			$("body").removeClass("blockScroll");
-			//$(this).removeClass("fa-times");
-			$(".chat.mobile").show();
+			$(".chat.mobile").find("img").show();
 			$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-black.svg");
- 			//$(this).addClass("fa-bars");
  		},200);
  		
- 	}
- 	
+	 }
+	 $(".stickybar").find(".burger-click-region").click();
+	 this.greaterWidth();
+	 this.burgerEffect();
  }
 public callRRSS(socialNetwork){
 	if(socialNetwork == "instagram"){
@@ -123,7 +120,28 @@ public callRRSS(socialNetwork){
 	var clickDelay = 500,
     clickDelayTimer = null;
 	if(clickDelayTimer === null) {
-		var $burger = $(".burger-click-region");
+		var $burger = $(".stickybar").find(".burger-click-region");
+		if($burger.hasClass('active')) {
+			$burger.addClass('closing');
+			$burger.removeClass('active');
+		}
+		else{
+			$burger.addClass('active');
+		}
+		clickDelayTimer = setTimeout(function () {
+		$burger.removeClass('closing');
+		clearTimeout(clickDelayTimer);
+		clickDelayTimer = null;
+		}, clickDelay);
+	}
+
+ }
+
+ public burgerEffectMobile (){
+	var clickDelay = 500,
+    clickDelayTimer = null;
+	if(clickDelayTimer === null) {
+		var $burger = $(".stickybar-mobile").find(".burger-click-region");
 		if($burger.hasClass('active')) {
 			$burger.addClass('closing');
 			$burger.removeClass('active');
@@ -140,4 +158,16 @@ public callRRSS(socialNetwork){
 
  }
  
+ /**
+  * name
+  */
+ public openMobile() {
+	 
+ }
+ /**
+  * name
+  */
+ public openDesktop() {
+	 
+ }
 }

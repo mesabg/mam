@@ -12,7 +12,7 @@ img{
 	object-fit: fill;
 }
 .box-collage{
-	width: 80vw;
+    width: 100vw;
 	height: 100%;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
@@ -21,14 +21,45 @@ img{
     display: block;
     margin: 0 auto;
 }
+.description {
+    padding-top: 10vh; 
+    padding-bottom: 10vh;
+}
+
+.description-center{
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    h1 {
+        display:table-cell;
+        vertical-align: middle;
+    }
+}
+
+.collage-container {
+    width: 70vw !important;
+}
+
+.description-text-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    color: white;
+    left: 0;
+    right: 0;
+}
 
 .collage-box{
     margin: 0;
 }
 .collage-box-triple{
-    img{
-        min-height: 100%;
-        width: auto;
+    & > .row {
+        height: 70vh;
+        img{
+            height: 100%;
+            width: auto;
+        }
     }
 }
 .collage-box-double{
@@ -54,7 +85,8 @@ img{
 
 .not-overflow{
 	overflow: hidden !important;
-	position: relative;
+    position: relative;
+    height: 100%;
 }
 
 

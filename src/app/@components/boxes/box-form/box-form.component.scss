@@ -1,7 +1,8 @@
 input{
 	border-top: transparent;
     border-right: transparent;
-    border-left: transparent;
+	border-left: transparent;
+	background-color: transparent;
     border-bottom: 1px solid #b9a26a;
     width: 100%;
     padding-left: 1rem;
@@ -9,6 +10,7 @@ input{
 }
 textarea{
 	border: 1px solid #b9a26a;
+	background-color: transparent;
 	outline: none;
 	width: 100%;
 	height: 150px;
@@ -24,4 +26,14 @@ textarea{
 }
 .field{
 	height: 80px;
+}
+.error{
+	color: red;
+	padding-top: 0.2rem;
+}
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+	border-bottom: 1px solid red;
+}
+.call-to-action, .call-to-action >* {
+	z-index: 50;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'mam-instance-box-agradecimiento',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./instance-box-agradecimiento.component.scss']
 })
 export class InstanceBoxAgradecimientoComponent implements OnInit {
-
+  @Output() onClick:EventEmitter<void> = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
   }
+  public click():void{
+		this.onClick.emit();
+	}
 
 }

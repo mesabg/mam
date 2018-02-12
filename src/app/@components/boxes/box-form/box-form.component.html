@@ -1,4 +1,4 @@
-<form [formGroup]="myForm" (ngSubmit)="send()" class = "formulario">
+<form [formGroup]="myForm" (ngSubmit)="formService.submit(myForm)" class = "formulario">
 	<div class="container form_box">
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
@@ -47,13 +47,17 @@
 	</div>
 
 	<div class="call-to-action">
-		<a href="javascript:void(0)" class="btn-CTA" (click)= "showErrors()">
+		<a href="javascript:void(0)" class="btn-CTA" (click)= "formService.showErrors(myForm)">
 			<svg>
 				<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
 			</svg>
-			<span class="button_CTA" *ngIf="!formService.submitLock">Hagamos tu historia</span>
+			<span class="button_CTA" *ngIf="! formService.submitLock">Hagamos tu historia</span>
 			<span *ngIf="formService.submitLock">Enviando tu historia...</span> 
 		</a>
+	</div>
+	<br>
+	<div class="error" *ngIf="!myForm.valid && myForm.touched && formService.clicked">
+		<p style="text-align:center;">Por favor complete los campos requeridos.</p>		
 	</div>
 </form>
 

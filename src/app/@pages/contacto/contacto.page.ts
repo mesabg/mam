@@ -2,7 +2,7 @@
 /**
  * Global imports
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 
 /**
@@ -11,7 +11,12 @@ import { Observable } from 'rxjs';
 import { PreguntaApi } from '@mam/api';
 import { PreguntaResponse } from '@mam/responses';
 import { Contacto } from '@mam/interfaces';
-//import { BodaForm } from '@mam/interfaces';
+import { ContactoApi  } from '@mam/api';
+import { ContactoForm } from 'app/#interfaces/contacto.form.interface';
+import { APIStatus } from 'app/@api/#responses/status.response';
+import { FormService } from '@mam/services';
+
+declare const $:any;
 /**
  * PAGE => Contacto
  */
@@ -21,23 +26,20 @@ import { Contacto } from '@mam/interfaces';
 	styleUrls: ['./contacto.page.scss']
 })
 export class ContactoPage implements OnInit {
-
 	public contacto:Contacto ={
 		text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita reiciendis ratione saepe quia a pariatur libero quibusdam sequi, minus esse, sapiente nobis similique, hic! Aperiam labore nulla, dolorem! Voluptatum, iusto?",
 		description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad impedit voluptatem ipsum, obcaecati fugiat vitae fuga necessitatibus exercitationem sunt iusto, explicabo perspiciatis doloremque itaque ab dolorum ut nam! Iste, repellat?"
 	}
 	public preguntas:Observable<PreguntaResponse[]>;
-	constructor(private api:PreguntaApi) { }
+	constructor(private api:PreguntaApi, private ContactoApi:ContactoApi,private formService:FormService,) { }
 	ngOnInit() {
-		//-- Form initialization
-		/*this.formService.initForm(ARNAC_FORM);
 		this.formService
 			.submit$
-			.subscribe((data:ARNACForm) =>{
+			.subscribe((data:ContactoForm) =>{
 				//-- Parse data and call a function to resolve
 				this.resolveSubmit(data);
-			});	
-		this.retrieve();*/
+			});
+		this.retrieve();	
 	}
 
 
@@ -54,17 +56,24 @@ export class ContactoPage implements OnInit {
 	public showThanks(){
 		//-- DO SOMETHING
 	}
-
-	private resolveSubmit(formData):void{
-		/*this.api.publishARNAC(formData).subscribe((state:APIStatus) =>{
-			if (state.status === 'AC'){ 
-				//-- Correct answer		
-			}else if (state.status === 'WA'){ 
-				//-- Wrong answer			
-			}else{ 
+    private resolveSubmit(formData:ContactoForm):void{
+		console.log("submitieando");
+		console.log(formData); 
+		this.ContactoApi.publishContacto(formData).subscribe((state:APIStatus) =>{
+				if (state.status === 'AC'){ 
+				//-- Correct answer
+					$("#boxThanks").show();
+				}else if (state.status === 'WA'){ 
+				//-- Wrong answer
+				// $(this.errorRef.nativeElement).addClass('active');
+				}else{ 
 				//-- Unknown error
-			}
-			this.formService.unlockSubmit();
-		});*/
-	}
+				// $(this.errorRef.nativeElement).addClass('active');
+				}
+				this.formService.unlockSubmit();
+			});
+	  }
+	  private dispose(){
+			$("#boxThanks").fadeOut(600);
+	  }
 }

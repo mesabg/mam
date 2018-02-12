@@ -1,28 +1,42 @@
 <mam-instance-header-sticky></mam-instance-header-sticky>
 <mam-instance-header (onClick)="changeMenu()"></mam-instance-header>
-<br>
-<div class="container">
-	<div class="row">
-		<h2 class="title" style="text-align: center;">{{contacto.text}}</h2>
+<div class="container-fluid bg-grey">
+	<div class="container">
 		<br>
-		<p class="featured_content">{{contacto.description}}</p>
+		<br>
+		<div class="row">
+			<div class="col-12">
+				<h2 class="featured_content" style="text-align: center;">{{contacto.text}}</h2>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-12">
+				<p class="content">{{contacto.description}}</p>
+			</div>
+		</div>
 	</div>
+	<br>
+	<mam-instance-box-form></mam-instance-box-form>
+	<br>
+	<br>
 </div>
 <br>
-<mam-instance-box-form></mam-instance-box-form>
-<br>
-<div class="container">
-	<div class="row">
-		<h2 class="title" >Preguntas frecuentes</h2>
+<div class="container-fluid ">
+	<div class="container">
+		<div class="row">
+			<h2 class="subtitle2" uppercase>Preguntas frecuentes</h2>
+		</div>
+	</div>
+	<br>
+	<mam-instance-box-preguntas [questions]="preguntas"></mam-instance-box-preguntas>
+	<br>
+	<div class="container">
+		<div class="row">
+			<h4 class="content" style="text-align:left;">Para otras preguntas escribenos a <strong>MAMFOTOGRAFO@GMAIL.COM</strong></h4>
+		</div>
 	</div>
 </div>
-<mam-instance-box-preguntas [questions]="preguntas" ></mam-instance-box-preguntas>
-<br>
-<div class="container">
-	<div class="row">
-		<h4 class="featured_content">Para otras preguntas escribenos a <strong>MAMFOTOGRAFO@GMAIL.COM</strong></h4>
-	</div>
-</div>
-
 <mam-instance-banner-instagram></mam-instance-banner-instagram>
-<!--<mam-instance-box-agradecimiento></mam-instance-box-agradecimiento>-->
+<mam-instance-box-agradecimiento id="boxThanks" style="display: none" (onClick)="dispose()"></mam-instance-box-agradecimiento>

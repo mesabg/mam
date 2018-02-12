@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
  * Local imports
  */
 import { CTAService } from './cta.service';
+import { FormService } from './form.service';
 
 /**
  * This module contains every general service of the SPA
@@ -18,6 +19,6 @@ import { CTAService } from './cta.service';
 		CommonModule
 	],
 	declarations: [],
-	providers: [CTAService]
+	providers: [CTAService,FormService]
 })
 export class ServicesModule { }

@@ -15,8 +15,7 @@ import {
 })
 export class FooterComponent implements OnInit, AfterViewInit {
 	@Input('description') public description:string;
-	@Input('parseDescription') public parseDescription:SafeHtml;
-	//public parseDescription:SafeHtml;
+	@Input('parseDescription') public parseDescription:SafeHtml | string;
 	constructor(private elementRef:ElementRef,private domSanitizer:DomSanitizer, private changeDetector:ChangeDetectorRef) { }
 
 	ngOnInit() {

@@ -56,4 +56,8 @@ export class HomePage implements OnInit {
 	private parse(value:string):SafeHtml{
 		return this.domSanitizer.bypassSecurityTrustHtml(value);
 	}
+
+	public changeMenu():void {
+		//-- DO SOMETHING
+	}
 }

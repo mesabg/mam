@@ -73,7 +73,7 @@ export class ContactoPage implements OnInit {
 				this.formService.unlockSubmit();
 			});
 	  }
-	  private dispose(){
-			$("#boxThanks").fadeOut(600);
-	  }
+	public dispose(){
+		$("#boxThanks").fadeOut(600);
+	}
 }

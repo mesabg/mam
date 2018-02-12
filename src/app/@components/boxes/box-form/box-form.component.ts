@@ -1,7 +1,11 @@
 /*tslint:disable*/
 import { Component, OnInit } from '@angular/core';
-import {IMyDpOptions, IMyDateModel} from 'mydatepicker';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ContactoApi  } from '@mam/api';
+
+import { ContactoForm } from 'app/#interfaces/contacto.form.interface';
+import { APIStatus } from 'app/@api/#responses/status.response';
+ 
 declare var $:any;
 
 @Component({
@@ -11,14 +15,9 @@ declare var $:any;
 })
 export class BoxFormComponent implements OnInit {
 
-
-	public myDatePickerOptions: IMyDpOptions = {
-        // other options...
-        dateFormat: 'dd.mm.yyyy',
-    };
-
+    public submitLock: boolean = false;
     public myForm: FormGroup; 
-    constructor(public fb: FormBuilder,) { 
+    constructor(public fb: FormBuilder,private api:ContactoApi) { 
       
       this.myForm = this.fb.group({
       nameAndLastName: ["",Validators.required],
@@ -37,13 +36,41 @@ export class BoxFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  	// dateChanged callback function called when the user select the date. This is mandatory callback
-    // in this option. There are also optional inputFieldChanged and calendarViewChanged callbacks.
-    onDateChanged(event: IMyDateModel) {
-        // event properties are: event.date, event.jsdate, event.formatted and event.epoc
+    public showErrors(){
+      if(this.myForm.valid){
+        this.send();
+      }
+      else{
+        let keys:string[] = Object.keys(this.myForm.controls);
+        keys.forEach((key:string, index:number) => {
+          this.myForm.controls[key].markAsTouched();
+        });
+      }
+      
     }
-
     public send(){
-
+      console.log(this.myForm.value);
+      this.submitLock = true;
+      this.resolveSubmit(this.myForm.value);
+    }
+    public unlockSubmit() {
+      this.myForm.reset();
+      this.submitLock = false;
+    }
+    private resolveSubmit(formData:ContactoForm):void{
+      console.log("submitieando");
+      this.api.publishContacto(formData).subscribe((state:APIStatus) =>{
+        if (state.status === 'AC'){ 
+          //-- Correct answer
+         // $(this.successRef.nativeElement).addClass('active');
+        }else if (state.status === 'WA'){ 
+          //-- Wrong answer
+         // $(this.errorRef.nativeElement).addClass('active');
+        }else{ 
+          //-- Unknown error
+         // $(this.errorRef.nativeElement).addClass('active');
+        }
+        this.unlockSubmit();
+      });
     }
 }

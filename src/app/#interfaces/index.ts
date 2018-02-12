@@ -11,3 +11,4 @@
  export { Pregunta } from './pregunta.interface';
  export { Contacto } from './contacto.interface';
  export { Collage } from './collage.interface';
+ export { ContactoForm } from './contacto.form.interface';

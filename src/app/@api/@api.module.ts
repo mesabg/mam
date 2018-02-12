@@ -17,6 +17,8 @@ import { ImageApi } from './image.api';
 import { DirectorioApi } from './directorio.api';
 import { PreguntaApi } from './pregunta.api';
 import { MAMApi } from './mam.api';
+import { ContactoApi } from './contacto.api';
+
 
 /**
  * This module contains API Calls (formatted)
@@ -31,7 +33,8 @@ import { MAMApi } from './mam.api';
 		ImageApi,
 		DirectorioApi,
 		PreguntaApi,
-		MAMApi
+		MAMApi,
+		ContactoApi,
 	]
 })
 export class ApiModule { }

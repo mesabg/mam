@@ -47,11 +47,12 @@
 	</div>
 
 	<div class="call-to-action">
-		<a href="#" class="btn-CTA">
+		<a href="javascript:void(0)" class="btn-CTA" (click)= "showErrors()">
 			<svg>
 				<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
 			</svg>
-			<span class="button_CTA">Hagamos tu historia</span> 
+			<span class="button_CTA" *ngIf="!formService.submitLock">Hagamos tu historia</span>
+			<span *ngIf="formService.submitLock">Enviando tu historia...</span> 
 		</a>
 	</div>
 </form>

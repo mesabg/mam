@@ -100,15 +100,11 @@ public greaterWidthMobile():void{
 
 }
 public callRRSS(socialNetwork){
-	if(socialNetwork == "instagram"){
+	if (socialNetwork == "instagram")
 		window.open("https://www.instagram.com/mamfotografo/", "_blank");
-	}
-	else if(socialNetwork == "facebook"){
+	else if(socialNetwork == "facebook")
 		window.open("https://wwww.facebook.com/mamfotografo/", "_blank");
-	}
-	else{
-		window.open("https://twitter.com/mamfotografo/", "_blank");
-	}
+	else window.open("https://twitter.com/mamfotografo/", "_blank");
 }
 
 

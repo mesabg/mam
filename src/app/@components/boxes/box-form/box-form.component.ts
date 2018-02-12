@@ -18,7 +18,7 @@ export class BoxFormComponent implements OnInit {
 
     
     public myForm: FormGroup; 
-    constructor(public fb: FormBuilder,private api:ContactoApi, private formService:FormService) { 
+    constructor(public fb: FormBuilder, private api:ContactoApi, public formService:FormService) { 
       
       this.myForm = this.fb.group({
       nameAndLastName: ["",Validators.required],

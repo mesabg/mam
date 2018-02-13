@@ -8,7 +8,8 @@ import {
 	ViewChild,
 	ViewContainerRef,
 	ComponentFactory,
-	ComponentFactoryResolver } from '@angular/core';
+	ComponentFactoryResolver,
+	Input } from '@angular/core';
 
 /**
  * Local imports
@@ -27,6 +28,7 @@ import { HeaderComponent as Header } from '@mam/components';
 })
 export class HeaderComponent implements OnInit {
 	@ViewChild('renderer', {read:ViewContainerRef}) private renderer:ViewContainerRef;
+	@Input('isPortafolio') public isPortafolio:Boolean = false;
 
 	constructor(
 		private bannerApi:ImageApi, 
@@ -51,5 +53,6 @@ export class HeaderComponent implements OnInit {
 		//-- Setting component params
 		component.bannerImages = images;
 		component.miniaturas = testimonies;
+		component.isPortafolio = this.isPortafolio;
 	}
 }

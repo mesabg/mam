@@ -19,6 +19,8 @@
 
 [component-wrapper]{
     height: initial !important;
+    max-height: initial !important;
+    margin-top: -4rem !important;
 
     [image-wrapper]{
         margin-top: 30px;

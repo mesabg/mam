@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	 */
 	@Input('bannerImages') public bannerImages:ImageResponse[];
 	@Input('miniaturas') public miniaturas:Miniatura[];
+	@Input('isPortafolio') public isPortafolio:Boolean = false;
 
 	
 	/**
@@ -54,7 +55,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	@ViewChild('grid_Miniatura') private $gridMiniatura:ElementRef;
 	private $carousel:SlickJS;
 	public miniatura:Miniatura;
-	constructor(private CTA:CTAService,private router:Router) { }
+	constructor(public CTA:CTAService,private router:Router) { }
 
 	/**
 	 * Events

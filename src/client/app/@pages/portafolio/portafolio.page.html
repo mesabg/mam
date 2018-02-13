@@ -1,10 +1,12 @@
 <mam-instance-header-sticky></mam-instance-header-sticky>
-<mam-instance-header (onClick)="changeMenu()"></mam-instance-header>
+<mam-instance-header (onClick)="changeMenu()" [isPortafolio]="true"></mam-instance-header>
 
 <br>
 <br>
 <h4 class="title" font-uppercase font-center>Lo mejor de cada historia</h4>
 
-<mam-thumbnail-block-image [images]="images | async"></mam-thumbnail-block-image>
+<div #renderImages></div>
 <br>
-<br>
+
+<mam-instance-banner-instagram></mam-instance-banner-instagram>
+<div class="break"></div>

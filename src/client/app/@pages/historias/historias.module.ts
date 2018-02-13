@@ -15,6 +15,8 @@ import { HistoriasRoutingModule } from './historias.routing';
  */
 import { InstanceComponentsModule } from '@mam/instance-components';
 import { ApiModule } from '@mam/api';
+import { ServicesModule } from '@mam/services';
+
 /**
  * Module page declaration
  */
@@ -23,7 +25,8 @@ import { ApiModule } from '@mam/api';
 		CommonModule,
 		HistoriasRoutingModule,
 		ApiModule,
-		InstanceComponentsModule
+		InstanceComponentsModule,
+		ServicesModule
 	],
 	declarations: [ HistoriasPage ],
 	exports: [ HistoriasPage ]

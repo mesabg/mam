@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 import { ImageApi } from '@mam/api';
 import { ImageResponse } from '@mam/responses';
 import { featuredContent} from '@mam/interfaces';
-
 import { CTAService } from '@mam/services';
+
 /**
  * PAGE => Historias
  */

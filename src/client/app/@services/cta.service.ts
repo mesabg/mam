@@ -39,6 +39,7 @@ export class CTAService {
 	 * Main CTA's
 	 */
 	public inicio():void{
+		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
 		this.router.navigateByUrl('/');
 		this.$routeChange.emit({
@@ -47,6 +48,7 @@ export class CTAService {
 		});
 	}
 	public contacto():void{
+		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
 		this.router.navigateByUrl('/contacto');
 		this.$routeChange.emit({
@@ -55,6 +57,7 @@ export class CTAService {
 		});
 	}
 	public historias():void{
+		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
 		this.router.navigateByUrl('/historias');
 		this.$routeChange.emit({
@@ -63,6 +66,7 @@ export class CTAService {
 		});
 	}
 	public mam():void{
+		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
 		this.router.navigateByUrl('/mam');
 		this.$routeChange.emit({
@@ -71,6 +75,7 @@ export class CTAService {
 		});
 	}
 	public portafolio():void{
+		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
 		this.router.navigateByUrl('/portafolio');
 		this.$routeChange.emit({
@@ -82,6 +87,7 @@ export class CTAService {
 	 * @param id ID of the historia
 	 */
 	public historia(id:number):void{
+		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
 		this.router.navigateByUrl(`/historia-detalle/${id}`);
 		this.$routeChange.emit({

@@ -9,7 +9,6 @@
     "build:universal-prod": "npm run clean:artifacts && gulp build:universal-prod --color",
     "serve": "nodemon ./.server/server.js",
     "serve:prod": "node ./.server/server.js",
-
     "ng": "ng",
     "start": "webpack-dev-server --port=4200",
     "build": "webpack",

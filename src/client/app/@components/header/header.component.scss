@@ -5,7 +5,7 @@ $golden: #b9a26a;
 .banner{
     //width: 100vw;
     width: 96.4vw;
-    height: 100vh;
+    height: calc(100vh - 10px);
     overflow-x: hidden !important;
     position: relative;
     .logo{
@@ -28,7 +28,7 @@ $golden: #b9a26a;
         position: relative;
         width: inherit;
         height: inherit;
-        overflow-x: hidden !important;
+        overflow: hidden !important;
 
         .image-container{
             //width: 100vw;

@@ -9,7 +9,8 @@ import {
 	Input,
 	Output,
 	EventEmitter,
-	OnChanges  } from '@angular/core';
+	OnChanges,
+	ViewEncapsulation } from '@angular/core';
 
 import { Router } from '@angular/router';
 /**
@@ -26,6 +27,7 @@ declare const $:any;
   host: {
 	'(window:resize)': 'onResize()'
 	},
+	encapsulation: ViewEncapsulation.None
 })
 export class HeaderStickyComponent implements OnInit {
 	public expanded:boolean = false;
@@ -39,27 +41,38 @@ export class HeaderStickyComponent implements OnInit {
   ngOnInit() {
 	 // this.CTA.contacto();
   }
-public onResize(){
-	
-	if( $(window).width() < 1024){
-		if(this.expanded){
-			if(!this.expandedMobile){
-				$(".stickybar-mobile").find(".burger-click-region").click();
-				this.greaterWidthMobile();
-		     	this.burgerEffectMobile();
-			}		
+
+
+  public callback(page:string):void {
+	  if (page === 'portafolio') this.CTA.portafolio();
+	  else if (page === 'historias') this.CTA.historias();
+	  else if (page === 'mam') this.CTA.mam();
+	  else if (page === 'contacto') this.CTA.contacto();
+	  this.greaterWidth();
+	  this.burgerEffect();
+  }
+
+	public onResize(){
+		
+		if( $(window).width() < 1024){
+			if(this.expanded){
+				if(!this.expandedMobile){
+					$(".stickybar-mobile").find(".burger-click-region").click();
+					this.greaterWidthMobile();
+					this.burgerEffectMobile();
+				}		
+			}
 		}
-	}
-	else{
-		if(this.expandedMobile){
-			if( ! this.expanded){
-				$(".stickybar-mobile").find(".burger-click-region").click();
-				this.greaterWidthMobile();
-				this.burgerEffectMobile();				
+		else{
+			if(this.expandedMobile){
+				if( ! this.expanded){
+					$(".stickybar-mobile").find(".burger-click-region").click();
+					this.greaterWidthMobile();
+					this.burgerEffectMobile();				
+				}
 			}
 		}
 	}
-}
  public greaterWidth():void{
  	if(! this.expanded){
  		$(".stickybar").css("width", "100vw");

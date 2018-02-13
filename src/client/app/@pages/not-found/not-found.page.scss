@@ -1,3 +1,14 @@
+.logo{
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 2;
+    height: 40px;
+    width: auto;
+}
 
+.logo:hover {
+    cursor: pointer;
+}
 
 [font-hiper]{ font-size: 5rem; }

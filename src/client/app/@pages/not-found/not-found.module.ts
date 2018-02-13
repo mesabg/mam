@@ -15,6 +15,7 @@ import { NotFoundRoutingModule } from './not-found.routing';
  */
 import { InstanceComponentsModule } from '@mam/instance-components';
 import { ComponentsModule } from '@mam/components';
+import { ServicesModule } from '@mam/services';
 
 /**
  * Module page declaration
@@ -24,7 +25,8 @@ import { ComponentsModule } from '@mam/components';
 		NotFoundRoutingModule,
 		InstanceComponentsModule,
 		ComponentsModule,
-		CommonModule
+		CommonModule,
+		ServicesModule
 	],
 	declarations: [ NotFoundPage ],
 	exports: [ NotFoundPage ]

@@ -25,7 +25,7 @@ export class HistoriasPage implements OnInit {
 	public images:Observable<ImageResponse[]>;
 	public featuredContent:featuredContent;
 	
-	constructor(private api:ImageApi, public CTA:CTAService) { }
+	constructor(private CTA:CTAService,private api:ImageApi) { }
 
 	/**
 	 * Events

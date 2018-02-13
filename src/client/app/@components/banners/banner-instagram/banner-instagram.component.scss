@@ -90,6 +90,7 @@ $golden: #b9a26a;
     [component-wrapper][_ngcontent-c9] {
         margin-top: 3rem;
         height: 80vh;
+        
         background-color: white !important;
         [title]{
             height: 10vh;
@@ -136,7 +137,7 @@ $golden: #b9a26a;
 @media only screen and (min-width: 1024px)  {
     [component-wrapper][_ngcontent-c9] {
         margin-top: 3rem;
-        height: 90vh;
+        height: 80vh;
         background-color: white !important;
     }   
 }
@@ -147,11 +148,14 @@ $golden: #b9a26a;
 @media only screen and (min-width: 320px) and (max-width: 375px) {
     [component-wrapper] {
         margin-top: 3rem;
-        height: 80vh;
+        //height: 80vh;
+        height: 125vh;
+        max-height: 480px;
         background-color: white !important;
         [title]{
-            height: 10vh;
+            height: 20vh;
             padding-top: 4vh;
+            max-height: 110px;
         }
     }   
 }
@@ -159,10 +163,14 @@ $golden: #b9a26a;
 @media only screen and (min-width: 375px) and (max-width: 425px) {
     [component-wrapper] {
         margin-top: 3rem;
-        height: 85vh;
+        //height: 85vh;
+        height: 142vh;
+        max-height: 530px;
         background-color: white !important;
         [title]{
-            height: 12vh;
+           // height: 10vh;
+            height: 20vh;
+            max-height: 90px;
             padding-top: 2vh;
         }
     }   
@@ -171,11 +179,15 @@ $golden: #b9a26a;
 @media only screen and (min-width: 425px) and (max-width: 768px) {
     [component-wrapper] {
         margin-top: 3rem;
-        height: 105vh;
+        //height: 105vh;
+        height: 145vh;
+        max-height: 550px;
         background-color: white !important;
         [title]{
-            height: 14vh;
+            //height: 14vh;
             padding-top: 5vh;
+            height: 24vh;
+            max-height: 100px;
         }
     }
     [component-wrapper] [carousel] [element] [element-wrapper] img{
@@ -197,7 +209,8 @@ $golden: #b9a26a;
 @media only screen and (min-width: 1024px)  {
     [component-wrapper] {
         margin-top: 3rem;
-        height: 90vh;
+        height: 80vh;
+        max-height: 480px;
         background-color: white !important;
     }   
 }

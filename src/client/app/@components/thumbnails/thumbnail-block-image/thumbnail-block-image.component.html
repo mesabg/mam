@@ -1,14 +1,30 @@
 <div class="row" component-wrapper>
-	<div *ngFor="let resource of images;" class="col-12 col-md-6" col>
+	<div *ngFor="let resource of images; let i = index" class="col-12 col-md-6" col>
 		<div image-wrapper>
 			<div image-container>
 				<img 
 					[attr.src]="resource.image" 
 					[attr.alt]="resource.name"
-					class="container-image">
+					class="container-image" [attr.data-index]="i"
+					(click)="showVelo(i)" mouseable>
 			</div>
 		</div>
 		<br>
-		<br>
+		<div class="velo-image" [attr.data-index]="i" style="display:none;" >
+			<div class="velo"></div>
+			
+			<div class="relative">
+				<div class="burger-click-region active velo-burger" golden aria-hidden="true" mouseable (click)="disposeVelo(i)">
+					<span class="burger-menu-piece"></span>
+					<span class="burger-menu-piece"></span>
+					<span class="burger-menu-piece"></span>
+				</div>
+				<img 
+					[attr.src]="resource.image" 
+					[attr.alt]="resource.name"
+					class="full-image">
+			</div>
+		</div>	
 	</div>
 </div>
+

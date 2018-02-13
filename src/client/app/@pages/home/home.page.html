@@ -1,5 +1,5 @@
 <mam-instance-header-sticky></mam-instance-header-sticky>
-<mam-instance-header (onClick)="changeMenu()"></mam-instance-header>
+<mam-instance-header></mam-instance-header>
 
 <div class="quote_box">
 	<div class="relative table">
@@ -16,12 +16,15 @@
 			<h2 class="title uppercase">Conoce sus historias</h2>
 		</div>
 	<!--</div>-->
-</div>							
-<ng-template ngFor let-image [ngForOf]="images | async" let-i="index">
-    <mam-instance-thumbnail-image 
-        [image]="image" 
-        [position]="i"></mam-instance-thumbnail-image>
-</ng-template>
+</div>	
+<div class="box-thumbnails-images">						
+	<ng-template ngFor let-image [ngForOf]="images | async" let-i="index">
+		<mam-instance-thumbnail-image 
+			[image]="image" 
+			[position]="i"></mam-instance-thumbnail-image>	
+	</ng-template>
+</div>
 
 <mam-instance-banner-miembros></mam-instance-banner-miembros>    
 <mam-instance-banner-instagram></mam-instance-banner-instagram>
+<mam-instance-footer></mam-instance-footer>

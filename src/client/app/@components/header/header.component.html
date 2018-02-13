@@ -1,12 +1,12 @@
 <div #carouselContainer></div>
 
 <div class="banner bannerHome">
-	<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="goto('')">
+	<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="CTA.inicio()">
 	<div class="banner-content" #carousel>
 		<div class="image-container container-image" *ngFor="let image of bannerImages;" style="position: relative;">
 			<div class="overlay"></div>
 			<img [attr.src]="image.image" [attr.alt]="image.name">
-			<div *ngIf="!isPortafolio" class="call-to-action-image" >
+			<div *ngIf="!isPortafolio && !isMAM && !isContacto" class="call-to-action-image" >
 				<a class="btn-CTA" (click)="CTA.portafolio()">
 					<svg>
 						<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
@@ -19,11 +19,17 @@
 	<div *ngIf="isPortafolio" class="portafolio-title">
 		<h1>PORTAFOLIO</h1>
 	</div>
+	<div *ngIf="isMAM" class="portafolio-title">
+		<h1>MIGUEL ÁNGEL MARTÍNEZ</h1>
+	</div>
+	<div *ngIf="isContacto" class="portafolio-title">
+		<h1>CONTACTO</h1>
+	</div>
 
-	<div *ngIf="!isPortafolio" class="box-miniatura" #grid_Miniatura>
+	<div *ngIf="!isPortafolio && !isMAM && !isContacto" class="box-miniatura" #grid_Miniatura>
 		<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
 	</div>
-	<div *ngIf="!isPortafolio" class="box-miniatura-mobile" #grid_Miniatura>
+	<div *ngIf="!isPortafolio && !isMAM && !isContacto" class="box-miniatura-mobile" #grid_Miniatura>
 		<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
 	</div>
 </div>

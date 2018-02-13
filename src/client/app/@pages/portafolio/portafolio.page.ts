@@ -67,7 +67,4 @@ export class PortafolioPage implements OnInit {
 		this.changeDetector.detectChanges();
 	}
 
-	public changeMenu(){
-		console.log("hola");
-	}
 }

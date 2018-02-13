@@ -45,7 +45,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	@Input('bannerImages') public bannerImages:ImageResponse[];
 	@Input('miniaturas') public miniaturas:Miniatura[];
 	@Input('isPortafolio') public isPortafolio:Boolean = false;
-
+	@Input('isMAM') public isMAM:Boolean = false;
+	@Input('isContacto') public isContacto:Boolean = false;
 	
 	/**
 	 * View injection
@@ -60,7 +61,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	/**
 	 * Events
 	 */
-	ngOnInit() { this.parse();}
+	ngOnInit() { this.parse();
+	}
 	ngOnChanges() { }
 	ngAfterViewInit() {
 		this.initSlickJS();
@@ -80,11 +82,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 
 
 	private parse():void{
-		this.miniatura = this.miniaturas[0];
+			this.miniatura = this.miniaturas[0];
 	}
 
-
-	public goto(url:string){
-		this.router.navigateByUrl(url);
-	}
 }

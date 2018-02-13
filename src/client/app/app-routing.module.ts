@@ -72,7 +72,7 @@ const routes: Routes = [
 		PortafolioModule,
 		NotFoundModule,
 		HistoriaModule,
-		RouterModule.forRoot(routes, {useHash: false})
+		RouterModule.forRoot(routes, {useHash: true})
 	],
 	exports: [RouterModule]
 })

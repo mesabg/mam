@@ -47,15 +47,27 @@ export class CTAService {
 			params: undefined
 		});
 	}
-	public contacto():void{
+	public contacto(ancla?:any):void{
+		console.log(ancla);
 		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
-		this.router.navigateByUrl('/contacto');
-		this.$routeChange.emit({
-			route: 'none',
-			params: undefined
-		});
+		if(ancla == undefined){
+			this.router.navigateByUrl('/contacto');
+			this.$routeChange.emit({
+				route: 'none',
+				params: undefined
+			});
+		}
+		else{
+			this.router.navigateByUrl('/contacto');
+			this.$routeChange.emit({
+				route: '/contacto',
+				params: ancla
+			});
+		}
+		
 	}
+	
 	public historias():void{
 		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");

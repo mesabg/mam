@@ -1,8 +1,8 @@
-<form [formGroup]="myForm" (ngSubmit)="formService.submit(myForm)" class = "formulario">
+<form [formGroup]="myForm" (ngSubmit)="formService.submit(myForm)" class = "formulario" id="formulario-bodas">
 	<div class="container form_box">
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
-				<input type="text" name="nameAndLastName" placeholder="Nombre y Apellido" formControlName="nameAndLastName">
+				<input type="text" name="nameAndLastName" placeholder="Nombre y Apellido" formControlName="nameAndLastName"> <!--<span golden>*</span>-->
 				<div class="error" *ngIf="!myForm.controls['nameAndLastName'].valid &&myForm.controls['nameAndLastName'].touched "> Por favor ingrese un nombre válido.</div>
 			</div>
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
@@ -11,7 +11,7 @@
 			</div>
 		
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
-				<input type="number" name="phone" placeholder="Teléfono" autocomplete="true" formControlName="phone">
+				<input type="tel"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' pattern="[0-9]{10,11}"  name="phone" placeholder="Teléfono" autocomplete="true" formControlName="phone">
 				<div class="error" *ngIf="!myForm.controls['phone'].valid &&myForm.controls['phone'].touched "> Por favor ingreseun telefono válido.</div>
 			</div>
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
@@ -35,7 +35,7 @@
 				<div class="error" *ngIf="!myForm.controls['locationReception'].valid &&myForm.controls['locationReception'].touched "> Por favor ingrese una dirección.</div>
 			</div>
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
-				<input type="number" min="0" name="numInvited" placeholder="Numero de invitados" formControlName="numInvited">
+				<input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' min="0" name="numInvited" placeholder="Numero de invitados" formControlName="numInvited">
 				<div class="error" *ngIf="!myForm.controls['numInvited'].valid &&myForm.controls['numInvited'].touched "> Por favor ingrese una cantidad de invitados.</div>
 			</div>
 		
@@ -44,6 +44,12 @@
 				<div class="error" *ngIf="!myForm.controls['details'].valid &&myForm.controls['details'].touched "> Por favor ingrese unos detalles.</div>
 			</div>
 		</div>
+	</div>
+
+	<div id="WA" class="error" style="display:none; font-size:1rem;">
+		<br>
+			<p style="text-align:center;">Disculpe, hubo un error al realizar el envío, por favor intente de nuevo.</p>	
+		<br>	
 	</div>
 
 	<div class="call-to-action">

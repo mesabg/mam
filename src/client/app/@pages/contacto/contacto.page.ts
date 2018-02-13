@@ -2,7 +2,7 @@
 /**
  * Global imports
  */
-import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 /**
@@ -15,6 +15,8 @@ import { ContactoApi  } from '@mam/api';
 import { ContactoForm } from 'app/#interfaces/contacto.form.interface';
 import { APIStatus } from 'app/@api/#responses/status.response';
 import { FormService } from '@mam/services';
+import { State } from '@mam/services';
+
 
 declare const $:any;
 /**
@@ -26,6 +28,12 @@ declare const $:any;
 	styleUrls: ['./contacto.page.scss']
 })
 export class ContactoPage implements OnInit {
+
+	/**
+	 * Inputs
+	 */
+	@Input() public state:State;
+
 	public contacto:Contacto ={
 		text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita reiciendis ratione saepe quia a pariatur libero quibusdam sequi, minus esse, sapiente nobis similique, hic! Aperiam labore nulla, dolorem! Voluptatum, iusto?",
 		description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad impedit voluptatem ipsum, obcaecati fugiat vitae fuga necessitatibus exercitationem sunt iusto, explicabo perspiciatis doloremque itaque ab dolorum ut nam! Iste, repellat?"
@@ -39,9 +47,12 @@ export class ContactoPage implements OnInit {
 				//-- Parse data and call a function to resolve
 				this.resolveSubmit(data);
 			});
-		this.retrieve();	
+		this.retrieve();
+		
 	}
-
+	ngAfterViewInit(){
+		console.log(this.state.params);
+	}
 
 	/**
 	 * Actions
@@ -57,15 +68,16 @@ export class ContactoPage implements OnInit {
 		//-- DO SOMETHING
 	}
     private resolveSubmit(formData:ContactoForm):void{
+		$("#WA").hide();
 		console.log("submitieando");
 		console.log(formData); 
 		this.ContactoApi.publishContacto(formData).subscribe((state:APIStatus) =>{
 				if (state.status === 'AC'){ 
-				//-- Correct answer
+				//-- Correct answer		
 					$("#boxThanks").show();
 				}else if (state.status === 'WA'){ 
 				//-- Wrong answer
-				// $(this.errorRef.nativeElement).addClass('active');
+					$("#WA").show();
 				}else{ 
 				//-- Unknown error
 				// $(this.errorRef.nativeElement).addClass('active');

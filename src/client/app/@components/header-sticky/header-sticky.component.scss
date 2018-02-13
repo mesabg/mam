@@ -132,7 +132,12 @@ $menu-animation-timing:   ease-out;
         }
     }  
 }
-
+#chat-image{
+    background-image: url("/assets/svg/contact-black.svg");
+}
+#chat-image:hover{
+    background-image: url("/assets/svg/speech-bubble-hover.svg");
+}
   
 
     .link-effect-4 {

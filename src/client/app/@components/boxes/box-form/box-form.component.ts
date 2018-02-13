@@ -23,11 +23,11 @@ export class BoxFormComponent implements OnInit {
       this.myForm = this.fb.group({
       nameAndLastName: ["",Validators.required],
       email: ["",Validators.compose( [Validators.required, Validators.email] )],
-      phone: ["",Validators.required],
+      phone: [""],
       SocialNetwork: ["",Validators.required],
       dateWedding: ["",Validators.required],
       locationChurch: ["",Validators.required],
-      locationReception: ["",Validators.required],
+      locationReception: [""],
       numInvited: ["",Validators.compose( [Validators.required, Validators.min(1)] ) ],
       details: [""],
       });

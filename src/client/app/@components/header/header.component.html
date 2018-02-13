@@ -7,8 +7,8 @@
 		<div class="image-container container-image" *ngFor="let image of bannerImages;" style="position: relative;">
 			<div class="overlay"></div>
 			<img [attr.src]="image.image" [attr.alt]="image.name">
-			<div class="call-to-action-image">
-				<a href="#" class="btn-CTA">
+			<div class="call-to-action-image" >
+				<a class="btn-CTA" (click)="CTA.portafolio()">
 					<svg>
 						<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
 					</svg>

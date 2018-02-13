@@ -22,14 +22,14 @@ export class BoxFormComponent implements OnInit {
       
       this.myForm = this.fb.group({
       nameAndLastName: ["",Validators.required],
-      email: ["",Validators.required, Validators.email],
+      email: ["",Validators.compose( [Validators.required, Validators.email] )],
       phone: ["",Validators.required],
       SocialNetwork: ["",Validators.required],
       dateWedding: ["",Validators.required],
       locationChurch: ["",Validators.required],
       locationReception: ["",Validators.required],
-      numInvited: ["",Validators.required, Validators.min(1)],
-      details: ["",Validators.required],
+      numInvited: ["",Validators.compose( [Validators.required, Validators.min(1)] ) ],
+      details: [""],
       });
 
     }

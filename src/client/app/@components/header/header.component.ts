@@ -15,7 +15,7 @@ import {
 	OnChanges } from '@angular/core';
 
 import { Router } from '@angular/router';
-
+import { CTAService } from '@mam/services';
 declare const $:any;
 
 /**
@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	@ViewChild('grid_Miniatura') private $gridMiniatura:ElementRef;
 	private $carousel:SlickJS;
 	public miniatura:Miniatura;
-	constructor(private router:Router) { }
+	constructor(private CTA:CTAService,private router:Router) { }
 
 	/**
 	 * Events

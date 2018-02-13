@@ -2,18 +2,22 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
+    "baseUrl": "src/client",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
+    "module": "es2015",
+    "importHelpers": true,
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2016",
+      "es2017",
       "dom"
     ],
     "paths":{
@@ -36,5 +40,13 @@
       "@mam/enums": ["./app/#enums"],
       "@mam/responses": ["./app/@api/#responses"]
     }
+  },
+  "angularCompilerOptions": {
+    "genDir": ".",
+    "skipMetadataEmit": true
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "usePrecompiledFiles": true,
+    "useWebpackText": true
   }
 }

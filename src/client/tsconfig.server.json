@@ -1,0 +1,20 @@
+{
+    "extends": "./tsconfig.app.json",
+    "compilerOptions": {
+        "outDir": "../out-tsc/server",
+        "module": "commonjs",
+        "target": "es5",
+        "baseUrl": "",
+        "types": [
+            "node"
+        ]
+    },
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ],
+    "angularCompilerOptions": {
+        "entryModule": "app/app-server.module#AppServerModule",
+        "strictMetadataEmit": true
+    }
+}

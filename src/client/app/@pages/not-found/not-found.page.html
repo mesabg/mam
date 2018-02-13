@@ -1,3 +1,6 @@
+<mam-instance-header-sticky></mam-instance-header-sticky>
+
+<img src="assets/svg/mam-logo-black.svg" alt="" class="logo" (click)="CTA.inicio()" > 
 <br>
 <br>
 
@@ -14,6 +17,7 @@
 
 <h4 class="title" font-uppercase font-center>mira lo mejor de cada historia</h4>
 
-<mam-thumbnail-block-image [images]="images | async"></mam-thumbnail-block-image>
+<div #renderImages></div>
+<!--<mam-thumbnail-block-image [images]="images | async"></mam-thumbnail-block-image>-->
 
 <mam-instance-banner-instagram></mam-instance-banner-instagram>

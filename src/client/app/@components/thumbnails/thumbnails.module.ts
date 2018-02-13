@@ -25,7 +25,8 @@ import { ThumbnailInstagramCarouselComponent } from './thumbnail-instagram-carou
 		ThumbnailInstagramCarouselComponent
 	],
 	entryComponents: [
-		ThumbnailInstagramCarouselComponent
+		ThumbnailInstagramCarouselComponent,
+		ThumbnailBlockImageComponent
 	]
 })
 export class ThumbnailsModule { }

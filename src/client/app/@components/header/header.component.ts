@@ -66,8 +66,26 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	ngOnChanges() { }
 	ngAfterViewInit() {
 		this.initSlickJS();
+		
+		this.animation();
+		
 	}
-
+	public animation(){
+		this.$carousel.eventAfterChange.subscribe(data =>{
+			$(".loader1").stop();
+			$(".loader1").width(100);
+			//clearInterval(myVar);
+			this.animation();
+		});
+		$(".loader1").animate({ width: "110%" },5000,"linear",()=>{
+			$(".loader1").width(100);
+			this.$carousel.slideNext();
+		});
+		/*let myVar =setInterval( ()=>{
+			$(".loader1").animate({ width: "110%" },5000,"linear",()=>{$(".loader1").width(100) });
+			this.$carousel.slideNext();
+		}, 4900);	*/
+	}
 
 	/**
 	 * Actions

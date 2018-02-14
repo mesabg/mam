@@ -71,8 +71,8 @@ $golden: #b9a26a;
 	width: 100px;
 	height: 10px;
 	background-color: $golden;
-    animation: loading linear infinite;
-    animation-duration: 5200ms;
+    //animation: loading linear infinite;
+   // animation-duration: 5200ms;
 }
 @keyframes loading {
     /*from {left: -100px; width: 10%;}

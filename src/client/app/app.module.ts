@@ -12,7 +12,7 @@ import { HttpModule } from '@angular/http';
 import { InstanceComponentsModule } from '@mam/instance-components';
 import { AppRoutingModule } from './app-routing.module';
 import { Layout } from './layout';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 export const REQ_KEY = makeStateKey<string>('req');
 
 @NgModule({
@@ -24,8 +24,10 @@ export const REQ_KEY = makeStateKey<string>('req');
 		FormsModule,
 		HttpModule,
 		InstanceComponentsModule,
-		AppRoutingModule
+		AppRoutingModule,
+		MatDatepickerModule
 	],
+	exports: [MatDatepickerModule],
 	providers: [],
 	bootstrap: [Layout]
 })

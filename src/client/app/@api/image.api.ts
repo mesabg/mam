@@ -32,8 +32,9 @@ export class ImageApi {
 					.map(response => response.json())
 					.map(response => {
 						return response.portfolio.map(section => {
-							return {
-								image: section.banner.url,
+							console.log(section);
+							return {								
+								image: section.banner[0].url,
 								name: section.name
 							}
 						});

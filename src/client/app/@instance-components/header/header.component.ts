@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit {
 		}
 		else
 			this.render(await this.bannerApi.getBannerHomeImages(), await this.bannerApi.getBannerHomeImagesTestimonies());
+			
 
 	}
 	ngAfterViewInit(){
@@ -59,6 +60,7 @@ export class HeaderComponent implements OnInit {
 	 * Actions
 	 */
 	private render (images:ImageResponse[], testimonies?:Miniatura[]){
+		console.log(images);
 		//-- Creating component
 		let factory = this.resolver.resolveComponentFactory(Header);
 		let reference = this.renderer.createComponent(factory);

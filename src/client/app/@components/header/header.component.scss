@@ -48,7 +48,15 @@ $golden: #b9a26a;
     }
 }
 
-
+.loader1{
+    display: block;
+	position: absolute;
+	//content: "";
+	left: -100px;
+	width: 100px;
+	height: 10px;
+	background-color: $golden;
+}
 .loader:before{
 	display: block;
 	position: absolute;
@@ -57,8 +65,8 @@ $golden: #b9a26a;
 	width: 100px;
 	height: 10px;
 	background-color: $golden;
-    animation: loading linear infinite;
-    animation-duration: 6.4s;
+    //animation: loading linear infinite;
+    //animation-duration: 6.4s;
 }
 @keyframes loading {
     /*from {left: -100px; width: 10%;}

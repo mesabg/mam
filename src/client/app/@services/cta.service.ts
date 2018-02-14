@@ -69,7 +69,7 @@ export class CTAService {
 	}
 	
 	public historias():void{
-		window.scrollTo(0,0);
+		window.scrollTo(0,0) ;
 		$("body").removeClass("blockScroll");
 		this.router.navigateByUrl('/historias');
 		this.$routeChange.emit({

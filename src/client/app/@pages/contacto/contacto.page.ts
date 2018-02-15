@@ -54,7 +54,7 @@ export class ContactoPage implements OnInit {
 		this.CTA.$routeChange.subscribe( (data)=> {
 			this.state = data;
 			console.log(data);
-			window.location.href = "/contacto#"+data.params;
+			//window.location.href = "/contacto#"+data.params;
 		});
 	}
 

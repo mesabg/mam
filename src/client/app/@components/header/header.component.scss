@@ -43,6 +43,11 @@ $golden: #b9a26a;
                 width: 96.4vw;
                 height: auto;
                 display: inline-block;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                -o-object-fit: cover;
+                -o-object-position: center;
             }
         }
     }

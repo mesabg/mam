@@ -46,7 +46,7 @@ export class ImageApi {
 					.map(response => {
 						return response.portfolio.map(section => {
 							return {
-								image: section.banner.url,
+								image: section.banner[0].url,
 								name: section.name
 							}
 						});
@@ -58,7 +58,7 @@ export class ImageApi {
 					.map(response => {
 						return response.portfolio.map(section => {
 							return {
-								image: section.banner.url,
+								image: section.banner[0].url,
 								name: section.name
 							}
 						});
@@ -70,7 +70,7 @@ export class ImageApi {
 					.map(response => {
 						return response.portfolio.map(section => {
 							return {
-								image: section.banner.url,
+								image: section.banner[0].url,
 								name: section.name
 							}
 						});

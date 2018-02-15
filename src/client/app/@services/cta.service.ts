@@ -48,10 +48,9 @@ export class CTAService {
 		});
 	}
 	public contacto(ancla?:any):void{
-		console.log(ancla);
-		window.scrollTo(0,0);
 		$("body").removeClass("blockScroll");
 		if(ancla == undefined){
+			window.scrollTo(0,0);
 			this.router.navigateByUrl('/contacto');
 			this.$routeChange.emit({
 				route: 'none',

@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
 	 */
 	async ngOnInit() {
 		if(this.isPortafolio){
-			this.render(await this.bannerApi.getBannerPortafolioImages());
+			this.render(await this.bannerApi.getBannerPortafolioImages() );
 		}
 		else if(this.isContacto){
 			this.render(await this.bannerApi.getBannerContactoImages());
@@ -67,7 +67,13 @@ export class HeaderComponent implements OnInit {
 		let component = (<Header>reference.instance);
 
 		//-- Setting component params
-		component.bannerImages = images;
+		if(this.isPortafolio || this.isContacto || this.isMAM){
+			component.bannerImages = [images[0]];
+		}
+		else{
+			component.bannerImages = images;
+		}
+		
 		component.isPortafolio = this.isPortafolio;
 		component.isMAM = this.isMAM;
 		component.isContacto = this.isContacto;

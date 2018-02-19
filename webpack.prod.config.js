@@ -1,30 +1,34 @@
 const fs = require('fs');
 const path = require('path');
-const ConcatPlugin = require('webpack-concat-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const rxPaths = require('rxjs/_esm5/path-mapping');
 const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
 const cssnano = require('cssnano');
+const postcssImports = require('postcss-import');
 const CompressionPlugin = require("compression-webpack-plugin");
 
 const { NoEmitOnErrorsPlugin, SourceMapDevToolPlugin, NamedModulesPlugin } = require('webpack');
-const { InsertConcatAssetsWebpackPlugin, NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
+const { ScriptsWebpackPlugin, NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
+const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const { AotPlugin } = require('@ngtools/webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
-const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_modules');
-const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
+const genDirNodeModules = path.join(process.cwd(), 'src/client', '$$_gendir', 'node_modules');
+const entryPoints = ["inline","polyfills","sw-register","styles","scripts","vendor","main"];
 const minimizeCss = false;
 const baseHref = "/";
 const deployUrl = "";
-const postcssPlugins = function () {
+const projectRoot = process.cwd();
+const maximumInlineSize = 10;
+const postcssPlugins = function (loader) {
         // safe settings based on: https://github.com/ben-eb/cssnano/issues/358#issuecomment-283696193
-        const importantCommentRe = /@preserve|@license|[@#]\s*source(?:Mapping)?URL|^!/i;
+        const importantCommentRe = /@preserve|@licen[cs]e|[@#]\s*source(?:Mapping)?URL|^!/i;
         const minimizeOptions = {
             autoprefixer: false,
             safe: true,
@@ -32,29 +36,89 @@ const postcssPlugins = function () {
             discardComments: { remove: (comment) => !importantCommentRe.test(comment) }
         };
         return [
-            postcssUrl({
-                url: (URL) => {
-                    // Only convert root relative URLs, which CSS-Loader won't process into require().
-                    if (!URL.startsWith('/') || URL.startsWith('//')) {
-                        return URL;
-                    }
-                    if (deployUrl.match(/:\/\//)) {
-                        // If deployUrl contains a scheme, ignore baseHref use deployUrl as is.
-                        return `${deployUrl.replace(/\/$/, '')}${URL}`;
-                    }
-                    else if (baseHref.match(/:\/\//)) {
-                        // If baseHref contains a scheme, include it as is.
-                        return baseHref.replace(/\/$/, '') +
-                            `/${deployUrl}/${URL}`.replace(/\/\/+/g, '/');
-                    }
-                    else {
-                        // Join together base-href, deploy-url and the original URL.
-                        // Also dedupe multiple slashes into single ones.
-                        return `/${baseHref}/${deployUrl}/${URL}`.replace(/\/\/+/g, '/');
-                    }
+            postcssImports({
+                resolve: (url, context) => {
+                    return new Promise((resolve, reject) => {
+                        let hadTilde = false;
+                        if (url && url.startsWith('~')) {
+                            url = url.substr(1);
+                            hadTilde = true;
+                        }
+                        loader.resolve(context, (hadTilde ? '' : './') + url, (err, result) => {
+                            if (err) {
+                                if (hadTilde) {
+                                    reject(err);
+                                    return;
+                                }
+                                loader.resolve(context, url, (err, result) => {
+                                    if (err) {
+                                        reject(err);
+                                    }
+                                    else {
+                                        resolve(result);
+                                    }
+                                });
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    });
+                },
+                load: (filename) => {
+                    return new Promise((resolve, reject) => {
+                        loader.fs.readFile(filename, (err, data) => {
+                            if (err) {
+                                reject(err);
+                                return;
+                            }
+                            const content = data.toString();
+                            resolve(content);
+                        });
+                    });
                 }
             }),
-            autoprefixer(),
+            postcssUrl({
+                filter: ({ url }) => url.startsWith('~'),
+                url: ({ url }) => {
+                    const fullPath = path.join(projectRoot, 'node_modules', url.substr(1));
+                    return path.relative(loader.context, fullPath).replace(/\\/g, '/');
+                }
+            }),
+            postcssUrl([
+                {
+                    // Only convert root relative URLs, which CSS-Loader won't process into require().
+                    filter: ({ url }) => url.startsWith('/') && !url.startsWith('//'),
+                    url: ({ url }) => {
+                        if (deployUrl.match(/:\/\//) || deployUrl.startsWith('/')) {
+                            // If deployUrl is absolute or root relative, ignore baseHref & use deployUrl as is.
+                            return `${deployUrl.replace(/\/$/, '')}${url}`;
+                        }
+                        else if (baseHref.match(/:\/\//)) {
+                            // If baseHref contains a scheme, include it as is.
+                            return baseHref.replace(/\/$/, '') +
+                                `/${deployUrl}/${url}`.replace(/\/\/+/g, '/');
+                        }
+                        else {
+                            // Join together base-href, deploy-url and the original URL.
+                            // Also dedupe multiple slashes into single ones.
+                            return `/${baseHref}/${deployUrl}/${url}`.replace(/\/\/+/g, '/');
+                        }
+                    }
+                },
+                {
+                    // TODO: inline .cur if not supporting IE (use browserslist to check)
+                    filter: (asset) => {
+                        return maximumInlineSize > 0 && !asset.hash && !asset.absolutePath.endsWith('.cur');
+                    },
+                    url: 'inline',
+                    // NOTE: maxSize is in KB
+                    maxSize: maximumInlineSize,
+                    fallback: 'rebase',
+                },
+                { url: 'rebase' },
+            ]),
+            autoprefixer({ grid: true }),
         ].concat(minimizeCss ? [cssnano(minimizeOptions)] : []);
     };
 
@@ -72,24 +136,30 @@ module.exports = {
       "./node_modules"
     ],
     "symlinks": true,
-    "alias": {}
+    "alias": rxPaths(),
+    "mainFields": [
+      "browser",
+      "module",
+      "main"
+    ]
   },
   "resolveLoader": {
     "modules": [
       "./node_modules",
       "./node_modules"
-    ]
+    ],
+    "alias": rxPaths()
   },
   "entry": {
     "main": [
-      "./src\\main.ts"
+      "./src\\client\\main.ts"
     ],
     "polyfills": [
-      "./src\\polyfills.ts"
+      "./src\\client\\polyfills.ts"
     ],
     "styles": [
-      "./src\\assets\\fonts\\loader.scss",
-      "./src\\styles.scss",
+      "./src\\client\\assets\\fonts\\loader.scss",
+      "./src\\client\\styles.scss",
       "./node_modules\\tether\\dist\\css\\tether.min.css",
       "./node_modules\\bootstrap\\dist\\css\\bootstrap.min.css",
       "./node_modules\\slick-carousel\\slick\\slick.css",
@@ -100,18 +170,11 @@ module.exports = {
   "output": {
     "path": path.join(process.cwd(), "dist"),
     "filename": "[name].bundle.js",
-    "chunkFilename": "[id].chunk.js"
+    "chunkFilename": "[id].chunk.js",
+    "crossOriginLoading": false
   },
   "module": {
     "rules": [
-      {
-        "enforce": "pre",
-        "test": /\.js$/,
-        "loader": "source-map-loader",
-        "exclude": [
-          /(\\|\/)node_modules(\\|\/)/
-        ]
-      },
       {
         "test": /\.html$/,
         "loader": "raw-loader"
@@ -134,8 +197,8 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -149,22 +212,23 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           }
         ]
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -178,14 +242,15 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           },
           {
@@ -200,8 +265,8 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -215,14 +280,15 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           },
           {
@@ -235,8 +301,8 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -250,14 +316,15 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           },
           {
@@ -271,8 +338,8 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -286,22 +353,23 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           }
         ]
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -315,14 +383,15 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           },
           {
@@ -337,8 +406,8 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -352,14 +421,15 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           },
           {
@@ -372,8 +442,8 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\client\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\client\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -387,14 +457,15 @@ module.exports = {
             "loader": "css-loader",
             "options": {
               "sourceMap": false,
-              "importLoaders": 1
+              "import": false
             }
           },
           {
             "loader": "postcss-loader",
             "options": {
               "ident": "postcss",
-              "plugins": postcssPlugins
+              "plugins": postcssPlugins,
+              "sourceMap": false
             }
           },
           {
@@ -407,7 +478,7 @@ module.exports = {
         ]
       },
       {
-        "test": /\.ts$/,
+        "test": /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
         "use": [
           "@ngtools/webpack"
         ]
@@ -416,52 +487,53 @@ module.exports = {
   },
   "plugins": [
     new NoEmitOnErrorsPlugin(),
-    new ConcatPlugin({
-      "uglify": false,
-      "sourceMap": true,
+    new ScriptsWebpackPlugin({
       "name": "scripts",
-      "fileName": "[name].bundle.js",
-      "filesToConcat": [
-        "node_modules\\jquery\\dist\\jquery.min.js",
-        "node_modules\\tether\\dist\\js\\tether.min.js",
-        "node_modules\\bootstrap\\dist\\js\\bootstrap.min.js",
-        "node_modules\\slick-carousel\\slick\\slick.min.js"
-      ]
+      "sourceMap": true,
+      "filename": "scripts.bundle.js",
+      "scripts": [
+        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\jquery\\dist\\jquery.min.js",
+        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\tether\\dist\\js\\tether.min.js",
+        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js",
+        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\slick-carousel\\slick\\slick.min.js"
+      ],
+      "basePath": "C:\\Users\\Equipo\\Documents\\Freelancer\\mam"
     }),
-    new InsertConcatAssetsWebpackPlugin([
-      "scripts"
-    ]),
     new CopyWebpackPlugin([
       {
-        "context": "src",
+        "context": "src\\client",
         "to": "",
         "from": {
-          "glob": "assets/**/*",
+          "glob": "src\\client\\assets\\**\\*",
           "dot": true
         }
       },
       {
-        "context": "src",
+        "context": "src\\client",
         "to": "",
         "from": {
-          "glob": "favicon.ico",
+          "glob": "src\\client\\favicon.ico",
           "dot": true
         }
       }
     ], {
       "ignore": [
-        ".gitkeep"
+        ".gitkeep",
+        "**/.DS_Store",
+        "**/Thumbs.db"
       ],
       "debug": "warning"
     }),
     new ProgressPlugin(),
     new CircularDependencyPlugin({
       "exclude": /(\\|\/)node_modules(\\|\/)/,
-      "failOnError": false
+      "failOnError": false,
+      "onDetected": false,
+      "cwd": projectRoot
     }),
     new NamedLazyChunksWebpackPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./src\\index.html",
+      "template": "./src\\client\\index.html",
       "filename": "./index.html",
       "hash": false,
       "inject": true,
@@ -525,15 +597,25 @@ module.exports = {
       "async": "common"
     }),
     new NamedModulesPlugin({}),
-    new AotPlugin({
+    new AngularCompilerPlugin({
       "mainPath": "main.ts",
-      "replaceExport": false,
+      "platform": 0,
       "hostReplacementPaths": {
         "environments\\environment.ts": "environments\\environment.prod.ts"
       },
-      "exclude": [],
-      "tsConfigPath": "src\\tsconfig.app.json"
+      "sourceMap": true,
+      "tsConfigPath": "src\\client\\tsconfig.app.json",
+      "compilerOptions": {}
     }),
+    /*new AotPlugin({
+      "mainPath": "main-browser.ts",
+      "replaceExport": false,
+      "hostReplacementPaths": {
+        "environments\\environment.ts": "environments\\environment.ts"
+      },
+      "exclude": [],
+      "tsConfigPath": "src\\client\\tsconfig.app.json"
+    }),*/
     new CompressionPlugin({
       "asset": "[path].gz[query]",
       "algorithm": "gzip",

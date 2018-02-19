@@ -1,17 +1,17 @@
 <div #carouselContainer></div>
 
 <div class="banner bannerHome">
-	<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="goto('')">
+	<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="goto('')"/>
 	<div class="banner-content" #carousel>
 		<div class="image-container container-image" *ngFor="let image of bannerImages;" style="position: relative;">
 			<div class="overlay"></div>
-			<img [attr.src]="image.image" [attr.alt]="image.name">
+			<img [attr.src]="image.image" [attr.alt]="image.name"/>
 			<div *ngIf="!isPortafolio" class="call-to-action-image" >
 				<a class="btn-CTA" (click)="CTA.portafolio()">
 					<svg>
 						<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
 					</svg>
-						<span class="button_CTA" font-uppercase>Ver portafolio</span>	
+					<span class="buttonCTA" font-uppercase>Ver portafolio</span>	
 				</a>
 			</div>
 		</div>
@@ -20,10 +20,10 @@
 		<h1>PORTAFOLIO</h1>
 	</div>
 
-	<div *ngIf="!isPortafolio" class="box-miniatura" #grid_Miniatura>
+	<div *ngIf="!isPortafolio" class="box-miniatura">
 		<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
 	</div>
-	<div *ngIf="!isPortafolio" class="box-miniatura-mobile" #grid_Miniatura>
+	<div *ngIf="!isPortafolio" class="box-miniatura-mobile">
 		<mam-box-miniatura [miniatura] = "miniatura" ></mam-box-miniatura>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <div class="container-image container-image-full" *ngIf= "thumb_Image.position == 'full'" >
 	<div class="not-overflow">
 		<div class="overlay"></div>
-		<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt">
+		<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt"/>
 		<div class="call-to-action-image">
 			<a class="btn-CTA" (click)="onClick.emit(thumb_Image)">
 				<svg>
@@ -28,7 +28,7 @@
 	<div class="not-overflow">
 		<div class="container-image-rigth" *ngIf= "thumb_Image.position == 'right'">
 			<div class="overlay"></div>
-			<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt">
+			<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt"/>
 			<div class="call-to-action-image">
 				<a class="btn-CTA" (click)="onClick.emit(thumb_Image)">
 					<svg>
@@ -48,7 +48,7 @@
 
 		<div class="container-image-left" *ngIf= "thumb_Image.position == 'left'">
 			<div class="overlay"></div>
-			<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt">
+			<img [attr.src]="thumb_Image.src" [attr.alt]="thumb_Image.alt"/>
 			<div class="call-to-action-image">
 				<a class="btn-CTA" (click)="onClick.emit(thumb_Image)">
 					<svg>

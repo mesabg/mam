@@ -2,10 +2,7 @@
 	<div *ngFor="let resource of images;" class="col-12 col-md-6" col>
 		<div image-wrapper>
 			<div image-container>
-				<img 
-					[attr.src]="resource.image" 
-					[attr.alt]="resource.name"
-					class="container-image">
+				<img [attr.src]="resource.image" [attr.alt]="resource.name" class="container-image"/>
 			</div>
 		</div>
 		<br>

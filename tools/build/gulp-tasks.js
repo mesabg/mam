@@ -1,4 +1,4 @@
-let settings = require('./build.config');
+let settings = require('./build.config.json');
 
 const gulp = require('gulp'),
   $ = require('gulp-load-plugins')(settings.plugins.pluginloader),

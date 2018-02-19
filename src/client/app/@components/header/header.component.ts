@@ -52,7 +52,6 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	 */
 	@ViewChild('carouselContainer', {read: ViewContainerRef}) private carouselContainer:ViewContainerRef;
 	@ViewChild('carousel') private $carouselView:ElementRef;
-	@ViewChild('grid_Miniatura') private $gridMiniatura:ElementRef;
 	private $carousel:SlickJS;
 	public miniatura:Miniatura;
 	constructor(public CTA:CTAService,private router:Router) { }

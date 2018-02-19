@@ -48,8 +48,17 @@ export class HeaderStickyComponent implements OnInit {
 	  else if (page === 'historias') this.CTA.historias();
 	  else if (page === 'mam') this.CTA.mam();
 	  else if (page === 'contacto') this.CTA.contacto();
-	  this.greaterWidth();
-	  this.burgerEffect();
+
+	  if( $(window).width() >= 1024){
+		$(".stickybar").find(".burger-click-region").click();  
+		this.greaterWidth();
+		this.burgerEffect();
+	  }
+	  else{
+		$(".stickybar-mobile").find(".burger-click-region").click();
+		this.greaterWidthMobile();
+		this.burgerEffectMobile();
+	  }
   }
 
 	public onResize(){
@@ -57,19 +66,25 @@ export class HeaderStickyComponent implements OnInit {
 		if( $(window).width() < 1024){
 			if(this.expanded){
 				if(!this.expandedMobile){
-					$(".stickybar-mobile").find(".burger-click-region").click();
-					this.greaterWidthMobile();
-					this.burgerEffectMobile();
-				}		
+					//$(".stickybar-mobile").find(".burger-click-region").click();
+					//this.greaterWidthMobile();
+					//this.burgerEffectMobile();
+				}
+				$(".stickybar").find(".burger-click-region").click();
+				this.greaterWidth();
+				this.burgerEffect();		
 			}
 		}
 		else{
 			if(this.expandedMobile){
 				if( ! this.expanded){
-					$(".stickybar-mobile").find(".burger-click-region").click();
-					this.greaterWidthMobile();
-					this.burgerEffectMobile();				
+					//$(".stickybar-mobile").find(".burger-click-region").click();
+					//this.greaterWidthMobile();
+					//this.burgerEffectMobile();				
 				}
+				$(".stickybar-mobile").find(".burger-click-region").click();
+					this.greaterWidthMobile();
+					this.burgerEffectMobile();
 			}
 		}
 	}
@@ -86,7 +101,7 @@ export class HeaderStickyComponent implements OnInit {
  		setTimeout(function(){
 			$(".stickybar").css("width", "3.6vw");
  			$("body").removeClass("blockScroll");
-			 $(".stickybar").find(".lateral_bar").removeClass("dark-theme");
+			$(".stickybar").find(".lateral_bar").removeClass("dark-theme");
 			$(".chat").find("img").attr("src", "assets/svg/contact-black.svg");
  		},100);
  		

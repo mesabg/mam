@@ -35,4 +35,7 @@ export class ThumbnailInstagramCarouselComponent implements OnInit, AfterViewIni
 			$target: $(this.wrapper.nativeElement).remove()
 		});
 	}
+	private click(){
+		window.open( `https://www.instagram.com/p/${this.resource.name}`, '_blank');
+	}
 }

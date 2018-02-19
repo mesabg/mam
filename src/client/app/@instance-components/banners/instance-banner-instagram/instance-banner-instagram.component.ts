@@ -45,6 +45,7 @@ export class InstanceBannerInstagramComponent implements OnInit {
 	 */
 	private async retrieve(): Promise<void>{
 		let instagramImages = await this.api.getInstagramImages_();
+		console.log(instagramImages);
 		this.renderComponent(this.titulo, instagramImages);
 	}
 

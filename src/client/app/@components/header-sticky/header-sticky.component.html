@@ -1,7 +1,7 @@
 <div class="stickybar">
 	<nav class="navbar">
 	  <div class="container-fluid">
-	    <div class="collapse navbar-collapse" id="myNavbar">
+	    <div class="collapse navbar-collapse" aria-expanded="false" id="myNavbar">
 	      <div class="ghost-header">
 				<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="CTA.inicio()" style="cursor:pointer;"/>
 				<div class="links link-effect-4">
@@ -18,7 +18,7 @@
 		<div class="relative">
 			<div class="menu_button">
 				<!--<i class="fa fa-bars navbar-toggle hamButton" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbar" (click)="greaterWidth()"></i>-->
-				<div class="burger-click-region" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbar" (click)="greaterWidth();burgerEffect()">
+				<div class="burger-click-region" golden aria-expanded="false"  mouseable data-toggle="collapse" data-target="#myNavbar" (click)="greaterWidth();burgerEffect()">
 						<span class="burger-menu-piece"></span>
 						<span class="burger-menu-piece"></span>
 						<span class="burger-menu-piece"></span>
@@ -42,7 +42,7 @@
 <div class="stickybar-mobile">
 	<nav class="navbar">
 	  <div class="container-fluid">
-	    <div class="collapse navbar-collapse" id="myNavbarMobile">
+	    <div class="collapse navbar-collapse" aria-expanded="false" id="myNavbarMobile">
 	      <div class="ghost-header">
 				<!--<img src=src="assets/svg/mam-logo-white.svg" alt="" class="logo">-->
 				<div class="links">
@@ -71,7 +71,7 @@
 				<img src="assets/svg/contact-black.svg" alt=""/>
 			</div>
 			<div class="menu_button">
-				<div class="burger-click-region" golden aria-hidden="true" mouseable data-toggle="collapse" data-target="#myNavbarMobile" (click)="greaterWidthMobile();burgerEffectMobile()">
+				<div class="burger-click-region" golden aria-expanded="false"  mouseable data-toggle="collapse" data-target="#myNavbarMobile" (click)="greaterWidthMobile();burgerEffectMobile()">
 						<span class="burger-menu-piece"></span>
 						<span class="burger-menu-piece"></span>
 						<span class="burger-menu-piece"></span>

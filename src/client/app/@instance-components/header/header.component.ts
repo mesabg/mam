@@ -29,7 +29,8 @@ import { HeaderComponent as Header } from '@mam/components';
 export class HeaderComponent implements OnInit {
 	@ViewChild('renderer', {read:ViewContainerRef}) private renderer:ViewContainerRef;
 	@Input('isPortafolio') public isPortafolio:Boolean = false;
-
+	@Input('isMAM') public isMAM:Boolean = false;
+	@Input('isContacto') public isContacto:Boolean = false;
 	constructor(
 		private bannerApi:ImageApi, 
 		private resolver:ComponentFactoryResolver) { }
@@ -38,21 +39,47 @@ export class HeaderComponent implements OnInit {
 	 * Events
 	 */
 	async ngOnInit() {
-		this.render(await this.bannerApi.getBannerHomeImages(), await this.bannerApi.getBannerHomeImagesTestimonies());
+		if(this.isPortafolio){
+			this.render(await this.bannerApi.getBannerPortafolioImages() );
+		}
+		else if(this.isContacto){
+			this.render(await this.bannerApi.getBannerContactoImages());
+		}
+		else if (this.isMAM){
+			this.render(await this.bannerApi.getBannerMAMImages() );
+		}
+		else
+			this.render(await this.bannerApi.getBannerHomeImages(), await this.bannerApi.getBannerHomeImagesTestimonies());
+			
+
+	}
+	ngAfterViewInit(){
 	}
 
 	/**
 	 * Actions
 	 */
-	private render (images:ImageResponse[], testimonies:Miniatura[]){
+	private render (images:ImageResponse[], testimonies?:Miniatura[]){
+		console.log(images);
 		//-- Creating component
 		let factory = this.resolver.resolveComponentFactory(Header);
 		let reference = this.renderer.createComponent(factory);
 		let component = (<Header>reference.instance);
 
 		//-- Setting component params
-		component.bannerImages = images;
-		component.miniaturas = testimonies;
+		if(this.isPortafolio || this.isContacto || this.isMAM){
+			component.bannerImages = [images[0]];
+		}
+		else{
+			component.bannerImages = images;
+		}
+		
 		component.isPortafolio = this.isPortafolio;
+		component.isMAM = this.isMAM;
+		component.isContacto = this.isContacto;
+		if(testimonies == undefined)
+			component.miniaturas = [];
+		else
+			component.miniaturas = testimonies;
 	}
 }

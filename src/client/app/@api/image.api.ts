@@ -32,8 +32,45 @@ export class ImageApi {
 					.map(response => response.json())
 					.map(response => {
 						return response.portfolio.map(section => {
+							console.log(section);
+							return {								
+								image: section.banner[0].url,
+								name: section.name
+							}
+						});
+					}).toPromise();
+	}
+	public async getBannerPortafolioImages():Promise<ImageResponse[]>{
+		return this.apiService.get('banner')
+					.map(response => response.json())
+					.map(response => {
+						return response.portfolio.map(section => {
 							return {
-								image: section.banner.url,
+								image: section.banner[0].url,
+								name: section.name
+							}
+						});
+					}).toPromise();
+	}
+	public async getBannerMAMImages():Promise<ImageResponse[]>{
+		return this.apiService.get('banner')
+					.map(response => response.json())
+					.map(response => {
+						return response.portfolio.map(section => {
+							return {
+								image: section.banner[0].url,
+								name: section.name
+							}
+						});
+					}).toPromise();
+	}
+	public async getBannerContactoImages():Promise<ImageResponse[]>{
+		return this.apiService.get('banner')
+					.map(response => response.json())
+					.map(response => {
+						return response.portfolio.map(section => {
+							return {
+								image: section.banner[0].url,
 								name: section.name
 							}
 						});

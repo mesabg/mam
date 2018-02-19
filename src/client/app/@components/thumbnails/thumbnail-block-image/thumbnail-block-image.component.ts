@@ -10,7 +10,8 @@ import {
  * local imports
  */
 import { ImageResponse } from '@mam/responses';
-	
+
+declare const $:any;
 
 /**
  * Component description
@@ -23,5 +24,14 @@ import { ImageResponse } from '@mam/responses';
 export class ThumbnailBlockImageComponent implements OnInit {
 	@Input('images') public images:ImageResponse[];
 	constructor() { }
-	ngOnInit() { }
+	ngOnInit() { 
+	}
+	public showVelo(index){
+		$("body").addClass("blockScroll");
+		$(`.velo-image[data-index="${index}"]`).fadeIn(600);
+	}
+	public disposeVelo(index){
+		$("body").removeClass("blockScroll");
+		$(`.velo-image[data-index="${index}"]`).fadeOut(600);
+	} 
 }

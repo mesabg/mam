@@ -66,3 +66,12 @@ li{
 		text-align: center;
 	}	
 }
+#icon-calendar{
+	position: absolute;
+	top: -0.5rem;
+	right: 1rem;
+}
+input::placeholder { color: black; }
+input:-ms-input-placeholder { color: black; } /* IE 10+ */	
+input::-webkit-input-placeholder { color: black; } /* WebKit */
+input::-moz-placeholder { color: black; } /* Firefox 19+ */

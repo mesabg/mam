@@ -45,7 +45,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	@Input('bannerImages') public bannerImages:ImageResponse[];
 	@Input('miniaturas') public miniaturas:Miniatura[];
 	@Input('isPortafolio') public isPortafolio:Boolean = false;
-
+	@Input('isMAM') public isMAM:Boolean = false;
+	@Input('isContacto') public isContacto:Boolean = false;
 	
 	/**
 	 * View injection
@@ -59,12 +60,31 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	/**
 	 * Events
 	 */
-	ngOnInit() { this.parse();}
+	ngOnInit() { this.parse();
+	}
 	ngOnChanges() { }
 	ngAfterViewInit() {
 		this.initSlickJS();
+		
+		this.animation();
+		
 	}
-
+	public animation(){
+		this.$carousel.eventAfterChange.subscribe(data =>{
+			$(".loader1").stop();
+			$(".loader1").width(100);
+			//clearInterval(myVar);
+			this.animation();
+		});
+		$(".loader1").animate({ width: "110%" },5000,"linear",()=>{
+			$(".loader1").width(100);
+			this.$carousel.slideNext();
+		});
+		/*let myVar =setInterval( ()=>{
+			$(".loader1").animate({ width: "110%" },5000,"linear",()=>{$(".loader1").width(100) });
+			this.$carousel.slideNext();
+		}, 4900);	*/
+	}
 
 	/**
 	 * Actions
@@ -79,11 +99,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 
 
 	private parse():void{
-		this.miniatura = this.miniaturas[0];
+			this.miniatura = this.miniaturas[0];
 	}
 
-
-	public goto(url:string){
-		this.router.navigateByUrl(url);
-	}
 }

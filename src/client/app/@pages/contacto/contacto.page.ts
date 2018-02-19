@@ -15,8 +15,7 @@ import { ContactoApi  } from '@mam/api';
 import { ContactoForm } from 'app/#interfaces/contacto.form.interface';
 import { APIStatus } from 'app/@api/#responses/status.response';
 import { FormService } from '@mam/services';
-import { State } from '@mam/services';
-
+import { State,CTAService } from '@mam/services';
 
 declare const $:any;
 /**
@@ -39,7 +38,7 @@ export class ContactoPage implements OnInit {
 		description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad impedit voluptatem ipsum, obcaecati fugiat vitae fuga necessitatibus exercitationem sunt iusto, explicabo perspiciatis doloremque itaque ab dolorum ut nam! Iste, repellat?"
 	}
 	public preguntas:Observable<PreguntaResponse[]>;
-	constructor(private api:PreguntaApi, private ContactoApi:ContactoApi,private formService:FormService,) { }
+	constructor(private CTA:CTAService, private api:PreguntaApi, private ContactoApi:ContactoApi,private formService:FormService,) { }
 	ngOnInit() {
 		this.formService
 			.submit$
@@ -49,9 +48,14 @@ export class ContactoPage implements OnInit {
 			});
 		this.retrieve();
 		
+		
 	}
 	ngAfterViewInit(){
-		console.log(this.state.params);
+		this.CTA.$routeChange.subscribe( (data)=> {
+			this.state = data;
+			console.log(data);
+			//window.location.href = "/contacto#"+data.params;
+		});
 	}
 
 	/**

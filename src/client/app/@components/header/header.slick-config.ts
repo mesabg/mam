@@ -10,7 +10,7 @@ export const SETTINGS:SlickJSObject = {
     rows: 1,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 6000,
     dots: false,
     arrows: true,

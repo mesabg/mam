@@ -43,12 +43,25 @@ $golden: #b9a26a;
                 width: 96.4vw;
                 height: auto;
                 display: inline-block;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                -o-object-fit: cover;
+                -o-object-position: center;
             }
         }
     }
 }
 
-
+.loader1{
+    display: block;
+	position: absolute;
+	//content: "";
+	left: -100px;
+	width: 100px;
+	height: 10px;
+	background-color: $golden;
+}
 .loader:before{
 	display: block;
 	position: absolute;
@@ -57,8 +70,8 @@ $golden: #b9a26a;
 	width: 100px;
 	height: 10px;
 	background-color: $golden;
-    animation: loading linear infinite;
-    animation-duration: 6.4s;
+    //animation: loading linear infinite;
+    //animation-duration: 6.4s;
 }
 @keyframes loading {
     /*from {left: -100px; width: 10%;}
@@ -195,9 +208,9 @@ $golden: #b9a26a;
 .portafolio-title{
     position: absolute;
     left: 50px;
-    bottom: -20px;
+    bottom: 10px;
     right: 0;
-    width: 100vw;
+    width: 100%;
 
     h1{
         margin: 0;

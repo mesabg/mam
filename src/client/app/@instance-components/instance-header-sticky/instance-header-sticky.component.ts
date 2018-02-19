@@ -8,6 +8,7 @@ import { Component,
 	Output,
 	EventEmitter,
 	OnChanges } from '@angular/core';
+	import { State } from '@mam/services';
 declare const $:any;
 @Component({
   selector: 'mam-instance-header-sticky',
@@ -19,6 +20,7 @@ export class InstanceHeaderStickyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
   public showMenu():void{
   	$("#Menu-Fixed").show();

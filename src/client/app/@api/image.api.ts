@@ -112,7 +112,23 @@ export class ImageApi {
 	public getInstagramImages_():Promise <ImageResponse[]>{
 			//let url = "https://api.instagram.com/v1/users/453683505/?access_token=1938189795.b070b02.1811e2423c574187b8fe7c67a2890f8a";
 			let url = "https://www.instagram.com/mamfotografo/?__a=1";
-			/*return this.apiService
+			return this.apiService
+				.get(url, true)
+				.map(response => response.json())
+					.map(response => {
+						return response.graphql.user.edge_owner_to_timeline_media.edges.map(element => {
+							//console.log(element.node.edge_media_to_caption.edges[0].node.text);
+							return {
+								image: element.node.display_url,
+								description: element.node.edge_media_to_caption.edges[0].node.text,
+								name: element.node.shortcode,
+								place: null
+								
+							};
+						});
+					}).toPromise();
+	}
+				/*return this.apiService
 					.get(url, true)
 					.map(response => response.json())
 					.map(response => {
@@ -130,22 +146,4 @@ export class ImageApi {
 							};
 						});
 					}).toPromise();*/
-					
-					return this.apiService
-					.get(url, true)
-					.map(response => response.json())
-					.map(response => {
-						return response.graphql.user.edge_owner_to_timeline_media.edges.map(element => {
-							//console.log(element.node.edge_media_to_caption.edges[0].node.text);
-							return {
-								image: element.node.display_url,
-								description: element.node.edge_media_to_caption.edges[0].node.text,
-								name: element.node.shortcode,
-								place: null
-								
-							};
-						});
-					}).toPromise();
-	}
-	
 }

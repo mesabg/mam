@@ -513,3 +513,43 @@ input:-webkit-autofill {
 }
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.cargador{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 555555;
+	.loader1{
+		display: block;
+		position: absolute;
+		//content: "";
+		left: -100px;
+		width: 100px;
+		height: 10px;
+		background-color: $golden;
+	}
+	.loader:before{
+		display: block;
+		position: absolute;
+		content: "";
+		left: -100px;
+		width: 100px;
+		height: 10px;
+		background-color: $golden;
+		//animation: loading linear infinite;
+		//animation-duration: 6.4s;
+	}
+	@keyframes loading {
+		/*from {left: -100px; width: 10%;}
+		20% {width: 20%;}
+		40% {width: 40%;}
+		50% {width: 50%;}
+		70% {width: 70%;}
+		80% {left: 50%;}
+		95% {left: 120%;}
+		to {left: 100%;}*/
+		0%{ width: 10%}
+		100%{width: 110%}
+	}
+}

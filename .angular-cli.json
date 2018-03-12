@@ -16,7 +16,7 @@
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
+      "tsconfig": "tsconfig.browser.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "mam",
       "styles": [
@@ -44,9 +44,33 @@
       "name": "universal",
       "root": "src",
       "outDir": "dist-server",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "server.main.ts",
       "platform": "server",
-      "main": "main-server.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
       "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "mam",
+      "styles": [
+        "assets/fonts/loader.scss",
+        "styles.scss",
+        "../node_modules/tether/dist/css/tether.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/slick-carousel/slick/slick.css",
+        "../node_modules/slick-carousel/slick/slick-theme.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/tether/dist/js/tether.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/slick-carousel/slick/slick.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

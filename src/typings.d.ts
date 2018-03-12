@@ -1,5 +1,5 @@
 // support NodeJS modules without type definitions
-declare module '*';
+// declare module '*';
 
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
 declare const ENV: string;

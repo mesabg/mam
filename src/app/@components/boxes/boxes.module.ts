@@ -4,8 +4,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { MatMomentDateModule } from '@angular/material/core';
 
 /**
  * Local imports
@@ -19,41 +17,17 @@ import { BoxTestimonioComponent } from './box-testimonio';
 import { BoxHistoriaComponent } from './box-historia';
 import { BoxAgradecimientoComponent } from './box-agradecimiento';
 import { BoxCollageComponent } from './box-collage';
-//import 'hammerjs';
 
 import {
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatChipsModule,
   MatDatepickerModule,
   MatDialogModule,
-  MatDividerModule,
-  MatExpansionModule,
-  MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
   MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatSortModule,
-  MatStepperModule,
-  MatTableModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 @NgModule({
@@ -61,40 +35,15 @@ import {
     CommonModule,
     ReactiveFormsModule,
     //Angular material
-    MatDatepickerModule,
-    MatNativeDateModule,
-    BrowserAnimationsModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
     MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatStepperModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
+    MatNativeDateModule
   ],
   declarations: [
   	BoxMiniaturaComponent,
@@ -119,41 +68,15 @@ import {
     BoxAgradecimientoComponent,
     BoxCollageComponent,
     //Angular material
-    MatDatepickerModule,
-    MatNativeDateModule,
-    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
     MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatStepperModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
+    MatNativeDateModule
   ],
 
 })

@@ -4,7 +4,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { MatMomentDateModule } from '@angular/material/core';
 
 /**
@@ -63,7 +63,7 @@ import {
     //Angular material
     MatDatepickerModule,
     MatNativeDateModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
@@ -121,7 +121,7 @@ import {
     //Angular material
     MatDatepickerModule,
     MatNativeDateModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,

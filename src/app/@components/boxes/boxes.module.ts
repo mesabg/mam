@@ -19,7 +19,7 @@ import { BoxTestimonioComponent } from './box-testimonio';
 import { BoxHistoriaComponent } from './box-historia';
 import { BoxAgradecimientoComponent } from './box-agradecimiento';
 import { BoxCollageComponent } from './box-collage';
-import 'hammerjs';
+//import 'hammerjs';
 
 import {
   MatAutocompleteModule,

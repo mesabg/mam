@@ -6,6 +6,7 @@
   },
   "apps": [
     {
+      "name": "mam",
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -57,20 +58,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "mam",
       "styles": [
-        "assets/fonts/loader.scss",
-        "styles.scss",
-        "../node_modules/tether/dist/css/tether.min.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/slick-carousel/slick/slick.css",
-        "../node_modules/slick-carousel/slick/slick-theme.css",
-        "../node_modules/font-awesome/css/font-awesome.css"
+        "styles.scss"
       ],
-      "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/tether/dist/js/tether.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "../node_modules/slick-carousel/slick/slick.min.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

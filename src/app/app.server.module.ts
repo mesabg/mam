@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //Installed separatly
 import { ServerModule } from '@angular/platform-server';
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 import { Layout } from './layout';
 
@@ -14,7 +15,8 @@ import { Layout } from './layout';
 			appId: 'mam-spa'
 		}),
 		ServerModule,
-		AppModule
+		AppModule,
+		ModuleMapLoaderModule 
 	],
 	providers: [],
 	bootstrap: [Layout]

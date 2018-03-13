@@ -2,31 +2,25 @@
 require('zone.js/dist/zone-node');
 
 const express = require('express');
-const ngExpressEngine = require('@nguniversal/express-engine/modules/express-engine')
-    .ngExpressEngine;
-const fs = require('fs');
+const ngExpressEngine = require('@nguniversal/express-engine').ngExpressEngine;
 
-var files;
-try {
-    files = fs.readdirSync(`${process.cwd()}/dist-server`);
-} catch (error) {
-    console.error(error);
-}
-var mainFiles = files.filter(file => file.startsWith('main'));
-var split = mainFiles[0].split('.');
-var hash = '';
-if (split.length > 3) hash = split[1] + '.';
-var {
-    ServerAppModuleNgFactory,
+const {
+    AppServerModuleNgFactory,
     LAZY_MODULE_MAP
-} = require(`./dist-server/main.${hash}bundle`);
+} = require(`./dist-server/main.bundle`);
 
 const app = express();
+
+const {
+    provideModuleMap
+} = require('@nguniversal/module-map-ngfactory-loader');
+
+const provider = provideModuleMap(LAZY_MODULE_MAP);
 
 app.engine(
     'html',
     ngExpressEngine({
-        bootstrap: ServerAppModuleNgFactory,
+        bootstrap: AppServerModuleNgFactory,
         providers: [provider]
     })
 );
@@ -46,4 +40,7 @@ app.get('/*', (req, res) => {
     console.timeEnd(`GET: ${req.originalUrl}`);
 });
 
-app.listen(process.env.PORT || 8080, () => { });
+app.set('port', process.env.PORT || 8080);
+app.listen(app.get('port'), () => {
+    console.log("Server is now running on port [%s]", app.get('port'));
+});

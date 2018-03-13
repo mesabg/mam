@@ -2,11 +2,12 @@
  * Global modules
  */
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 /**
  * Module loaders
  */
+ /*
 import { HomeModule } from './@pages/home/home.module';
 import { ContactoModule } from './@pages/contacto/contacto.module';
 import { HistoriasModule } from './@pages/historias/historias.module';
@@ -29,8 +30,9 @@ export function historiasLoader() { return HistoriasModule; }
 export function mamLoader() { return MamModule; }
 export function portafolioLoader() { return PortafolioModule; }
 export function notFoundLoader() { return NotFoundModule; }
-
+*/
 //-- Routing
+/*
 const routes: Routes = [
 	{
 		path: '',
@@ -60,19 +62,50 @@ const routes: Routes = [
 		path: '**',
 		component: NotFoundPage
 	}
+];*/
+
+const routes: Routes = [
+	{
+		path: '',
+		loadChildren: './@pages/home/home.module#HomeModule'
+	},
+	{
+		path: 'contacto',
+		loadChildren: './@pages/contacto/contacto.module#ContactoModule'
+	},
+	{
+		path: 'historias',
+		loadChildren: './@pages/historias/historias.module#HistoriasModule'
+	},
+	{
+		path: 'historia/:slug',
+		loadChildren: './@pages/historia/historia.module#HistoriaModule'
+	},
+	{
+		path: 'mam',
+		loadChildren: './@pages/mam/mam.module#MamModule'
+	},
+	{
+		path: 'portafolio',
+		loadChildren: './@pages/portafolio/portafolio.module#PortafolioModule'
+	},
+	{
+		path: '**',
+		loadChildren: './@pages/not-found/not-found.module#NotFoundModule'
+	}
 ];
 
 
 @NgModule({
 	imports: [
-		HomeModule,
+		/*HomeModule,
 		ContactoModule,
 		HistoriasModule,
 		MamModule,
 		PortafolioModule,
 		NotFoundModule,
-		HistoriaModule,
-		RouterModule.forRoot(routes, {useHash: true})
+		HistoriaModule,*/
+		RouterModule.forRoot(routes, {useHash: false, preloadingStrategy: PreloadAllModules})
 	],
 	exports: [RouterModule]
 })

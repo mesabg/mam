@@ -2,6 +2,7 @@
  * Global imports
  */
 import { NgModule } from '@angular/core';
+import { BrowserModule  } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -17,6 +18,7 @@ import { Layout } from './layout';
         Layout
     ],
     imports: [
+        BrowserModule,
         FormsModule,
         HttpModule,
         InstanceComponentsModule,

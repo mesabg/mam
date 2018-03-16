@@ -10,7 +10,7 @@ const {
     LAZY_MODULE_MAP
 } = require(`./dist-server/main.bundle`);
 
-const app = express();
+const app = express(); 
 
 const {
     provideModuleMap

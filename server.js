@@ -3,6 +3,7 @@ require('zone.js/dist/zone-node');
 
 const express = require('express');
 const ngExpressEngine = require('@nguniversal/express-engine').ngExpressEngine;
+const expressStaticGzip = require("express-static-gzip");
 
 const {
     AppServerModuleNgFactory,
@@ -28,8 +29,8 @@ app.engine(
 app.set('view engine', 'html');
 app.set('views', __dirname);
 
-app.use(express.static(__dirname + '/assets', { index: false }));
-app.use(express.static(__dirname + '/dist', { index: false }));
+app.use(expressStaticGzip(__dirname + '/assets'));
+app.use(expressStaticGzip(__dirname + '/dist'));
 
 app.get('/*', (req, res) => {
     console.time(`GET: ${req.originalUrl}`);

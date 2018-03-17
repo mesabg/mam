@@ -7,6 +7,7 @@
     "build:universal": "ng build --prod --app universal --output-hashing none",
     "build": "npm run build:mam && npm run build:universal",
     "serve": "nodemon ./server.js",
+    "preserve:prod": "npm run build",
     "serve:prod": "node ./server.js",
     "eject": "ng eject --app mam --base-href=/ --output-path=dist/ --env=prod --aot --output-hashing none --force",
     "ng": "ng",

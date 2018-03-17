@@ -456,7 +456,7 @@ module.exports = {
         path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.min.js")
       ],
       "basePath": process.cwd()
-    }),
+    }), 
     new CopyWebpackPlugin([
       {
         "context": "src",

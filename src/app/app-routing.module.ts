@@ -105,7 +105,7 @@ const routes: Routes = [
 		PortafolioModule,
 		NotFoundModule,
 		HistoriaModule,*/
-		RouterModule.forRoot(routes, {useHash: false, preloadingStrategy: PreloadAllModules})
+		RouterModule.forRoot(routes, {useHash: false})
 	],
 	exports: [RouterModule]
 })

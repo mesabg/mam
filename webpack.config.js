@@ -450,10 +450,10 @@ module.exports = {
       "sourceMap": true,
       "filename": "scripts.bundle.js",
       "scripts": [
-        path.join(process.cwd(), "node_modules\\jquery\\dist\\jquery.min.js"),
-        path.join(process.cwd(), "node_modules\\tether\\dist\\js\\tether.min.js"),
-        path.join(process.cwd(), "node_modules\\bootstrap\\dist\\js\\bootstrap.min.js"),
-        path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.min.js")
+        path.join(process.cwd(), "node_modules/jquery/dist/jquery.min.js"),
+        path.join(process.cwd(), "node_modules/tether/dist/js/tether.min.js"),
+        path.join(process.cwd(), "node_modules/bootstrap/dist/js/bootstrap.min.js"),
+        path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.min.js")
       ],
       "basePath": process.cwd()
     }),

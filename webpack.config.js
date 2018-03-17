@@ -450,12 +450,12 @@ module.exports = {
       "sourceMap": true,
       "filename": "scripts.bundle.js",
       "scripts": [
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\jquery\\dist\\jquery.min.js",
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\tether\\dist\\js\\tether.min.js",
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js",
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\slick-carousel\\slick\\slick.min.js"
+        path.join(process.cwd(), "node_modules\\jquery\\dist\\jquery.min.js"),
+        path.join(process.cwd(), "node_modules\\tether\\dist\\js\\tether.min.js"),
+        path.join(process.cwd(), "node_modules\\bootstrap\\dist\\js\\bootstrap.min.js"),
+        path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.min.js")
       ],
-      "basePath": "C:\\Users\\Equipo\\Documents\\Freelancer\\mam"
+      "basePath": process.cwd()
     }),
     new CopyWebpackPlugin([
       {

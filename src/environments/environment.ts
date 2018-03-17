@@ -6,7 +6,7 @@
 export const environment = {
 	production: false,
 	API: {
-		BASE: 'http://mam-restful-api.herokuapp.com/api',
+		BASE: 'https://mam-restful-api.herokuapp.com/api',
 		URL: function(){
 			return `${environment.API.BASE}/`;
 		}

@@ -34,7 +34,7 @@ export class ImageApi {
 						return response.portfolio.map(section => {
 							console.log(section);
 							return {								
-								image: section.banner[0].url,
+								image: section.banner[0].secure_url,
 								name: section.name
 							}
 						});
@@ -46,7 +46,7 @@ export class ImageApi {
 					.map(response => {
 						return response.portfolio.map(section => {
 							return {
-								image: section.banner[0].url,
+								image: section.banner[0].secure_url,
 								name: section.name
 							}
 						});
@@ -58,7 +58,7 @@ export class ImageApi {
 					.map(response => {
 						return response.portfolio.map(section => {
 							return {
-								image: section.banner[0].url,
+								image: section.banner[0].secure_url,
 								name: section.name
 							}
 						});
@@ -70,7 +70,7 @@ export class ImageApi {
 					.map(response => {
 						return response.portfolio.map(section => {
 							return {
-								image: section.banner[0].url,
+								image: section.banner[0].secure_url,
 								name: section.name
 							}
 						});
@@ -82,7 +82,7 @@ export class ImageApi {
 					.map(response => {
 						return response.portfolio.map(section => {
 							return {
-								image: section.mini.url,
+								image: section.mini.secure_url,
 								author: section.author,
 								content: section.testimony
 							}
@@ -99,7 +99,7 @@ export class ImageApi {
 				.map(response => {
 					return response.article.map(article => {
 						return {
-							image: article.main.url,
+							image: article.main.secure_url,
 							name: article.name,
 							place: article.location,
 							description: null

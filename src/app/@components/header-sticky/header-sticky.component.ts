@@ -90,7 +90,10 @@ export class HeaderStickyComponent implements OnInit {
 	}
  public greaterWidth():void{
  	if(! this.expanded){
- 		$(".stickybar").css("width", "100vw");
+		 $(".stickybar").css("width", "100vw");
+		 $(".stickybar").animate({
+			 "height": "100vh"
+		 },800);
  		$("body").addClass("blockScroll");
  		this.expanded =true;
 		$(".stickybar").find(".lateral_bar").addClass("dark-theme");
@@ -110,7 +113,10 @@ export class HeaderStickyComponent implements OnInit {
  }
 public greaterWidthMobile():void{
  	if(! this.expandedMobile){
- 		$("body").addClass("blockScroll");
+		 $("body").addClass("blockScroll");
+		 $(".stickybar-mobile").animate({
+			"height": "100vh"
+		},500);
  		this.expandedMobile =true;
 		$(".chat.mobile").find("img").hide();
 		$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-white.svg");
@@ -118,8 +124,13 @@ public greaterWidthMobile():void{
  	}
  	else{
 		this.expandedMobile =false;
+		$(".stickybar-mobile").css("height", "55px");
+
  		setTimeout(function(){
- 			$("body").removeClass("blockScroll");
+			 $("body").removeClass("blockScroll");
+			 /*$(".stickybar-mobile").animate({
+				"height": "55px"
+			},500);*/
 			$(".chat.mobile").find("img").show();
 			$(".logo-mobile").find("img").attr("src", "assets/svg/mam-logo-black.svg");
  		},200);

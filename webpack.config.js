@@ -119,6 +119,8 @@ const postcssPlugins = function (loader) {
 
 
 
+if (/^win$/i.test(process.platform)){
+//-- Windows configuration
 
 module.exports = {
   "resolve": {
@@ -450,13 +452,13 @@ module.exports = {
       "sourceMap": true,
       "filename": "scripts.bundle.js",
       "scripts": [
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\jquery\\dist\\jquery.min.js",
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\tether\\dist\\js\\tether.min.js",
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js",
-        "C:\\Users\\Equipo\\Documents\\Freelancer\\mam\\node_modules\\slick-carousel\\slick\\slick.min.js"
+        path.join(process.cwd(), "node_modules\\jquery\\dist\\jquery.min.js"),
+        path.join(process.cwd(), "node_modules\\tether\\dist\\js\\tether.min.js"),
+        path.join(process.cwd(), "node_modules\\bootstrap\\dist\\js\\bootstrap.min.js"),
+        path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.min.js")
       ],
-      "basePath": "C:\\Users\\Equipo\\Documents\\Freelancer\\mam"
-    }),
+      "basePath": process.cwd()
+    }), 
     new CopyWebpackPlugin([
       {
         "context": "src",
@@ -588,3 +590,474 @@ module.exports = {
     "historyApiFallback": true
   }
 };
+
+
+} else {
+//-- Linux configuration
+module.exports = {
+  "resolve": {
+    "extensions": [
+      ".ts",
+      ".js"
+    ],
+    "symlinks": true,
+    "modules": [
+      "./src",
+      "./node_modules"
+    ],
+    "alias": rxPaths(),
+    "mainFields": [
+      "browser",
+      "module",
+      "main"
+    ]
+  },
+  "resolveLoader": {
+    "modules": [
+      "./node_modules"
+    ],
+    "alias": rxPaths()
+  },
+  "entry": {
+    "main": [
+      "./src/main.ts"
+    ],
+    "polyfills": [
+      "./src/polyfills.ts"
+    ],
+    "styles": [
+      "./src/assets/fonts/loader.scss",
+      "./src/styles.scss",
+      "./node_modules/tether/dist/css/tether.min.css",
+      "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "./node_modules/slick-carousel/slick/slick.css",
+      "./node_modules/slick-carousel/slick/slick-theme.css",
+      "./node_modules/font-awesome/css/font-awesome.css"
+    ]
+  },
+  "output": {
+    "path": path.join(process.cwd(), "dist"),
+    "filename": "[name].bundle.js",
+    "chunkFilename": "[id].chunk.js",
+    "crossOriginLoading": false
+  },
+  "module": {
+    "rules": [{
+        "test": /\.html$/,
+        "loader": "raw-loader"
+      },
+      {
+        "test": /\.(eot|svg|cur)$/,
+        "loader": "file-loader",
+        "options": {
+          "name": "[name].[ext]",
+          "limit": 10000
+        }
+      },
+      {
+        "test": /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|ani)$/,
+        "loader": "url-loader",
+        "options": {
+          "name": "[name].[ext]",
+          "limit": 10000
+        }
+      },
+      {
+        "exclude": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/styles.scss"),
+          path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+          path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+        ],
+        "test": /\.css$/,
+        "use": [{
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          }
+        ]
+      },
+      {
+        "exclude": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/styles.scss"),
+          path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+          path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+        ],
+        "test": /\.scss$|\.sass$/,
+        "use": [{
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "sass-loader",
+            "options": {
+              "sourceMap": true,
+              "precision": 8,
+              "includePaths": []
+            }
+          }
+        ]
+      },
+      {
+        "exclude": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/styles.scss"),
+          path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+          path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+        ],
+        "test": /\.less$/,
+        "use": [{
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "less-loader",
+            "options": {
+              "sourceMap": true
+            }
+          }
+        ]
+      },
+      {
+        "exclude": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+            path.join(process.cwd(), "src/styles.scss"),
+            path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+            path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+            path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+
+        ],
+        "test": /\.styl$/,
+        "use": [{
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "stylus-loader",
+            "options": {
+              "sourceMap": true,
+              "paths": []
+            }
+          }
+        ]
+      },
+      {
+        "include": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+            path.join(process.cwd(), "src/styles.scss"),
+            path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+            path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+            path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+
+        ],
+        "test": /\.css$/,
+        "use": [
+          "style-loader",
+          {
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          }
+        ]
+      },
+      {
+        "include": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+            path.join(process.cwd(), "src/styles.scss"),
+            path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+            path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+            path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+
+        ],
+        "test": /\.scss$|\.sass$/,
+        "use": [
+          "style-loader",
+          {
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "sass-loader",
+            "options": {
+              "sourceMap": true,
+              "precision": 8,
+              "includePaths": []
+            }
+          }
+        ]
+      },
+      {
+        "include": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+            path.join(process.cwd(), "src/styles.scss"),
+            path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+            path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+            path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+
+        ],
+        "test": /\.less$/,
+        "use": [
+          "style-loader",
+          {
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "less-loader",
+            "options": {
+              "sourceMap": true
+            }
+          }
+        ]
+      },
+      {
+        "include": [
+          path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+            path.join(process.cwd(), "src/styles.scss"),
+            path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+            path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+            path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
+
+        ],
+        "test": /\.styl$/,
+        "use": [
+          "style-loader",
+          {
+            "loader": "raw-loader"
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "embedded",
+              "plugins": postcssPlugins,
+              "sourceMap": true
+            }
+          },
+          {
+            "loader": "stylus-loader",
+            "options": {
+              "sourceMap": true,
+              "paths": []
+            }
+          }
+        ]
+      },
+      {
+        "test": /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
+        "use": [
+          "@ngtools/webpack"
+        ]
+      }
+    ]
+  },
+  "plugins": [
+    new NoEmitOnErrorsPlugin(),
+    new ScriptsWebpackPlugin({
+      "name": "scripts",
+      "sourceMap": true,
+      "filename": "scripts.bundle.js",
+      "scripts": [
+        path.join(process.cwd(), "node_modules/jquery/dist/jquery.min.js"),
+        path.join(process.cwd(), "node_modules/tether/dist/js/tether.min.js"),
+        path.join(process.cwd(), "node_modules/bootstrap/dist/js/bootstrap.min.js"),
+        path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.min.js")
+      ],
+      "basePath": process.cwd()
+    }),
+    new CopyWebpackPlugin([{
+        "context": "src",
+        "to": "",
+        "from": {
+          "glob": "assets/**/*",
+          "dot": true
+        }
+      },
+      {
+        "context": "src",
+        "to": "",
+        "from": {
+          "glob": "favicon.ico",
+          "dot": true
+        }
+      }
+    ], {
+      "ignore": [
+        ".gitkeep",
+        "**/.DS_Store",
+        "**/Thumbs.db"
+      ],
+      "debug": "warning"
+    }),
+    new ProgressPlugin(),
+    new CircularDependencyPlugin({
+      "exclude": /(\\|\/)node_modules(\\|\/)/,
+      "failOnError": false,
+      "onDetected": false,
+      "cwd": projectRoot
+    }),
+    new NamedLazyChunksWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      "template": "./src/index.html",
+      "filename": "./index.html",
+      "hash": false,
+      "inject": true,
+      "compile": true,
+      "favicon": false,
+      "minify": false,
+      "cache": true,
+      "showErrors": true,
+      "chunks": "all",
+      "excludeChunks": [],
+      "title": "Webpack App",
+      "xhtml": true,
+      "chunksSortMode": function sort(left, right) {
+        let leftIndex = entryPoints.indexOf(left.names[0]);
+        let rightIndex = entryPoints.indexOf(right.names[0]);
+        if (leftIndex > rightIndex) {
+          return 1;
+        } else if (leftIndex < rightIndex) {
+          return -1;
+        } else {
+          return 0;
+        }
+      }
+    }),
+    new BaseHrefWebpackPlugin({
+      "baseHref": "/"
+    }),
+    new CommonsChunkPlugin({
+      "name": [
+        "inline"
+      ],
+      "minChunks": null
+    }),
+    new CommonsChunkPlugin({
+      "name": [
+        "vendor"
+      ],
+      "minChunks": (module) => {
+        return module.resource &&
+          (module.resource.startsWith(nodeModules) ||
+            module.resource.startsWith(genDirNodeModules) ||
+            module.resource.startsWith(realNodeModules));
+      },
+      "chunks": [
+        "main"
+      ]
+    }),
+    new SourceMapDevToolPlugin({
+      "filename": "[file].map[query]",
+      "moduleFilenameTemplate": "[resource-path]",
+      "fallbackModuleFilenameTemplate": "[resource-path]?[hash]",
+      "sourceRoot": "webpack:///"
+    }),
+    new CommonsChunkPlugin({
+      "name": [
+        "main"
+      ],
+      "minChunks": 2,
+      "async": "common"
+    }),
+    new NamedModulesPlugin({}),
+    new AngularCompilerPlugin({
+      "mainPath": "main.ts",
+      "platform": 0,
+      "hostReplacementPaths": {
+        "environments/environment.ts": "environments/environment.prod.ts"
+      },
+      "sourceMap": true,
+      "tsConfigPath": "src/tsconfig.browser.json",
+      "compilerOptions": {}
+    }),
+    new CompressionPlugin({
+      "asset": "[path].gz[query]",
+      "algorithm": "gzip",
+      "test": /\.js$|\.css$|\.html$/,
+      "threshold": 10240,
+      "minRatio": 0.8
+    })
+  ],
+  "node": {
+    "fs": "empty",
+    "global": true,
+    "crypto": "empty",
+    "tls": "empty",
+    "net": "empty",
+    "process": true,
+    "module": false,
+    "clearImmediate": false,
+    "setImmediate": false
+  },
+  "devServer": {
+    "historyApiFallback": true
+  }
+};
+
+}

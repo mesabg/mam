@@ -4,4 +4,34 @@ div[description]{
 }
 .instaImage{
     cursor: pointer;
+    img{
+        width: 100% !important;
+    }
+}
+[description]{
+    padding: 15px;
+    p{
+        text-align: left;
+
+        $font-size: 1.125rem;
+        $line-height: 1.875;
+
+        @media only screen and (min-width: 319px) and (max-width:1024px)  {
+            $font-size: 1rem;
+            $line-height: 1.5;
+        }
+
+        $lines-to-show-max: 3;
+        $lines-to-show-min: 1;
+        display: block;
+        display: -webkit-box;
+        min-height: $font-size*$line-height*$lines-to-show-min;
+        max-height: $font-size*$line-height*$lines-to-show-max;
+        font-size: $font-size !important;
+        line-height: $line-height;
+        -webkit-line-clamp: $lines-to-show-max;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

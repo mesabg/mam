@@ -105,6 +105,7 @@ $menu-animation-timing:   ease-out;
              //right: 1rem;
              left: 50%;
              transform: translateX(-50%);
+             transition: all 0ms ease;
              img{
                  height: 30px;
                  width: auto;
@@ -139,7 +140,15 @@ $menu-animation-timing:   ease-out;
 #chat-image:hover{
     background-image: url("/assets/svg/speech-bubble-hover.svg");
 }
-  
+.lateral_bar.dark-theme{
+    #chat-image{
+        background-image: url("/assets/svg/contact-on.svg");
+    }
+    #chat-image:hover{
+        background-image: url("/assets/svg/contact-off.svg");
+    }  
+}
+
 
     .link-effect-4 {
         span {

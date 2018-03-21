@@ -1,4 +1,12 @@
 <div #carouselContainer></div>
+<div *ngIf="isContacto" class="d-hidden ajust-title">
+	<h1 class="title text-center">CONTACTO</h1>
+	<p class="text-center padding-both">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel consequatur quia ab explicabo pariatur.</p>
+</div>
+<div *ngIf="isMAM" class="d-hidden ajust-title">
+	<h1 class="title text-center">MIGUEL ÁNGEL MARTÍNEZ</h1>
+	<p class="text-center padding-both">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel consequatur quia ab explicabo pariatur.</p>
+</div>
 
 <div class="banner bannerHome">
 	<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="CTA.inicio()">
@@ -20,10 +28,10 @@
 		<h1>PORTAFOLIO</h1>
 	</div>
 	<div *ngIf="isMAM" class="portafolio-title">
-		<h1>MIGUEL ÁNGEL MARTÍNEZ</h1>
+		<h1 class="m-hidden">MIGUEL ÁNGEL MARTÍNEZ</h1>
 	</div>
 	<div *ngIf="isContacto" class="portafolio-title">
-		<h1>CONTACTO</h1>
+		<h1 class="m-hidden">CONTACTO</h1>
 	</div>
 
 	<div *ngIf="!isPortafolio && !isMAM && !isContacto" class="box-miniatura" #grid_Miniatura>
@@ -34,6 +42,6 @@
 	</div>
 </div>
 <!--<div class="loader"></div>-->
-<div class="loader">
+<div class="loader" *ngIf=" !isPortafolio && !isMAM && !isContacto">
 	<div class="loader1"></div>
 </div>

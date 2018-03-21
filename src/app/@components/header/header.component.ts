@@ -61,6 +61,11 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
 	 * Events
 	 */
 	ngOnInit() { this.parse();
+		if(this.isPortafolio ||
+			this.isMAM ||
+			this.isContacto){
+			$(".banner").css("height", "100vh");
+		}
 	}
 	ngOnChanges() { }
 	ngAfterViewInit() {

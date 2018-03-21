@@ -2,6 +2,7 @@ $golden: #b9a26a;
 .call-to-action-image{
     z-index: 10;
 }
+
 .banner{
     //width: 100vw;
     width: 96.4vw;
@@ -93,14 +94,18 @@ $golden: #b9a26a;
         object-position: center;
     }
 }
-
+.padding-both{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
 
 
 @media only screen and (min-width: 320px) and (max-width: 1023px) {
     .banner{
         height: auto;
-        padding-top: 8vh;
+        /*padding-top: 8vh;*/
+        width: 100%;
         .logo{
             display: none;
         }
@@ -126,6 +131,12 @@ $golden: #b9a26a;
     .box-miniatura-mobile{
         margin-bottom: 2rem;
     }
+    .m-hidden{
+        display: none;
+    }
+    .ajust-title{
+        margin-top: 55px;
+    }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .banner-content{
@@ -137,6 +148,9 @@ $golden: #b9a26a;
 }
 @media only screen and (min-width:1024px){
     .box-miniatura-mobile{
+        display: none;
+    }
+    .d-hidden{
         display: none;
     }
 }

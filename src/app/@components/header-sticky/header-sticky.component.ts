@@ -39,26 +39,25 @@ export class HeaderStickyComponent implements OnInit {
   constructor(public CTA:CTAService,private router:Router) { }
 
   ngOnInit() {
-	 // this.CTA.contacto();
   }
 
 
   public callback(page:string):void {
-	  if (page === 'portafolio') this.CTA.portafolio();
-	  else if (page === 'historias') this.CTA.historias();
-	  else if (page === 'mam') this.CTA.mam();
-	  else if (page === 'contacto') this.CTA.contacto();
+	  let currentPage = window.location.pathname.split("/")[1];
 
-	  if( $(window).width() >= 1024){
-		$(".stickybar").find(".burger-click-region").click();  
-		this.greaterWidth();
-		this.burgerEffect();
-	  }
+	  if (page === 'portafolio' && currentPage != 'portafolio') this.CTA.portafolio();
+	  else if (page === 'historias' && currentPage != 'historias') this.CTA.historias();
+	  else if (page === 'mam' && currentPage != 'mam') this.CTA.mam();
+	  else if (page === 'contacto' && currentPage != 'contacto') this.CTA.contacto();
 	  else{
-		$(".stickybar-mobile").find(".burger-click-region").click();
-		this.greaterWidthMobile();
-		this.burgerEffectMobile();
+	    if( $(window).width() >= 1024){
+			$(".stickybar").find(".burger-click-region").click();  
+		}
+		else{
+			$(".stickybar-mobile").find(".burger-click-region").click();
+		}
 	  }
+	 
   }
 
 	public onResize(){

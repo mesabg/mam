@@ -18,32 +18,10 @@ import { BoxHistoriaComponent } from './box-historia';
 import { BoxAgradecimientoComponent } from './box-agradecimiento';
 import { BoxCollageComponent } from './box-collage';
 
-import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatIconModule,
-  MatInputModule,
-  MatSelectModule,
-  MatNativeDateModule
-} from '@angular/material';
-
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    //Angular material
-    MatAutocompleteModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    MatNativeDateModule
   ],
   declarations: [
       BoxMiniaturaComponent,
@@ -66,17 +44,7 @@ import {
     BoxTestimonioComponent,
     BoxHistoriaComponent,
     BoxAgradecimientoComponent,
-    BoxCollageComponent,
-    //Angular material
-    MatAutocompleteModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    MatNativeDateModule
+    BoxCollageComponent
   ],
 
 })

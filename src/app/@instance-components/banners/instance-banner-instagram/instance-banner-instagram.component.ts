@@ -8,7 +8,8 @@ import {
 	ViewChild,
 	ViewContainerRef,
 	ComponentFactory,
-	ComponentFactoryResolver } from '@angular/core';
+	ComponentFactoryResolver,
+	NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -30,23 +31,28 @@ export class InstanceBannerInstagramComponent implements OnInit {
 	public instagram:Observable<ImageResponse[]>;
 	public titulo:string = "Sigue estas y otras historias en instagram";
 
-	constructor(private api:ImageApi, private resolver:ComponentFactoryResolver) { }
+	constructor(
+		private api:ImageApi, 
+		private resolver:ComponentFactoryResolver,
+		private ngZone:NgZone) { }
 
 	/**
 	 * Events
 	 */
-	async ngOnInit() {
-		await this.retrieve();
+	ngOnInit() {
+		this.ngZone.runOutsideAngular(async () => {
+			let instagramImages = await this.retrieve();
+			this.ngZone.run(() => { this.renderComponent(this.titulo, instagramImages); });
+		});
 	}
 
 
 	/**
 	 * Actions
 	 */
-	private async retrieve(): Promise<void>{
+	private async retrieve(): Promise<ImageResponse[]>{
 		let instagramImages = await this.api.getInstagramImages_();
-		console.log(instagramImages);
-		this.renderComponent(this.titulo, instagramImages);
+		return instagramImages;
 	}
 
 	private renderComponent(title:string, instagramImages:ImageResponse[]):void{

@@ -7,7 +7,7 @@
 	<h1 class="title text-center">MIGUEL ÁNGEL MARTÍNEZ</h1>
 	<p class="text-center padding-both">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel consequatur quia ab explicabo pariatur.</p>
 </div>
-
+<div *ngIf="!isMAM && !isContacto"  class="d-hidden banner-space"></div>
 <div class="banner bannerHome">
 	<img src="assets/svg/mam-logo-white.svg" alt="" class="logo" (click)="CTA.inicio()">
 	<div class="banner-content" #carousel>

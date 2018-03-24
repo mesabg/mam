@@ -1,5 +1,5 @@
-<div class="row" component-wrapper>
-	<div *ngFor="let resource of images; let i = index" class="col-12 col-md-6" col>
+<div class="row m-hidden" component-wrapper>
+	<div *ngFor="let resource of images; let i = index" class="col-12 col-md-6 " col>
 		<div image-wrapper>
 			<div image-container>
 				<img 
@@ -10,21 +10,93 @@
 			</div>
 		</div>
 		<br>
-		<div class="velo-image" [attr.data-index]="i" style="display:none;" >
-			<div class="velo"></div>
-			
+		<div class="velo-image" [attr.data-index]="i" style="display:none;" >			
 			<div class="relative">
 				<div class="burger-click-region active velo-burger" golden aria-hidden="true" mouseable (click)="disposeVelo(i)">
 					<span class="burger-menu-piece"></span>
 					<span class="burger-menu-piece"></span>
 					<span class="burger-menu-piece"></span>
 				</div>
+				<br class="m-hidden">
+				<br class="m-hidden">
 				<img 
 					[attr.src]="resource.image" 
 					[attr.alt]="resource.name"
 					class="full-image">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="text-area">
+								<br>
+								<p class="featured_content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quos nisi, maiores quis veritatis perferendis laudantium, necessitatibus, voluptatibus sequi enim a atque alias cum animi corrupti maxime quo iste? Perferendis.</p>
+								<div class="call-to-action btn-space">
+									<a  class="btn-CTA" (click)="CTA.contacto()">
+										<svg>
+											<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
+										</svg>
+										<span class="buttonCTA">VER HISTORIA</span> 
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
 			</div>
 		</div>	
 	</div>
 </div>
+<div class="card-columns d-hidden">
+	<div *ngFor="let resource of images; let i = index" class="element card">
+		<img 
+			[attr.src]="resource.image" 
+			[attr.alt]="resource.name"
+			class="container-image" [attr.data-index]="i"
+			(click)="showVelo(i)" mouseable/>
+		<br>
+		<div class="velo-image" [attr.data-index]="i" style="display:none;" >			
+			<div class="relative">
+				<div class="burger-click-region active velo-burger" golden aria-hidden="true" mouseable (click)="disposeVelo(i)">
+					<span class="burger-menu-piece"></span>
+					<span class="burger-menu-piece"></span>
+					<span class="burger-menu-piece"></span>
+				</div>
 
+				<!--<div class="left-arrow-box">
+					<div class="relative">
+						<div class="left-arrow"></div>
+					</div>
+				</div>
+				
+				<div class="right-arrow-box">
+					<div class="relative">
+						<div class="right-arrow"></div>
+					</div>
+				</div>-->
+				
+				<img 
+					[attr.src]="resource.image" 
+					[attr.alt]="resource.name"
+					class="full-image">
+				
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="text-area">
+								<br>
+								<p class="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quos nisi, maiores quis veritatis perferendis laudantium, necessitatibus, voluptatibus sequi enim a atque alias cum animi corrupti maxime quo iste? Perferendis.</p>
+								<div class="call-to-action btn-space">
+									<a  class="btn-CTA" (click)="CTA.contacto()">
+										<svg>
+											<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
+										</svg>
+										<span class="buttonCTA">VER HISTORIA</span> 
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>	
+	</div>
+</div>

@@ -25,6 +25,8 @@ export class ThumbnailBlockImageComponent implements OnInit {
 	@Input('images') public images:ImageResponse[];
 	constructor() { }
 	ngOnInit() { 
+		
+		
 	}
 	public showVelo(index){
 		$("body").addClass("blockScroll");

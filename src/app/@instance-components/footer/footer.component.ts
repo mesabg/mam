@@ -27,7 +27,6 @@ export class FooterComponent implements OnInit {
 	 */
 	ngOnInit() {
 		this.retrieve();
-		
 	}
 
 	/**
@@ -36,7 +35,6 @@ export class FooterComponent implements OnInit {
 	private retrieve (){
 		this.description = this.mamApi.getContactoBrief();
 		this.description.then( (data)=> {
-			console.log(data);
 			this.parseDescription = this.parse(data);
 		})
 		.catch((e) => {console.log(e);})

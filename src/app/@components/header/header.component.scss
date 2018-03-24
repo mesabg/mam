@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $golden: #b9a26a;
 .call-to-action-image{
     z-index: 10;
@@ -238,3 +239,239 @@ $golden: #b9a26a;
         color: white;
     }
 }
+=======
+$golden: #b9a26a;
+.call-to-action-image{
+    z-index: 10;
+}
+
+.banner{
+    //width: 100vw;
+    width: 96.4vw;
+    height: calc(100vh - 10px);
+    overflow-x: hidden !important;
+    position: relative;
+    .logo{
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        z-index: 2;
+        height: 40px;
+        width: auto;
+    }
+    .box-miniatura{
+        position: absolute;
+        width: 600px;
+        height: 150px;
+        z-index: 2;
+        bottom: 0.5rem;
+        left: 2rem;
+    }
+    .banner-content{
+        position: relative;
+        width: inherit;
+        height: inherit;
+        overflow: hidden !important;
+
+        .image-container{
+            //width: 100vw;
+            width: 96.4vw;
+            height: 100vh;
+            background-color: black;
+            text-align: center;
+            overflow-y: hidden;
+            position: relative;
+            img{
+                //width: 100vw;
+                width: 96.4vw;
+                height: auto;
+                display: inline-block;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                -o-object-fit: cover;
+                -o-object-position: center;
+            }
+        }
+    }
+}
+
+.loader1{
+    display: block;
+	position: absolute;
+	//content: "";
+	left: -100px;
+	width: 100px;
+	height: 10px;
+	background-color: $golden;
+}
+.loader:before{
+	display: block;
+	position: absolute;
+	content: "";
+	left: -100px;
+	width: 100px;
+	height: 10px;
+	background-color: $golden;
+    //animation: loading linear infinite;
+    //animation-duration: 6.4s;
+}
+@keyframes loading {
+    /*from {left: -100px; width: 10%;}
+    20% {width: 20%;}
+    40% {width: 40%;}
+	50% {width: 50%;}
+	70% {width: 70%;}
+	80% {left: 50%;}
+	95% {left: 120%;}
+    to {left: 100%;}*/
+    0%{ width: 10%}
+    100%{width: 110%}
+}
+.logo:hover{ cursor: pointer; }
+
+.banner-content{
+    .image-container.container-image{
+        object-fit: cover;
+        object-position: center;
+    }
+}
+.padding-both{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 1023px) {
+    .banner{
+        height: auto;
+        /*padding-top: 8vh;*/
+        width: 100%;
+        .logo{
+            display: none;
+        }
+    }
+    .banner-content{
+        height: 50vh !important;
+        .slick-list{
+            height: 100% !important;
+        }
+        .image-container{
+            height: 100% !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        img{
+           // height: 100% !important;
+           // width: auto !important;
+        }
+    }
+    .box-miniatura{
+        display: none;
+    }
+    .box-miniatura-mobile{
+        margin-bottom: 2rem;
+    }
+    .m-hidden{
+        display: none;
+    }
+    .ajust-title{
+        margin-top: 55px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .banner-content{
+        img{
+           // height: auto !important;
+           // width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width:1024px){
+    .box-miniatura-mobile{
+        display: none;
+    }
+    .d-hidden{
+        display: none;
+    }
+}
+@media only screen and (min-width:1024px) and (max-width: 1200px){
+    .banner{
+        height: 82vh;
+    }
+    .banner-content{
+        height: 82vh !important;
+        .slick-list{
+            height: 100% !important;
+        }
+        .image-container{
+            height: 100% !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+    .banner-content{
+        height: 25vh !important;
+        img{
+           // height: auto !important;
+           // width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width: 400px) and (max-width: 475px) {
+    .banner-content{
+        height: 35vh !important;
+        img{
+           // height: auto !important;
+          //  width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width: 475px) and (max-width: 600px) {
+    .banner-content{
+        height: 40vh !important;
+        img{
+          //  height: auto !important;
+            //width: 100% !important;
+        }
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .banner-content{
+        height: 50vh !important;
+        img{
+           // height: auto !important;
+           // width: 100% !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .banner-content{
+        height: 60vh !important;
+        img{
+            //height: auto !important;
+           // width: 100% !important;
+        }
+    }
+}
+
+
+.portafolio-title{
+    position: absolute;
+    left: 50px;
+    bottom: 10px;
+    right: 0;
+    width: 100%;
+
+    h1{
+        margin: 0;
+        font-size: 6rem;
+        color: white;
+    }
+}
+>>>>>>> 76a43613f806ecfbff48b7a285347a32be00ad98

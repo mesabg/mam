@@ -2,7 +2,7 @@
 /**
  * Global imports
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 
 /**
@@ -25,14 +25,20 @@ export class HomePage implements OnInit {
 	public featuredContent:featuredContent;
 	public quote:SafeHtml;
 	public author:SafeHtml;
-	constructor(private domSanitizer:DomSanitizer,private api:ImageApi, private mamApi:MAMApi) { }
+	constructor(
+		private domSanitizer:DomSanitizer,
+		private api:ImageApi, 
+		private mamApi:MAMApi,
+		private ngZone:NgZone) { }
 
 	/**
 	 * Events
 	 */
 	ngOnInit() {
 		this.retrieve();
-		this.getQuote();
+		this.ngZone.runOutsideAngular(async () => {
+			this.getQuote();
+		});
 	}
 
 

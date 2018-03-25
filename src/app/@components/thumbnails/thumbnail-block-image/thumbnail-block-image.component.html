@@ -19,10 +19,25 @@
 				</div>
 				<br class="m-hidden">
 				<br class="m-hidden">
-				<img 
-					[attr.src]="resource.image" 
-					[attr.alt]="resource.name"
-					class="full-image">
+				<div class="image-container">
+					<img [attr.src]="resource.image" [attr.alt]="resource.name" class="full-image" [attr.data-index]="i">
+
+					<div class="left-arrow-box">
+						<div class="relative">
+							<div class="left-arrow">		
+								<img src="assets/svg/gold_left_arrow_shadow.svg" alt="arrow" (click)="prevSlide(i)">
+							</div>
+						</div>
+					</div>
+					
+					<div class="right-arrow-box">
+						<div class="relative">
+							<div class="right-arrow">
+								<img src="assets/svg/gold_rigth_arrow_shadow.svg" alt="arrow" (click)="nextSlide(i)">
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
@@ -54,52 +69,51 @@
 			(click)="showVelo(i)" mouseable/>
 		<br>
 		<div class="velo-image" [attr.data-index]="i" style="display:none;" >			
-			<div class="relative">
-				<div class="burger-click-region active velo-burger" golden aria-hidden="true" mouseable (click)="disposeVelo(i)">
-					<span class="burger-menu-piece"></span>
-					<span class="burger-menu-piece"></span>
-					<span class="burger-menu-piece"></span>
-				</div>
+				<div class="relative">
+					<div class="burger-click-region active velo-burger" golden aria-hidden="true" mouseable (click)="disposeVelo(i)">
+						<span class="burger-menu-piece"></span>
+						<span class="burger-menu-piece"></span>
+						<span class="burger-menu-piece"></span>
+					</div>		
+					<div class="image-container">
+						<img [attr.src]="resource.image" [attr.alt]="resource.name" class="full-image" [attr.data-index]="i">
 
-				
-				
-				<div class="image-container">
-					<img [attr.src]="resource.image" [attr.alt]="resource.name" class="full-image">
-
-					<div class="left-arrow-box">
-						<div class="relative">
-							<div class="left-arrow"></div>
+						<div class="left-arrow-box">
+							<div class="relative">
+								<div class="left-arrow">		
+									<img src="assets/svg/gold_left_arrow_shadow.svg" alt="arrow" (click)="prevSlide(i)">
+								</div>
+							</div>
 						</div>
-					</div>
-					
-					<div class="right-arrow-box">
-						<div class="relative">
-							<div class="right-arrow"></div>
-						</div>
-					</div>
-				</div>
-
-				
-				
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<div class="text-area">
-								<br>
-								<p class="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quos nisi, maiores quis veritatis perferendis laudantium, necessitatibus, voluptatibus sequi enim a atque alias cum animi corrupti maxime quo iste? Perferendis.</p>
-								<div class="call-to-action btn-space">
-									<a  class="btn-CTA" (click)="CTA.contacto()">
-										<svg>
-											<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
-										</svg>
-										<span class="buttonCTA">VER HISTORIA</span> 
-									</a>
+						
+						<div class="right-arrow-box">
+							<div class="relative">
+								<div class="right-arrow">
+									<img src="assets/svg/gold_rigth_arrow_shadow.svg" alt="arrow" (click)="nextSlide(i)">
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>	
-			</div>
-		</div>	
+										
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="text-area">
+									<br>
+									<p class="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quos nisi, maiores quis veritatis perferendis laudantium, necessitatibus, voluptatibus sequi enim a atque alias cum animi corrupti maxime quo iste? Perferendis.</p>
+									<div class="call-to-action btn-space">
+										<a  class="btn-CTA" (click)="CTA.contacto()">
+											<svg>
+												<rect x="0" y="0" fill="none" width="100%" height="100%"></rect>
+											</svg>
+											<span class="buttonCTA">VER HISTORIA</span> 
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+		</div>
 	</div>
 </div>

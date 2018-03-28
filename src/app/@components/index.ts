@@ -5,7 +5,7 @@
 export { ComponentsModule } from './@components.module';
 
 //-- Export dynamic components
-export { BannerInstagramComponent } from './banners';
+export { BannerInstagramComponent, BannerCarouselComponent } from './banners';
 
 export { ThumbnailInstagramCarouselComponent, ThumbnailBlockImageComponent } from './thumbnails';
 

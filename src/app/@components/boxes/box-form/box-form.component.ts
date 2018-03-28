@@ -36,5 +36,9 @@ export class BoxFormComponent implements OnInit {
     }
 
   ngOnInit() {
+    $('.datepicker').datepicker({
+      format: 'mm-dd-yyyy',
+      language: "es"
+  });
   }
 }

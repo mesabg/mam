@@ -50,83 +50,37 @@ export class MAMApi {
 	}
 
 
-	public getLogros():Observable<Logro[]>{
-        return Observable.create(observer => {
-            let response:Logro[] = [
-                {
-                    img: 'assets/images/box-0.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-0.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-0.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-0.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-0.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-0.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				}
-            ];
-            observer.next(response);
-            observer.complete();
-        });
+	public getLogros():Promise<Logro[]>{
+		return this.apiService
+			.get('achievements')
+			.map(response => response.json())
+			.map(response => {
+				return response.map(item => {
+					return {
+						img: item.image.secure_url,
+						title: item.name,
+						content: item.content
+					};
+				});
+			})
+			.toPromise();
 	}
 
 
-	public getAptitudes():Observable<Aptitud[]>{
-		return Observable.create(observer => {
-            let response:Aptitud[] = [
-                {
-                    img: 'assets/images/box-1.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-1.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-1.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-1.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-1.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				},
-                {
-                    img: 'assets/images/box-1.png',
-					title: 'Et endenem nosam estintibus vellupi',
-					content: 'Et endenem nosam estintibus vellupi dundae. Nem. Nam, sa volorporibus estorro mincit fugit quiae res ea pe'
-				}
-            ];
-            observer.next(response);
-            observer.complete();
-        });
+	public getAptitudes():Promise<Aptitud[]>{
+		return this.apiService
+			.get('aptitudes')
+			.map(response => response.json())
+			.map(response => {
+				return response.map(item => {
+					return {
+						img: item.image.secure_url,
+						title: item.name,
+						content: item.content
+					};
+				});
+			})
+			.toPromise();
 	}
 
 

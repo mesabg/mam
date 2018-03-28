@@ -29,7 +29,8 @@ import { BannerCarouselComponent } from './banner-carousel';
 		BannerCarouselComponent
 	],
 	entryComponents: [
-		BannerInstagramComponent
+		BannerInstagramComponent,
+		BannerCarouselComponent
 	]
 })
 export class BannersModule { }

@@ -155,6 +155,7 @@ module.exports = {
     ],
     "styles": [
       "./src\\assets\\fonts\\loader.scss",
+      "./src\\assets\\datepicker\\datepicker.css",
       "./src\\styles.scss",
       "./node_modules\\tether\\dist\\css\\tether.min.css",
       "./node_modules\\bootstrap\\dist\\css\\bootstrap.min.css",
@@ -194,7 +195,8 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
-          path.join(process.cwd(), "src\\styles.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
+          path.join(process.cwd(), "src\\styles.scss"), 
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
           path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.css"),
@@ -219,6 +221,7 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -252,6 +255,7 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -283,6 +287,7 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -315,6 +320,7 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -341,6 +347,7 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -375,6 +382,7 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -407,6 +415,7 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src\\assets\\fonts\\loader.scss"),
+          path.join(process.cwd(), "src\\assets\\datepicker\\datepicker.css"),
           path.join(process.cwd(), "src\\styles.scss"),
           path.join(process.cwd(), "node_modules\\tether\\dist\\css\\tether.min.css"),
           path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
@@ -455,7 +464,9 @@ module.exports = {
         path.join(process.cwd(), "node_modules\\jquery\\dist\\jquery.min.js"),
         path.join(process.cwd(), "node_modules\\tether\\dist\\js\\tether.min.js"),
         path.join(process.cwd(), "node_modules\\bootstrap\\dist\\js\\bootstrap.min.js"),
-        path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.min.js")
+        path.join(process.cwd(), "node_modules\\slick-carousel\\slick\\slick.min.js"),
+        path.join(process.cwd(), "src\\assets\\datepicker\\bootstrap-datepicker.js"),
+        path.join(process.cwd(), "src\\assets\\datepicker\\bootstrap-datepicker.es.js")   
       ],
       "basePath": process.cwd()
     }), 
@@ -627,6 +638,7 @@ module.exports = {
     ],
     "styles": [
       "./src/assets/fonts/loader.scss",
+      "./src/assets/datepicker/datepicker.css",
       "./src/styles.scss",
       "./node_modules/tether/dist/css/tether.min.css",
       "./node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -665,6 +677,7 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
           path.join(process.cwd(), "src/styles.scss"),
           path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
           path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
@@ -689,6 +702,7 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
           path.join(process.cwd(), "src/styles.scss"),
           path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
           path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
@@ -721,6 +735,7 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
           path.join(process.cwd(), "src/styles.scss"),
           path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
           path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
@@ -751,13 +766,13 @@ module.exports = {
       {
         "exclude": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
-            path.join(process.cwd(), "src/styles.scss"),
-            path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
-            path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
-            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
-            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
-            path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
-
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
+          path.join(process.cwd(), "src/styles.scss"),
+          path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+          path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
         ],
         "test": /\.styl$/,
         "use": [{
@@ -783,13 +798,13 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
-            path.join(process.cwd(), "src/styles.scss"),
-            path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
-            path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
-            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
-            path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
-            path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
-
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
+          path.join(process.cwd(), "src/styles.scss"),
+          path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.css"),
+          path.join(process.cwd(), "node_modules/slick-carousel/slick/slick-theme.css"),
+          path.join(process.cwd(), "node_modules/font-awesome/css/font-awesome.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -810,6 +825,7 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
             path.join(process.cwd(), "src/styles.scss"),
             path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
             path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
@@ -845,6 +861,7 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
             path.join(process.cwd(), "src/styles.scss"),
             path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
             path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
@@ -878,6 +895,7 @@ module.exports = {
       {
         "include": [
           path.join(process.cwd(), "src/assets/fonts/loader.scss"),
+          path.join(process.cwd(), "src/assets/datepicker/datepicker.css"),
             path.join(process.cwd(), "src/styles.scss"),
             path.join(process.cwd(), "node_modules/tether/dist/css/tether.min.css"),
             path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
@@ -927,7 +945,9 @@ module.exports = {
         path.join(process.cwd(), "node_modules/jquery/dist/jquery.min.js"),
         path.join(process.cwd(), "node_modules/tether/dist/js/tether.min.js"),
         path.join(process.cwd(), "node_modules/bootstrap/dist/js/bootstrap.min.js"),
-        path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.min.js")
+        path.join(process.cwd(), "node_modules/slick-carousel/slick/slick.min.js"),
+        path.join(process.cwd(), "src/assets/datepicker/bootstrap-datepicker.js"),
+        path.join(process.cwd(), "src/assets/datepicker/bootstrap-datepicker.es.js")      
       ],
       "basePath": process.cwd()
     }),

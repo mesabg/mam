@@ -10,3 +10,5 @@ export { BannerInstagramComponent } from './banners';
 export { ThumbnailInstagramCarouselComponent, ThumbnailBlockImageComponent } from './thumbnails';
 
 export { HeaderComponent } from './header';
+
+//export { BoxesModule } from './boxes';

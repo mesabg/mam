@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { BioInfo } from '@mam/interfaces';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'mam-box-bio',
   templateUrl: './box-bio.component.html',
@@ -8,9 +9,16 @@ import { BioInfo } from '@mam/interfaces';
 export class BoxBioComponent implements OnInit {
 
   @Input('bio') public bio:BioInfo;
-  constructor() { }
+  public cita:SafeHtml;
+  public descripcion:SafeHtml;
+  constructor(public domSanitizer:DomSanitizer) { }
 
   ngOnInit() {
+    this.sanitizeHtml(this.bio);
   }
-
+  private sanitizeHtml(bio:BioInfo){
+    console.log(bio);
+    this.cita = this.domSanitizer.bypassSecurityTrustHtml(bio.cita);
+    this.descripcion = this.domSanitizer.bypassSecurityTrustHtml(bio.descripcion);
+  }
 }

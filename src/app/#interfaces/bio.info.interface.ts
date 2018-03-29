@@ -1,5 +1,5 @@
 
 export interface BioInfo {
-	content_special:string;
-    content:string;
+	cita:string;
+    descripcion:string;
 }

@@ -53,7 +53,6 @@ export class ImageApi {
 					}).toPromise();
 	}
 	public async getBannerMAMImages():Promise<ImageResponse[]>{
-		console.log(this.apiService.get('page/mam'));
 		return this.apiService.get('page/mam')
 					.map(response => response.json())
 					.map(response => {
@@ -64,15 +63,13 @@ export class ImageApi {
 					}).toPromise();
 	}
 	public async getBannerContactoImages():Promise<ImageResponse[]>{
-		return this.apiService.get('banner')
+		return this.apiService.get('page/contact')
 					.map(response => response.json())
 					.map(response => {
-						return response.portfolio.map(section => {
-							return {
-								image: section.banner[0].secure_url,
-								name: section.name
-							}
-						});
+							return [{
+								image: response.banner.secure_url,
+								name: response.name
+							}]
 					}).toPromise();
 	}
 	public async getBannerHomeImagesTestimonies():Promise<Miniatura[]>{

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pregunta } from '@mam/interfaces';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'mam-box-preguntas',
@@ -8,11 +9,17 @@ import { Pregunta } from '@mam/interfaces';
 })
 export class BoxPreguntasComponent implements OnInit {
 
-	@Input("question") public pregunta:Pregunta;
-  constructor() { }
+  @Input("question") public pregunta:Pregunta;
+  public question:SafeHtml;
+  public answer:SafeHtml;
+  constructor(public domSanitizer:DomSanitizer) { }
 
   ngOnInit() {
-  	console.log(this.pregunta);
+    this.sanitizeHtml(this.pregunta);
   }
 
+  private sanitizeHtml(pregunta:Pregunta){
+    this.question = this.domSanitizer.bypassSecurityTrustHtml(pregunta.question);
+    this.answer = this.domSanitizer.bypassSecurityTrustHtml(pregunta.answer);
+  }
 }

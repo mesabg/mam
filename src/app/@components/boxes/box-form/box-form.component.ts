@@ -26,7 +26,7 @@ export class BoxFormComponent implements OnInit {
       email: ["",Validators.compose( [Validators.required, Validators.email] )],
       phone: [""],
       SocialNetwork: ["",Validators.required],
-      dateWedding: ["",Validators.required],
+      dateWedding: ["",,Validators.required],
       locationChurch: ["",Validators.required],
       locationReception: [""],
       numInvited: ["",Validators.compose( [Validators.required, Validators.min(1)] ) ],
@@ -37,7 +37,7 @@ export class BoxFormComponent implements OnInit {
 
   ngOnInit() {
     $('.datepicker').datepicker({
-      format: 'mm-dd-yyyy',
+      format: 'dd-mm-yyyy',
       language: "es"
   });
   }

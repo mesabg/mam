@@ -1,20 +1,4 @@
-<!--<div class="container">
-	<div class="row">
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<div class="preguntas">
-				<h5>Titulo de la pregunta</h5>
-				<p>respuesta a pregunta</p>
-			</div>
-		</div>
-		<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-			<div class="preguntas">
-				<h5>Titulo de la pregunta</h5>
-				<p>respuesta a pregunta</p>
-			</div>
-		</div>
-	</div>
-</div>-->
 <div class="preguntas">
-	<h5 class="subtitle3">{{pregunta.question}}</h5>
-	<p class="content">{{pregunta.answer}}</p>
+	<h5 class="subtitle3" [innerHTML]="question"></h5>
+	<p class="content" [innerHTML]="answer"></p>
 </div>

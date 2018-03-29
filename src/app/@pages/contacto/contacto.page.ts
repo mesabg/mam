@@ -2,20 +2,18 @@
 /**
  * Global imports
  */
-import { Component, OnInit,ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild, Input,NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 
 /**
  * Local imports
  */
-import { PreguntaApi } from '@mam/api';
-import { PreguntaResponse } from '@mam/responses';
-import { Contacto } from '@mam/interfaces';
+import { ContactoInfoResponse ,APIStatus } from '@mam/responses';
+import { Contacto,ContactoForm } from '@mam/interfaces';
 import { ContactoApi  } from '@mam/api';
-import { ContactoForm } from 'app/#interfaces/contacto.form.interface';
-import { APIStatus } from 'app/@api/#responses/status.response';
 import { FormService } from '@mam/services';
 import { State,CTAService } from '@mam/services';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 declare const $:any;
 /**
@@ -33,20 +31,28 @@ export class ContactoPage implements OnInit {
 	 */
 	@Input() public state:State;
 
-	public contacto:Contacto ={
-		text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita reiciendis ratione saepe quia a pariatur libero quibusdam sequi, minus esse, sapiente nobis similique, hic! Aperiam labore nulla, dolorem! Voluptatum, iusto?",
-		description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad impedit voluptatem ipsum, obcaecati fugiat vitae fuga necessitatibus exercitationem sunt iusto, explicabo perspiciatis doloremque itaque ab dolorum ut nam! Iste, repellat?"
-	}
-	public preguntas:Observable<PreguntaResponse[]>;
-	constructor(private CTA:CTAService, private api:PreguntaApi, private ContactoApi:ContactoApi,private formService:FormService,) { }
+	public title:SafeHtml;
+	public description:SafeHtml;
+
+	constructor(private CTA:CTAService, 
+		private ContactoApi:ContactoApi,
+		private formService:FormService,
+		private ngZone:NgZone,
+		private domSanitizer:DomSanitizer) { }
+
 	ngOnInit() {
+		//-- Retrieve data outside angular zone
+		this.ngZone.runOutsideAngular(async () => {
+			let responseContacto = await this.ContactoApi.contactoInfo();
+			this.ngZone.run(() => { this.render(responseContacto); });
+		  });
+
 		this.formService
 			.submit$
 			.subscribe((data:ContactoForm) =>{
 				//-- Parse data and call a function to resolve
 				this.resolveSubmit(data);
 			});
-		this.retrieve();
 		
 		
 	}
@@ -61,12 +67,13 @@ export class ContactoPage implements OnInit {
 	/**
 	 * Actions
 	 */
-	private retrieve():void{
-		this.preguntas = this.api.getContactQuestions();
-	}
 
-	public changeMenu(){
-		//-- DO SOMETHING
+	private render(responseContacto:ContactoInfoResponse){
+		this.sanitizeHtml(responseContacto);
+	}
+	private sanitizeHtml(responseContacto:ContactoInfoResponse){
+		this.title = this.domSanitizer.bypassSecurityTrustHtml(responseContacto.title);
+		this.description = this.domSanitizer.bypassSecurityTrustHtml(responseContacto.description);
 	}
 	public showThanks(){
 		//-- DO SOMETHING

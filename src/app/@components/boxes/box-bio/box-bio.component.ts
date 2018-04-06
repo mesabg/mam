@@ -17,7 +17,6 @@ export class BoxBioComponent implements OnInit {
     this.sanitizeHtml(this.bio);
   }
   private sanitizeHtml(bio:BioInfo){
-    console.log(bio);
     this.cita = this.domSanitizer.bypassSecurityTrustHtml(bio.cita);
     this.descripcion = this.domSanitizer.bypassSecurityTrustHtml(bio.descripcion);
   }

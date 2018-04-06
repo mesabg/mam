@@ -6,7 +6,7 @@
  export { featuredContent } from './featured.content.interface';
  export { Miniatura } from './box.miniatura.interface';
  export { BioInfo } from './bio.info.interface';
- export { Logro } from './logro.interface';
+ export { Logro, LogroSafe } from './logro.interface';
  export { Aptitud } from './aptitud.interface';
  export { Pregunta } from './pregunta.interface';
  export { Contacto } from './contacto.interface';

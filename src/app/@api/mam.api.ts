@@ -32,7 +32,6 @@ export class MAMApi {
 		return this.apiService.get('page/mam')
 					.map(response => response.json())
 					.map(response => {
-						console.log(response);
 							return {								
 								cita: response.content.title,
 								descripcion: response.content.description

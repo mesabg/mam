@@ -12,16 +12,19 @@
 					<img 
 						[attr.src]="element.img" 
 						[attr.alt]="element.title"/>
+
 				</div>
 				<br>
 
 				<div class="col-12" title>
 					<h5 class="title"> {{element.title}} </h5>
+					<!--<h5 class="title" [innerHTML]="element.title"></h5>-->
 				</div>
 				<br>
 
 				<div description>
 					<p> {{element.content}} </p>
+					<!--<p [innerHTML]="element.content"></p>-->
 				</div>
 			</div>
 		</div>

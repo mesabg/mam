@@ -9,15 +9,15 @@ import { Component, OnInit,NgZone,ViewChild,
 import { MAMApi } from '@mam/api';
 import { CitaResponse } from '@mam/responses';
 import { BioInfo } from '@mam/interfaces';
-
+import { BoxBioComponent } from '@mam/components';
 
 @Component({
   selector: 'mam-instance-box-bio',
-  templateUrl: './instance-box-bio.component.html',
-  styleUrls: ['./instance-box-bio.component.scss']
+  template: '<div #renderer></div>',
+  
 })
 export class InstanceBoxBioComponent implements OnInit {
-
+  @ViewChild('renderer', {read:ViewContainerRef}) private renderer:ViewContainerRef;
   public bio:BioInfo;
   constructor(
 	    private ngZone:NgZone,private MamApi:MAMApi, 
@@ -43,9 +43,17 @@ export class InstanceBoxBioComponent implements OnInit {
 	}
 
 	private render(cita:CitaResponse):void{	
+		
 		this.bio = {
 			cita: cita.cita,
 			descripcion: cita.descripcion
 		};
+		//-- Creating component
+		let factory = this.resolver.resolveComponentFactory(BoxBioComponent);
+		let reference = this.renderer.createComponent(factory);
+		let component = (<BoxBioComponent>reference.instance);
+
+		//-- Setting component params
+		component.bio = this.bio;
 	}
 }

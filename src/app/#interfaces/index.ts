@@ -12,3 +12,4 @@
  export { Contacto } from './contacto.interface';
  export { Collage } from './collage.interface';
  export { ContactoForm } from './contacto.form.interface';
+ export { Portfolio } from './portfolio.interface';

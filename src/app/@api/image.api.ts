@@ -41,15 +41,13 @@ export class ImageApi {
 					}).toPromise();
 	}
 	public async getBannerPortafolioImages():Promise<ImageResponse[]>{
-		return this.apiService.get('banner')
+		return this.apiService.get('page/portfolio')
 					.map(response => response.json())
 					.map(response => {
-						return response.portfolio.map(section => {
-							return {
-								image: section.banner[0].secure_url,
-								name: section.name
-							}
-						});
+						return [{
+							image: response.banner.secure_url,
+							name: response.name
+						}]
 					}).toPromise();
 	}
 	public async getBannerMAMImages():Promise<ImageResponse[]>{

@@ -30,4 +30,5 @@ export class ContactoApi {
 		return this.apiService.post('contacto-form', formData)
 				.map(response => response.json());
 	}
+	
 }

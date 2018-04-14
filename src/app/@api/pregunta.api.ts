@@ -27,8 +27,18 @@ export class PreguntaApi {
 	 * Get preguntas contact
 	 */
 
-	public getContactQuestions(): Observable<PreguntaResponse[]>{
-        return Observable.create(observer => {
+	public getContactQuestions(): Promise<PreguntaResponse[]>{
+		return this.apiService.get("question").
+		map(response => response.json())
+		.map(response => {
+			return response.question.map(preguntas => {
+				return {								
+					question: preguntas.question,
+					answer: preguntas.answer
+				}
+			});
+		}).toPromise();
+        /*return Observable.create(observer => {
             let response: PreguntaResponse[] = [
                 {
                     question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit laborum, blanditiis rerum minima doloribus quos, pariatur animi repudiandae repellendus molestias dicta dignissimos labore dolorum error ipsum ut aut. Distinctio, inventore!',
@@ -53,6 +63,6 @@ export class PreguntaApi {
             ];
             observer.next(response);
             observer.complete();
-        });
+        });*/
 	}
 }

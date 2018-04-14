@@ -6,14 +6,16 @@
 		<br>
 		<div class="row">
 			<div class="col-12">
-				<h2 class="featured_content" style="text-align: center;">{{contacto.text}}</h2>
+				<!--<h2 class="featured_content" style="text-align: center;">{{contacto.text}}</h2>-->
+				<h2 class="featured_content" style="text-align: center;" [innerHTML]="title"></h2>
 			</div>
 		</div>
 		<br>
 		<br>
 		<div class="row">
 			<div class="col-12">
-				<p class="content">{{contacto.description}}</p>
+				<!--<p class="content">{{contacto.description}}</p>-->
+				<p class="content" [innerHTML]="description"></p>
 			</div>
 		</div>
 	</div>

@@ -35,8 +35,19 @@ import { BoxCollageComponent } from './box-collage';
       BoxCollageComponent,
 
   ],
+  entryComponents:[
+    BoxMiniaturaComponent,
+    BoxMenuComponent,
+    BoxBioComponent,
+    BoxPreguntasComponent,
+    BoxFormComponent,
+    BoxTestimonioComponent,
+    BoxHistoriaComponent,
+    BoxAgradecimientoComponent,
+    BoxCollageComponent
+  ],
   exports: [
-      BoxMiniaturaComponent,
+    BoxMiniaturaComponent,
     BoxMenuComponent,
     BoxBioComponent,
     BoxPreguntasComponent,

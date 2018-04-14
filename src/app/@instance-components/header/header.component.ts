@@ -73,7 +73,6 @@ export class HeaderComponent implements OnInit {
 	 * Actions
 	 */
 	private render (images:ImageResponse[], testimonies?:Miniatura[]){
-		console.log(images);
 		//-- Creating component
 		let factory = this.resolver.resolveComponentFactory(Header);
 		let reference = this.renderer.createComponent(factory);

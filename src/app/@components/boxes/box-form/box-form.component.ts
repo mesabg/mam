@@ -6,7 +6,6 @@ import { ContactoApi  } from '@mam/api';
 import { ContactoForm } from 'app/#interfaces/contacto.form.interface';
 import { APIStatus } from 'app/@api/#responses/status.response';
 import { FormService } from '@mam/services';
-//import { DatepickerModule } from 'angular-mat-datepicker';
 
 declare var $:any;
 
@@ -26,7 +25,7 @@ export class BoxFormComponent implements OnInit {
       email: ["",Validators.compose( [Validators.required, Validators.email] )],
       phone: [""],
       SocialNetwork: ["",Validators.required],
-      dateWedding: ["",Validators.required],
+      dateWedding: ["",,Validators.required],
       locationChurch: ["",Validators.required],
       locationReception: [""],
       numInvited: ["",Validators.compose( [Validators.required, Validators.min(1)] ) ],
@@ -37,8 +36,8 @@ export class BoxFormComponent implements OnInit {
 
   ngOnInit() {
     $('.datepicker').datepicker({
-      format: 'mm-dd-yyyy',
+      format: 'dd-mm-yyyy',
       language: "es"
-  });
+    });
   }
 }

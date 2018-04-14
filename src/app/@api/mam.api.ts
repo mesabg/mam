@@ -13,8 +13,7 @@ import 'rxjs/add/operator/toPromise';
  */
 import { ApiService, LazyParser, ServerError } from '@ms/api';
 import { CitaResponse } from './#responses';
-import { Logro } from 'app/#interfaces/logro.interface';
-import { Aptitud } from 'app/#interfaces/aptitud.interface';
+import { Logro, Aptitud } from '@mam/interfaces';
 
 /**
  * Service description
@@ -32,7 +31,6 @@ export class MAMApi {
 		return this.apiService.get('page/mam')
 					.map(response => response.json())
 					.map(response => {
-						console.log(response);
 							return {								
 								cita: response.content.title,
 								descripcion: response.content.description

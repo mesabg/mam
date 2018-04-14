@@ -7,62 +7,44 @@
 			</div>
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
 				<input type="email" name="email" placeholder="Correo *" formControlName="email">
-				<div class="error" *ngIf="!myForm.controls['email'].valid &&myForm.controls['email'].touched "> Por favor ingrese un email válido.</div>
+				<div class="error" *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched "> Por favor ingrese un email válido.</div>
 			</div>
 		
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
 				<input type="tel"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' pattern="[0-9]{10,11}"  name="phone" placeholder="Teléfono" autocomplete="true" formControlName="phone">
-				<div class="error" *ngIf="!myForm.controls['phone'].valid &&myForm.controls['phone'].touched "> Por favor ingreseun telefono válido.</div>
+				<div class="error" *ngIf="!myForm.controls['phone'].valid && myForm.controls['phone'].touched "> Por favor ingreseun telefono válido.</div>
 			</div>
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
 				<input type="text" name="SocialNetwork" placeholder="Red social *" formControlName="SocialNetwork">
-				<div class="error" *ngIf="!myForm.controls['SocialNetwork'].valid &&myForm.controls['SocialNetwork'].touched "> Por favor ingrese una red social válida.</div>
+				<div class="error" *ngIf="!myForm.controls['SocialNetwork'].valid && myForm.controls['SocialNetwork'].touched "> Por favor ingrese una red social válida.</div>
 			</div>
 		
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">		
 					<!--<input matInput [matDatepicker]="picker1" placeholder="fecha de la boda *" formControlName="dateWedding" name="dateWedding">-->
-					<input name="dateWedding" type="text" class="datepicker">
-				
-				<div class="error" *ngIf="!myForm.controls['dateWedding'].valid &&myForm.controls['dateWedding'].touched "> Por favor ingrese una fecha válida.</div>
+				<input type="text" class="datepicker" placeholder="Fecha de la boda *" formControlName="dateWedding" name="dateWedding">
+				<div class="error" *ngIf="!myForm.controls['dateWedding'].valid && myForm.controls['dateWedding'].touched "> Por favor ingrese una fecha válida.</div>
 				
 			</div>
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
 				<input type="text" name="locationChurch" placeholder="Dirección de la Iglesia *" formControlName="locationChurch">
-				<div class="error" *ngIf="!myForm.controls['locationChurch'].valid &&myForm.controls['locationChurch'].touched "> Por favor ingrese una dirección.</div>
+				<div class="error" *ngIf="!myForm.controls['locationChurch'].valid && myForm.controls['locationChurch'].touched "> Por favor ingrese una dirección.</div>
 			</div>
 		
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
 				<input type="text" name="locationReception" placeholder="Dirección de la recepción" formControlName="locationReception">
-				<div class="error" *ngIf="!myForm.controls['locationReception'].valid &&myForm.controls['locationReception'].touched "> Por favor ingrese una dirección.</div>
+				<div class="error" *ngIf="!myForm.controls['locationReception'].valid && myForm.controls['locationReception'].touched "> Por favor ingrese una dirección.</div>
 			</div>
 			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 field">
 				<input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' min="0" name="numInvited" placeholder="Numero de invitados *" formControlName="numInvited">
-				<div class="error" *ngIf="!myForm.controls['numInvited'].valid &&myForm.controls['numInvited'].touched "> Por favor ingrese una cantidad de invitados.</div>
+				<div class="error" *ngIf="!myForm.controls['numInvited'].valid && myForm.controls['numInvited'].touched "> Por favor ingrese una cantidad de invitados.</div>
 			</div>
 		
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
 				<textarea name="details" placeholder="Otros detalles" formControlName="details"></textarea>
-				<div class="error" *ngIf="!myForm.controls['details'].valid &&myForm.controls['details'].touched "> Por favor ingrese unos detalles.</div>
+				<div class="error" *ngIf="!myForm.controls['details'].valid && myForm.controls['details'].touched "> Por favor ingrese unos detalles.</div>
 			</div>
 		</div>
 	</div>
-
-	<!--<mat-form-field>
-		<input matInput [matDatepicker]="picker" placeholder="Choose a date">
-		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-		<mat-datepicker #picker></mat-datepicker>
-	 </mat-form-field>-->
-	  
-	 <!--<p>
-		<mat-form-field>
-		  <input matInput [matDatepicker]="picker" placeholder="Input disabled" disabled>
-		  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-		  <mat-datepicker #picker disabled="false"></mat-datepicker>
-		</mat-form-field>
-	  </p>-->
-	  
-
-
 
 	<div id="WA" class="error" style="display:none; font-size:1rem;">
 		<br>

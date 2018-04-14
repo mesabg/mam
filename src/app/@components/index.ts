@@ -11,4 +11,4 @@ export { ThumbnailInstagramCarouselComponent, ThumbnailBlockImageComponent } fro
 
 export { HeaderComponent } from './header';
 
-//export { BoxesModule } from './boxes';
+export { BoxBioComponent } from './boxes';
